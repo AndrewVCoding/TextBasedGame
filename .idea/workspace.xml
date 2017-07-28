@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="aae26b62-91b6-4ef4-8927-2e47d11be383" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/../TextBasedGame/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="CommandHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/CommandHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JAVA/" pinned="false" current-in-tab="true">
+        <entry file="uml://JAVA/">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>JAVA</ID>
+              <OriginalElement />
+              <nodes>
+                <node x="150.0" y="1512.0">com</node>
+                <node x="102.51754385964914" y="404.0">GameStates</node>
+                <node x="942.1052631578948" y="0.0">netscape</node>
+                <node x="501.1052631578948" y="0.0">Player</node>
+                <node x="1272.1052631578948" y="0.0">oracle</node>
+                <node x="586.0" y="1512.0">org</node>
+                <node x="84.75438596491225" y="649.0">CommandHandler</node>
+                <node x="1113.1052631578948" y="0.0">DataHandler</node>
+                <node x="0.0" y="234.0">World</node>
+                <node x="443.0" y="1512.0">sun</node>
+                <node x="763.1052631578948" y="0.0">META-INF</node>
+                <node x="728.0" y="1512.0">jdk</node>
+                <node x="298.0" y="1512.0">java</node>
+                <node x="138.31249999999994" y="1416.0">driver</node>
+                <node x="0.0" y="1512.0">javax</node>
+                <node x="76.31249999999997" y="938.0">MainWindow</node>
+                <node x="1428.1052631578948" y="0.0">javafx</node>
+                <node x="72.57346491228068" y="0.0">Room</node>
+                <node x="244.10526315789477" y="234.5">Interface</node>
+              </nodes>
+              <notes />
+              <edges>
+                <edge source="CommandHandler" target="Interface">
+                  <point x="111.66666666666669" y="-114.5" />
+                  <point x="330.42105263157896" y="629.0" />
+                  <point x="375.1666666666667" y="629.0" />
+                  <point x="375.1666666666667" y="374.0" />
+                  <point x="367.7719298245614" y="374.0" />
+                  <point x="17.66666666666663" y="59.5" />
+                </edge>
+                <edge source="MainWindow" target="Interface">
+                  <point x="122.0833333333334" y="-214.0" />
+                  <point x="344.89583333333337" y="918.0" />
+                  <point x="399.9342105263158" y="918.0" />
+                  <point x="399.9342105263158" y="384.0" />
+                  <point x="438.43859649122817" y="384.0" />
+                  <point x="88.33333333333337" y="59.5" />
+                </edge>
+                <edge source="CommandHandler" target="GameStates">
+                  <point x="22.333333333333343" y="-114.5" />
+                  <point x="241.0877192982456" y="609.0" />
+                  <point x="284.76754385964915" y="609.0" />
+                  <point x="60.75" y="92.5" />
+                </edge>
+                <edge source="CommandHandler" target="World">
+                  <point x="-66.99999999999997" y="-114.5" />
+                  <point x="151.75438596491227" y="619.0" />
+                  <point x="81.62609649122805" y="619.0" />
+                  <point x="81.62609649122805" y="384.0" />
+                  <point x="112.0" y="384.0" />
+                  <point x="16.0" y="60.0" />
+                </edge>
+                <edge source="GameStates" target="World">
+                  <point x="-30.375" y="-92.5" />
+                  <point x="193.64254385964915" y="384.0" />
+                  <point x="176.0" y="384.0" />
+                  <point x="80.0" y="60.0" />
+                </edge>
+                <edge source="GameStates" target="Interface">
+                  <point x="91.125" y="-92.5" />
+                  <point x="315.14254385964915" y="384.0" />
+                  <point x="297.1052631578948" y="384.0" />
+                  <point x="-53.0" y="59.5" />
+                </edge>
+                <edge source="World" target="Room">
+                  <point x="64.0" y="-60.0" />
+                  <point x="160.0" y="214.0" />
+                  <point x="172.57346491228068" y="214.0" />
+                  <point x="0.0" y="92.0" />
+                </edge>
+                <edge source="Interface" target="Room">
+                  <point x="-53.0" y="-59.5" />
+                  <point x="297.1052631578948" y="214.0" />
+                  <point x="212.57346491228068" y="214.0" />
+                  <point x="40.0" y="92.0" />
+                </edge>
+                <edge source="driver" target="MainWindow">
+                  <point x="-42.24999999999997" y="-25.5" />
+                  <point x="180.56249999999997" y="1391.0" />
+                  <point x="149.56249999999997" y="1391.0" />
+                  <point x="-73.25" y="214.0" />
+                </edge>
+                <edge source="MainWindow" target="CommandHandler">
+                  <point x="-24.416666666666657" y="-214.0" />
+                  <point x="198.39583333333331" y="898.0" />
+                  <point x="151.75438596491225" y="898.0" />
+                  <point x="-67.0" y="114.5" />
+                </edge>
+                <edge source="MainWindow" target="World">
+                  <point x="-73.25" y="-214.0" />
+                  <point x="149.56249999999997" y="908.0" />
+                  <point x="59.10087719298244" y="908.0" />
+                  <point x="59.10087719298244" y="374.0" />
+                  <point x="48.0" y="374.0" />
+                  <point x="-48.0" y="60.0" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="0.884368994234465" x="462.5630773059463" y="181.4812839835413" />
+              <SelectedNodes>
+                <node>com</node>
+              </SelectedNodes>
+              <Categories>
+                <Category>Constructors</Category>
+                <Category>Methods</Category>
+                <Category>Properties</Category>
+                <Category>Fields</Category>
+              </Categories>
+              <SCOPE>All</SCOPE>
+              <VISIBILITY>private</VISIBILITY>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-134" />
+    <option name="y" value="-13" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="TextBasedGame" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TextBasedGame" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TextBasedGame" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TextBasedGame" type="462c0819:PsiDirectoryNode" />
+              <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TextBasedGame" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TextBasedGame" type="462c0819:PsiDirectoryNode" />
+              <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="nodejs_interpreter_path" value="C:/Program Files (x86)/nodejs/node" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\TextBasedGame\GameEngine\src" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.driver">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../TextBasedGame" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration name="driver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="driver" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../TextBasedGame" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="GameEngine" />
+      <envs />
+    </configuration>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Application.driver" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="aae26b62-91b6-4ef4-8927-2e47d11be383" name="Default" comment="" />
+      <created>1501282859286</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1501282859286</updated>
+      <workItem from="1501282862806" duration="392000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="392000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32921812" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/../TextBasedGame" />
+    </ignored-roots>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="uml://MODULES/mdl-GameEngine">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>MODULES</ID>
+          <OriginalElement>mdl-GameEngine</OriginalElement>
+          <nodes>
+            <node x="" y="">mdl-GameEngine</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="74.5" y="14.5" />
+          <SelectedNodes />
+          <Categories />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/CommandHandler">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>CommandHandler</OriginalElement>
+          <nodes>
+            <node x="" y="">CommandHandler</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="73.5" y="14.5" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Methods</Category>
+            <Category>Constructors</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/CommandHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement />
+          <nodes>
+            <node x="150.0" y="1512.0">com</node>
+            <node x="102.51754385964914" y="404.0">GameStates</node>
+            <node x="942.1052631578948" y="0.0">netscape</node>
+            <node x="501.1052631578948" y="0.0">Player</node>
+            <node x="1272.1052631578948" y="0.0">oracle</node>
+            <node x="586.0" y="1512.0">org</node>
+            <node x="84.75438596491225" y="649.0">CommandHandler</node>
+            <node x="1113.1052631578948" y="0.0">DataHandler</node>
+            <node x="0.0" y="234.0">World</node>
+            <node x="443.0" y="1512.0">sun</node>
+            <node x="763.1052631578948" y="0.0">META-INF</node>
+            <node x="728.0" y="1512.0">jdk</node>
+            <node x="298.0" y="1512.0">java</node>
+            <node x="138.31249999999994" y="1416.0">driver</node>
+            <node x="0.0" y="1512.0">javax</node>
+            <node x="76.31249999999997" y="938.0">MainWindow</node>
+            <node x="1428.1052631578948" y="0.0">javafx</node>
+            <node x="72.57346491228068" y="0.0">Room</node>
+            <node x="244.10526315789477" y="234.5">Interface</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="CommandHandler" target="Interface">
+              <point x="111.66666666666669" y="-114.5" />
+              <point x="330.42105263157896" y="629.0" />
+              <point x="375.1666666666667" y="629.0" />
+              <point x="375.1666666666667" y="374.0" />
+              <point x="367.7719298245614" y="374.0" />
+              <point x="17.66666666666663" y="59.5" />
+            </edge>
+            <edge source="MainWindow" target="Interface">
+              <point x="122.0833333333334" y="-214.0" />
+              <point x="344.89583333333337" y="918.0" />
+              <point x="399.9342105263158" y="918.0" />
+              <point x="399.9342105263158" y="384.0" />
+              <point x="438.43859649122817" y="384.0" />
+              <point x="88.33333333333337" y="59.5" />
+            </edge>
+            <edge source="CommandHandler" target="GameStates">
+              <point x="22.333333333333343" y="-114.5" />
+              <point x="241.0877192982456" y="609.0" />
+              <point x="284.76754385964915" y="609.0" />
+              <point x="60.75" y="92.5" />
+            </edge>
+            <edge source="CommandHandler" target="World">
+              <point x="-66.99999999999997" y="-114.5" />
+              <point x="151.75438596491227" y="619.0" />
+              <point x="81.62609649122805" y="619.0" />
+              <point x="81.62609649122805" y="384.0" />
+              <point x="112.0" y="384.0" />
+              <point x="16.0" y="60.0" />
+            </edge>
+            <edge source="GameStates" target="World">
+              <point x="-30.375" y="-92.5" />
+              <point x="193.64254385964915" y="384.0" />
+              <point x="176.0" y="384.0" />
+              <point x="80.0" y="60.0" />
+            </edge>
+            <edge source="GameStates" target="Interface">
+              <point x="91.125" y="-92.5" />
+              <point x="315.14254385964915" y="384.0" />
+              <point x="297.1052631578948" y="384.0" />
+              <point x="-53.0" y="59.5" />
+            </edge>
+            <edge source="World" target="Room">
+              <point x="64.0" y="-60.0" />
+              <point x="160.0" y="214.0" />
+              <point x="172.57346491228068" y="214.0" />
+              <point x="0.0" y="92.0" />
+            </edge>
+            <edge source="Interface" target="Room">
+              <point x="-53.0" y="-59.5" />
+              <point x="297.1052631578948" y="214.0" />
+              <point x="212.57346491228068" y="214.0" />
+              <point x="40.0" y="92.0" />
+            </edge>
+            <edge source="driver" target="MainWindow">
+              <point x="-42.24999999999997" y="-25.5" />
+              <point x="180.56249999999997" y="1391.0" />
+              <point x="149.56249999999997" y="1391.0" />
+              <point x="-73.25" y="214.0" />
+            </edge>
+            <edge source="MainWindow" target="CommandHandler">
+              <point x="-24.416666666666657" y="-214.0" />
+              <point x="198.39583333333331" y="898.0" />
+              <point x="151.75438596491225" y="898.0" />
+              <point x="-67.0" y="114.5" />
+            </edge>
+            <edge source="MainWindow" target="World">
+              <point x="-73.25" y="-214.0" />
+              <point x="149.56249999999997" y="908.0" />
+              <point x="59.10087719298244" y="908.0" />
+              <point x="59.10087719298244" y="374.0" />
+              <point x="48.0" y="374.0" />
+              <point x="-48.0" y="60.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.884368994234465" x="462.5630773059463" y="181.4812839835413" />
+          <SelectedNodes>
+            <node>com</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Fields</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>GameEngine</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
