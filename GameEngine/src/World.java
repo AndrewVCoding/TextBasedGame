@@ -3,12 +3,10 @@ import java.util.List;
 
 public class World
 {
-	private List<Room> ROOMS;
+	final private static List<Room> ROOMS = new ArrayList<>();
 
-	public World()
+	public static void populate()
 	{
-		ROOMS = new ArrayList<>();
-
 		Room livingRoom = new Room();
 		livingRoom.NAME = "livingroom";
 		livingRoom.ENTRANCE = "You walk into the living room.";
@@ -41,12 +39,12 @@ public class World
 		ROOMS.add(bedroom);
 	}
 
-	public Room getStartingRoom()
+	public static Room getStartingRoom()
 	{
 		return ROOMS.get(0);
 	}
 
-	public Room getRoom(String name)
+	public static Room getRoom(String name)
 	{
 		for(Room room: ROOMS)
 			if(room.NAME.equalsIgnoreCase(name))

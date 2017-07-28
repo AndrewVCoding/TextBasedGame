@@ -10,6 +10,7 @@ public class driver
 		mainWindow.setSize(mainWindow.getPreferredSize());
 		mainWindow.setResizable(false);
 
+		World.populate();
 		mainWindow.setDisplay("Welcome!");
 	}
 }

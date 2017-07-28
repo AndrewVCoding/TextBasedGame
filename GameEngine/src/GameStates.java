@@ -1,17 +1,17 @@
 public class GameStates
 {
 	private Interface INTERFACE;
-	private World WORLD;
 	private head HEAD;
 	private start START;
+	private character CHARACTER;
 	public boolean POP = false;
 
 	public GameStates(Interface INTERFACE, World world)
 	{
 		this.INTERFACE = INTERFACE;
-		WORLD = world;
 		HEAD = new head();
 		START = new start();
+		CHARACTER = new character();
 	}
 
 	public void parseCommand(CommandHandler.command input)
@@ -21,6 +21,8 @@ public class GameStates
 			HEAD.parseCommand(input);
 		else if(input.source.equals("Start"))
 			START.parseCommand(input);
+		else if(input.source.equals("Character Creation"))
+			CHARACTER.parseCommand(input);
 	}
 
 	public class head
@@ -29,8 +31,8 @@ public class GameStates
 		{
 			if(input.input.equalsIgnoreCase("start"))
 			{
-				input.target = "Start";
-				INTERFACE.moveRoom(WORLD.getStartingRoom());
+				input.target = "Character Creation";
+				INTERFACE.setDISPLAY("Enter a name for your character");
 			}
 			else
 				input.target = input.source;
@@ -54,13 +56,23 @@ public class GameStates
 				input.target = "Start";
 				POP = true;
 				//Check if the specified room is in the list of exits
-				if(INTERFACE.PLAYER_ROOM.exitExists(com[1]))
-					INTERFACE.moveRoom(WORLD.getRoom(com[1]));
+				if(Player.LOCATION.exitExists(com[1]))
+					INTERFACE.moveRoom(World.getRoom(com[1]));
 				else
 					INTERFACE.setDISPLAY("Sorry, you can't go that way.");
 			}
 			else
 				input.target = input.source;
+		}
+	}
+
+	public class character
+	{
+		public void parseCommand(CommandHandler.command input)
+		{
+			Player.setNAME(input.input);
+			INTERFACE.moveRoom(World.getStartingRoom());
+			input.target = "Start";
 		}
 	}
 }

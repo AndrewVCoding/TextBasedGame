@@ -1,7 +1,6 @@
 public class Interface
 {
-	public String DISPLAY;
-	public Room PLAYER_ROOM;
+	public static String DISPLAY;
 
 	public void setDISPLAY(String display)
 	{
@@ -10,12 +9,12 @@ public class Interface
 
 	public void displayCurrentRoom()
 	{
-		DISPLAY = PLAYER_ROOM.look();
+		DISPLAY = Player.LOCATION.look();
 	}
 
 	public void moveRoom(Room room)
 	{
 		DISPLAY = room.enter();
-		PLAYER_ROOM = room;
+		Player.setLOCATION(room);
 	}
 }

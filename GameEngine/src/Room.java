@@ -3,9 +3,9 @@ import java.util.List;
 
 public class Room
 {
-	public String NAME = "Home";
-	public String ENTRANCE = "You arrive home.";
-	public String DESCRIPTION = "This is your home. It's very comfy.";
+	public String NAME;
+	public String ENTRANCE;
+	public String DESCRIPTION;
 	public List<String> EXITS = new ArrayList<>();
 
 
@@ -14,7 +14,7 @@ public class Room
 		String exits = "";
 		for(String exit: EXITS)
 			exits += "\n   " + exit;
-		return ENTRANCE + "\n" + DESCRIPTION + "\nWays out: " + exits;
+		return ENTRANCE + "\n" + DESCRIPTION + "\nExits: " + exits;
 	}
 
 	public String look()
@@ -22,7 +22,7 @@ public class Room
 		String exits = "";
 		for(String exit: EXITS)
 			exits += "\n   " + exit;
-		return DESCRIPTION + "\nWays out: " + exits;
+		return DESCRIPTION + "\nExits: " + exits;
 	}
 
 	public boolean exitExists(String exit)

@@ -1,13 +1,19 @@
 public class Player
 {
-	private String NAME;
-	private String CLASS;
-	private String LOCATION;
+	public static String NAME;
+	public static String CLASS;
+	public static Room LOCATION = World.getStartingRoom();
 
-	public Player(String name, String clas, String location)
+	public static void setNAME(String NAME)
 	{
-		NAME = name;
-		CLASS = clas;
-		LOCATION = location;
+		Player.NAME = NAME;
+	}
+	public static void setCLASS(String CLASS)
+	{
+		Player.CLASS = CLASS;
+	}
+	public static void setLOCATION(Room room)
+	{
+		LOCATION = room;
 	}
 }
