@@ -2,10 +2,10 @@ import com.google.gson.GsonBuilder;
 
 public class DataHandler
 {
-    GsonBuilder GSON_BUILDER;
+	GsonBuilder GSON_BUILDER;
 
-    public DataHandler()
-    {
-        GSON_BUILDER = new GsonBuilder();
-    }
+	public DataHandler()
+	{
+		GSON_BUILDER = new GsonBuilder();
+	}
 }

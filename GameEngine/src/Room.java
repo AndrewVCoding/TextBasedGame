@@ -7,12 +7,13 @@ public class Room
 	public String ENTRANCE;
 	public String DESCRIPTION;
 	public List<String> EXITS = new ArrayList<>();
+	public List<String> CONTENTS = new ArrayList<>();
 
 
 	public String enter()
 	{
 		String exits = "";
-		for(String exit: EXITS)
+		for(String exit : EXITS)
 			exits += "\n   " + exit;
 		return ENTRANCE + "\n" + DESCRIPTION + "\nExits: " + exits;
 	}
@@ -20,14 +21,14 @@ public class Room
 	public String look()
 	{
 		String exits = "";
-		for(String exit: EXITS)
+		for(String exit : EXITS)
 			exits += "\n   " + exit;
 		return DESCRIPTION + "\nExits: " + exits;
 	}
 
 	public boolean exitExists(String exit)
 	{
-		for(String e: EXITS)
+		for(String e : EXITS)
 			if(e.equalsIgnoreCase(exit))
 				return true;
 		return false;

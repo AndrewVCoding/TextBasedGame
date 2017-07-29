@@ -8,10 +8,12 @@ public class Player
 	{
 		Player.NAME = NAME;
 	}
+
 	public static void setCLASS(String CLASS)
 	{
 		Player.CLASS = CLASS;
 	}
+
 	public static void setLOCATION(Room room)
 	{
 		LOCATION = room;

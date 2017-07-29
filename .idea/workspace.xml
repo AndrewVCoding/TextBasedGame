@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="aae26b62-91b6-4ef4-8927-2e47d11be383" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../TextBasedGame/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../TextBasedGame/.idea/codeStyleSettings.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/GameStates.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../TextBasedGame/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../TextBasedGame/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../TextBasedGame/GameEngine/GameEngine.iml" afterPath="$PROJECT_DIR$/../TextBasedGame/GameEngine/GameEngine.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/CommandHandler.java" afterPath="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/CommandHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/DataHandler.java" afterPath="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/DataHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/GameStates.java" afterPath="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/GameStates.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/Interface.java" afterPath="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/Interface.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/MainWindow.java" afterPath="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/MainWindow.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/Player.java" afterPath="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/Player.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/Room.java" afterPath="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/Room.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/World.java" afterPath="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/World.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/driver.java" afterPath="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/driver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../TextBasedGame/TextBasedGame.iml" afterPath="$PROJECT_DIR$/../TextBasedGame/TextBasedGame.iml" />
     </list>
     <ignored path="$PROJECT_DIR$/../TextBasedGame/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,144 +23,14 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="JAVA/" pinned="false" current-in-tab="true">
-              <entry file="uml://JAVA/">
-                <provider selected="true" editor-type-id="UmlEditorProvider">
-                  <state>
-                    <ID>JAVA</ID>
-                    <OriginalElement />
-                    <nodes>
-                      <node x="304.0" y="1531.0">com</node>
-                      <node x="109.20614035087715" y="424.0">GameStates</node>
-                      <node x="1211.7061403508771" y="0.0">netscape</node>
-                      <node x="507.70614035087715" y="0.0">Player</node>
-                      <node x="1382.7061403508771" y="0.0">oracle</node>
-                      <node x="740.0" y="1531.0">org</node>
-                      <node x="91.33333333333326" y="669.0">CommandHandler</node>
-                      <node x="769.7061403508771" y="0.0">DataHandler</node>
-                      <node x="0.0" y="244.5">World</node>
-                      <node x="597.0" y="1531.0">sun</node>
-                      <node x="1032.7061403508771" y="0.0">META-INF</node>
-                      <node x="882.0" y="1531.0">jdk</node>
-                      <node x="452.0" y="1531.0">java</node>
-                      <node x="144.97916666666663" y="1435.0">driver</node>
-                      <node x="154.0" y="1531.0">javax</node>
-                      <node x="82.9791666666666" y="958.0">MainWindow</node>
-                      <node x="0.0" y="1531.0">javafx</node>
-                      <node x="83.25328947368419" y="0.0">Room</node>
-                      <node x="250.70614035087718" y="234.0">Interface</node>
-                    </nodes>
-                    <notes />
-                    <edges>
-                      <edge source="MainWindow" target="Interface">
-                        <point x="122.08333333333337" y="-213.5" />
-                        <point x="351.5625" y="938.0" />
-                        <point x="406.62280701754383" y="938.0" />
-                        <point x="406.62280701754383" y="404.0" />
-                        <point x="445.0394736842105" y="404.0" />
-                        <point x="88.33333333333337" y="70.0" />
-                      </edge>
-                      <edge source="GameStates" target="World">
-                        <point x="-30.375" y="-92.5" />
-                        <point x="200.33114035087715" y="404.0" />
-                        <point x="185.16666666666663" y="404.0" />
-                        <point x="84.16666666666663" y="59.5" />
-                      </edge>
-                      <edge source="CommandHandler" target="GameStates">
-                        <point x="-22.333333333333314" y="-114.5" />
-                        <point x="202.99999999999994" y="649.0" />
-                        <point x="169.95614035087715" y="649.0" />
-                        <point x="-60.75" y="92.5" />
-                      </edge>
-                      <edge source="GameStates" target="Interface">
-                        <point x="30.375" y="-92.5" />
-                        <point x="261.08114035087715" y="404.0" />
-                        <point x="268.3728070175438" y="404.0" />
-                        <point x="-88.33333333333337" y="70.0" />
-                      </edge>
-                      <edge source="Interface" target="Room">
-                        <point x="-53.0" y="-70.0" />
-                        <point x="303.70614035087715" y="214.0" />
-                        <point x="223.2532894736842" y="214.0" />
-                        <point x="40.0" y="92.0" />
-                      </edge>
-                      <edge source="driver" target="MainWindow">
-                        <point x="-42.25" y="-25.5" />
-                        <point x="187.22916666666663" y="1410.0" />
-                        <point x="156.2291666666666" y="1410.0" />
-                        <point x="-73.25" y="213.5" />
-                      </edge>
-                      <edge source="World" target="Room">
-                        <point x="0.0" y="-59.5" />
-                        <point x="101.0" y="214.0" />
-                        <point x="143.2532894736842" y="214.0" />
-                        <point x="-40.0" y="92.0" />
-                      </edge>
-                      <edge source="MainWindow" target="CommandHandler">
-                        <point x="24.416666666666657" y="-213.5" />
-                        <point x="253.89583333333326" y="938.0" />
-                        <point x="292.33333333333326" y="938.0" />
-                        <point x="67.0" y="114.5" />
-                      </edge>
-                      <edge source="CommandHandler" target="World">
-                        <point x="-111.66666666666663" y="-114.5" />
-                        <point x="113.66666666666663" y="649.0" />
-                        <point x="77.22697368421046" y="649.0" />
-                        <point x="77.22697368421046" y="394.0" />
-                        <point x="84.16666666666663" y="394.0" />
-                        <point x="-16.83333333333337" y="59.5" />
-                      </edge>
-                      <edge source="CommandHandler" target="Interface">
-                        <point x="111.66666666666663" y="-114.5" />
-                        <point x="336.9999999999999" y="649.0" />
-                        <point x="382.25" y="649.0" />
-                        <point x="382.25" y="394.0" />
-                        <point x="374.3728070175438" y="394.0" />
-                        <point x="17.66666666666663" y="70.0" />
-                      </edge>
-                      <edge source="MainWindow" target="World">
-                        <point x="-73.25000000000003" y="-213.5" />
-                        <point x="156.22916666666657" y="928.0" />
-                        <point x="65.78947368421046" y="928.0" />
-                        <point x="65.78947368421046" y="394.0" />
-                        <point x="50.5" y="394.0" />
-                        <point x="-50.5" y="59.5" />
-                      </edge>
-                    </edges>
-                    <settings layout="Hierarchic Group" zoom="1.0843689942344652" x="229.30749689844617" y="1144.748744609204" />
-                    <SelectedNodes />
-                    <Categories>
-                      <Category>Methods</Category>
-                      <Category>Fields</Category>
-                      <Category>Constructors</Category>
-                    </Categories>
-                    <SCOPE>All</SCOPE>
-                    <VISIBILITY>private</VISIBILITY>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="CommandHandler.java" pinned="false" current-in-tab="false">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="CommandHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/CommandHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="910">
-              <caret line="135" column="0" lean-forward="true" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
-              <folding>
-                <element signature="e#3414#3415#0" expanded="true" />
-                <element signature="e#3453#3454#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="85">
+              <caret line="5" column="42" lean-forward="false" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -169,17 +39,7 @@
         <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/driver.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameStates.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/GameStates.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -188,8 +48,8 @@
       <file leaf-file-name="Interface.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/Interface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="238">
+              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding>
                 <element signature="e#98#99#0" expanded="true" />
                 <element signature="e#122#123#0" expanded="true" />
@@ -203,8 +63,8 @@
       <file leaf-file-name="MainWindow.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/MainWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="621">
-              <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+            <state relative-caret-position="595">
+              <caret line="38" column="44" lean-forward="false" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -213,15 +73,15 @@
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
               <folding>
                 <element signature="e#178#179#0" expanded="true" />
                 <element signature="e#203#204#0" expanded="true" />
-                <element signature="e#249#250#0" expanded="true" />
-                <element signature="e#276#277#0" expanded="true" />
-                <element signature="e#322#323#0" expanded="true" />
-                <element signature="e#344#345#0" expanded="true" />
+                <element signature="e#250#251#0" expanded="true" />
+                <element signature="e#277#278#0" expanded="true" />
+                <element signature="e#324#325#0" expanded="true" />
+                <element signature="e#346#347#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -230,31 +90,18 @@
       <file leaf-file-name="Room.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/Room.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state relative-caret-position="136">
+              <caret line="9" column="53" lean-forward="false" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/DataHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="41" lean-forward="true" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
-              <folding>
-                <element signature="e#124#125#0" expanded="true" />
-                <element signature="e#172#173#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="World.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="World.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/World.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="459">
+              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1308#1309#0" expanded="true" />
@@ -278,14 +125,14 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/DataHandler.java" />
-        <option value="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/CommandHandler.java" />
         <option value="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/driver.java" />
-        <option value="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/GameStates.java" />
         <option value="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/Interface.java" />
-        <option value="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/MainWindow.java" />
         <option value="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/Player.java" />
-        <option value="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/Room.java" />
         <option value="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/World.java" />
+        <option value="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/Room.java" />
+        <option value="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/GameStates.java" />
+        <option value="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/MainWindow.java" />
+        <option value="$PROJECT_DIR$/../TextBasedGame/GameEngine/src/CommandHandler.java" />
       </list>
     </option>
   </component>
@@ -300,6 +147,22 @@
     <option name="y" value="-13" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Android</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -317,6 +180,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -343,9 +209,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -356,8 +219,9 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="project.scopes" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Java Libraries/gson-2.8.0.jar!/" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -488,43 +352,53 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1501282859286</updated>
-      <workItem from="1501282862806" duration="1349000" />
+      <workItem from="1501282862806" duration="4703000" />
+      <workItem from="1501287640751" duration="3000" />
     </task>
+    <task id="LOCAL-00001" summary="Updated all class files to match original project">
+      <created>1501284256536</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1501284256536</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1349000" />
+    <option name="totallyTimeSpent" value="4706000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3567447" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25586355" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2585288" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3567447" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -537,12 +411,119 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/../TextBasedGame" />
     </ignored-roots>
+    <MESSAGE value="Updated all class files to match original project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated all class files to match original project" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/CommandHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/Interface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding>
+            <element signature="e#98#99#0" expanded="true" />
+            <element signature="e#122#123#0" expanded="true" />
+            <element signature="e#160#161#0" expanded="true" />
+            <element signature="e#199#200#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/MainWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="38" column="44" lean-forward="true" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding>
+            <element signature="e#178#179#0" expanded="true" />
+            <element signature="e#203#204#0" expanded="true" />
+            <element signature="e#250#251#0" expanded="true" />
+            <element signature="e#277#278#0" expanded="true" />
+            <element signature="e#324#325#0" expanded="true" />
+            <element signature="e#346#347#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/Room.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="9" column="53" lean-forward="false" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/World.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1308#1309#0" expanded="true" />
+            <element signature="e#1334#1335#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/DataHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="41" lean-forward="true" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+          <folding>
+            <element signature="e#115#116#0" expanded="true" />
+            <element signature="e#154#155#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/World.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1308#1309#0" expanded="true" />
+            <element signature="e#1334#1335#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="uml://MODULES/mdl-GameEngine">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -553,9 +534,10 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="74.5" y="14.5" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="75.0" y="15.0" />
           <SelectedNodes />
           <Categories />
+          <SCOPE>All</SCOPE>
         </state>
       </provider>
     </entry>
@@ -569,24 +551,100 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="73.5" y="14.5" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="130.0" y="104.0" />
           <SelectedNodes />
           <Categories>
-            <Category>Methods</Category>
+            <Category>Fields</Category>
             <Category>Constructors</Category>
+            <Category>Properties</Category>
+            <Category>Methods</Category>
           </Categories>
           <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/DataHandler.java">
+    <entry file="uml://JAVA/GameStates">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>GameStates</OriginalElement>
+          <nodes>
+            <node x="131.5" y="101.0">GameStates</node>
+            <node x="263.0" y="0.0">GameStates.head</node>
+            <node x="0.0" y="0.0">GameStates.start</node>
+            <node x="131.5" y="336.0">GameStates.character</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="GameStates" target="GameStates.start">
+              <point x="-101.25" y="-92.5" />
+              <point x="151.75" y="81.0" />
+              <point x="40.5" y="81.0" />
+              <point x="-81.0" y="25.5" />
+            </edge>
+            <edge source="GameStates.start" target="GameStates">
+              <point x="81.0" y="25.5" />
+              <point x="202.5" y="81.0" />
+              <point x="232.75" y="81.0" />
+              <point x="-20.25" y="-92.5" />
+            </edge>
+            <edge source="GameStates" target="GameStates.head">
+              <point x="60.75" y="-92.5" />
+              <point x="313.75" y="71.0" />
+              <point x="384.5" y="71.0" />
+              <point x="0.0" y="25.5" />
+            </edge>
+            <edge source="GameStates.character" target="GameStates">
+              <point x="-81.0" y="-25.5" />
+              <point x="-81.0" y="92.5" />
+            </edge>
+            <edge source="GameStates" target="GameStates.character">
+              <point x="81.0" y="92.5" />
+              <point x="81.0" y="-25.5" />
+            </edge>
+            <edge source="GameStates.head" target="GameStates">
+              <point x="81.0" y="25.5" />
+              <point x="465.5" y="81.0" />
+              <point x="354.25" y="81.0" />
+              <point x="101.25" y="-92.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-73.0" y="41.0" />
+          <SelectedNodes>
+            <node>GameStates</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Inner Classes</Category>
+            <Category>Constructors</Category>
+            <Category>Properties</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/Room.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="41" lean-forward="true" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+          <caret line="9" column="53" lean-forward="false" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
           <folding>
-            <element signature="e#124#125#0" expanded="true" />
-            <element signature="e#172#173#0" expanded="true" />
+            <element signature="e#178#179#0" expanded="true" />
+            <element signature="e#203#204#0" expanded="true" />
+            <element signature="e#250#251#0" expanded="true" />
+            <element signature="e#277#278#0" expanded="true" />
+            <element signature="e#324#325#0" expanded="true" />
+            <element signature="e#346#347#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -597,146 +655,45 @@
           <ID>JAVA</ID>
           <OriginalElement />
           <nodes>
-            <node x="304.0" y="1531.0">com</node>
-            <node x="109.20614035087715" y="424.0">GameStates</node>
-            <node x="1211.7061403508771" y="0.0">netscape</node>
-            <node x="507.70614035087715" y="0.0">Player</node>
-            <node x="1382.7061403508771" y="0.0">oracle</node>
-            <node x="740.0" y="1531.0">org</node>
-            <node x="91.33333333333326" y="669.0">CommandHandler</node>
-            <node x="769.7061403508771" y="0.0">DataHandler</node>
-            <node x="0.0" y="244.5">World</node>
-            <node x="597.0" y="1531.0">sun</node>
-            <node x="1032.7061403508771" y="0.0">META-INF</node>
-            <node x="882.0" y="1531.0">jdk</node>
-            <node x="452.0" y="1531.0">java</node>
-            <node x="144.97916666666663" y="1435.0">driver</node>
-            <node x="154.0" y="1531.0">javax</node>
-            <node x="82.9791666666666" y="958.0">MainWindow</node>
-            <node x="0.0" y="1531.0">javafx</node>
-            <node x="83.25328947368419" y="0.0">Room</node>
-            <node x="250.70614035087718" y="234.0">Interface</node>
+            <node x="" y="">com</node>
+            <node x="" y="">GameStates</node>
+            <node x="" y="">netscape</node>
+            <node x="" y="">Player</node>
+            <node x="" y="">oracle</node>
+            <node x="" y="">org</node>
+            <node x="" y="">CommandHandler</node>
+            <node x="" y="">DataHandler</node>
+            <node x="" y="">World</node>
+            <node x="" y="">sun</node>
+            <node x="" y="">META-INF</node>
+            <node x="" y="">jdk</node>
+            <node x="" y="">java</node>
+            <node x="" y="">driver</node>
+            <node x="" y="">javax</node>
+            <node x="" y="">MainWindow</node>
+            <node x="" y="">javafx</node>
+            <node x="" y="">Room</node>
+            <node x="" y="">Interface</node>
           </nodes>
           <notes />
-          <edges>
-            <edge source="MainWindow" target="Interface">
-              <point x="122.08333333333337" y="-213.5" />
-              <point x="351.5625" y="938.0" />
-              <point x="406.62280701754383" y="938.0" />
-              <point x="406.62280701754383" y="404.0" />
-              <point x="445.0394736842105" y="404.0" />
-              <point x="88.33333333333337" y="70.0" />
-            </edge>
-            <edge source="GameStates" target="World">
-              <point x="-30.375" y="-92.5" />
-              <point x="200.33114035087715" y="404.0" />
-              <point x="185.16666666666663" y="404.0" />
-              <point x="84.16666666666663" y="59.5" />
-            </edge>
-            <edge source="CommandHandler" target="GameStates">
-              <point x="-22.333333333333314" y="-114.5" />
-              <point x="202.99999999999994" y="649.0" />
-              <point x="169.95614035087715" y="649.0" />
-              <point x="-60.75" y="92.5" />
-            </edge>
-            <edge source="GameStates" target="Interface">
-              <point x="30.375" y="-92.5" />
-              <point x="261.08114035087715" y="404.0" />
-              <point x="268.3728070175438" y="404.0" />
-              <point x="-88.33333333333337" y="70.0" />
-            </edge>
-            <edge source="Interface" target="Room">
-              <point x="-53.0" y="-70.0" />
-              <point x="303.70614035087715" y="214.0" />
-              <point x="223.2532894736842" y="214.0" />
-              <point x="40.0" y="92.0" />
-            </edge>
-            <edge source="driver" target="MainWindow">
-              <point x="-42.25" y="-25.5" />
-              <point x="187.22916666666663" y="1410.0" />
-              <point x="156.2291666666666" y="1410.0" />
-              <point x="-73.25" y="213.5" />
-            </edge>
-            <edge source="World" target="Room">
-              <point x="0.0" y="-59.5" />
-              <point x="101.0" y="214.0" />
-              <point x="143.2532894736842" y="214.0" />
-              <point x="-40.0" y="92.0" />
-            </edge>
-            <edge source="MainWindow" target="CommandHandler">
-              <point x="24.416666666666657" y="-213.5" />
-              <point x="253.89583333333326" y="938.0" />
-              <point x="292.33333333333326" y="938.0" />
-              <point x="67.0" y="114.5" />
-            </edge>
-            <edge source="CommandHandler" target="World">
-              <point x="-111.66666666666663" y="-114.5" />
-              <point x="113.66666666666663" y="649.0" />
-              <point x="77.22697368421046" y="649.0" />
-              <point x="77.22697368421046" y="394.0" />
-              <point x="84.16666666666663" y="394.0" />
-              <point x="-16.83333333333337" y="59.5" />
-            </edge>
-            <edge source="CommandHandler" target="Interface">
-              <point x="111.66666666666663" y="-114.5" />
-              <point x="336.9999999999999" y="649.0" />
-              <point x="382.25" y="649.0" />
-              <point x="382.25" y="394.0" />
-              <point x="374.3728070175438" y="394.0" />
-              <point x="17.66666666666663" y="70.0" />
-            </edge>
-            <edge source="MainWindow" target="World">
-              <point x="-73.25000000000003" y="-213.5" />
-              <point x="156.22916666666657" y="928.0" />
-              <point x="65.78947368421046" y="928.0" />
-              <point x="65.78947368421046" y="394.0" />
-              <point x="50.5" y="394.0" />
-              <point x="-50.5" y="59.5" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="1.0843689942344652" x="229.30749689844617" y="1144.748744609204" />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="71.0" y="1093.0" />
           <SelectedNodes />
           <Categories>
-            <Category>Methods</Category>
             <Category>Fields</Category>
             <Category>Constructors</Category>
+            <Category>Properties</Category>
+            <Category>Methods</Category>
           </Categories>
           <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/CommandHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="910">
-          <caret line="135" column="0" lean-forward="true" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
-          <folding>
-            <element signature="e#3414#3415#0" expanded="true" />
-            <element signature="e#3453#3454#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/driver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/GameStates.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/Interface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="238">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
             <element signature="e#98#99#0" expanded="true" />
             <element signature="e#122#123#0" expanded="true" />
@@ -746,46 +703,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/GameStates.java" />
     <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/MainWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+        <state relative-caret-position="595">
+          <caret line="38" column="44" lean-forward="false" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/Player.java">
+    <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/CommandHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="e#178#179#0" expanded="true" />
-            <element signature="e#203#204#0" expanded="true" />
-            <element signature="e#249#250#0" expanded="true" />
-            <element signature="e#276#277#0" expanded="true" />
-            <element signature="e#322#323#0" expanded="true" />
-            <element signature="e#344#345#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/Room.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        <state relative-caret-position="85">
+          <caret line="5" column="42" lean-forward="false" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../TextBasedGame/GameEngine/src/World.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1308#1309#0" expanded="true" />
-            <element signature="e#1334#1335#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -863,6 +794,17 @@
         </settings>
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
         <settings>
           <splitter-proportions>
             <option name="proportions">

@@ -46,7 +46,7 @@ public class World
 
 	public static Room getRoom(String name)
 	{
-		for(Room room: ROOMS)
+		for(Room room : ROOMS)
 			if(room.NAME.equalsIgnoreCase(name))
 				return room;
 		return null;

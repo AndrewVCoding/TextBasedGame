@@ -6,8 +6,6 @@ import java.awt.event.ActionListener;
 public class MainWindow extends JFrame implements ActionListener
 {
 	final private Interface INTERFACE = new Interface();
-	final private CommandHandler COMMAND_HANDLER = new CommandHandler(INTERFACE);
-	final private World WORLD = new World();
 
 	final private JPanel panel_main = new JPanel();
 	final private JPanel panel_input = new JPanel();
@@ -67,16 +65,14 @@ public class MainWindow extends JFrame implements ActionListener
 		updateDisplay();
 	}
 
-	@Override public void actionPerformed(ActionEvent e)
+	@Override
+	public void actionPerformed(ActionEvent e)
 	{
 		if((e.getSource() == enter || e.getSource() == input) && !(input.getText().equals("")))
 		{
-			COMMAND_HANDLER.newCommand(input.getText());
+			CommandHandler.command(input.getText());
 			input.setText("");
 		}
-
-		//Always execute commands and update the display after any actions have been performed
-		COMMAND_HANDLER.executeNextCommand();
 		updateDisplay();
 	}
 }
