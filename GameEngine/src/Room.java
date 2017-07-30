@@ -13,23 +13,29 @@ public class Room
 	public String enter()
 	{
 		String exits = "";
+		String contents = "";
 		for(String exit : EXITS)
 			exits += "\n   " + exit;
-		return ENTRANCE + "\n" + DESCRIPTION + "\nExits: " + exits;
+		for(String item : CONTENTS)
+			contents += item + ", ";
+		return ENTRANCE + "\n" + DESCRIPTION + "\n\nContains: " + contents + "\nExits: " + exits;
 	}
 
 	public String look()
 	{
 		String exits = "";
+		String contents = "";
 		for(String exit : EXITS)
 			exits += "\n   " + exit;
-		return DESCRIPTION + "\nExits: " + exits;
+		for(String item : CONTENTS)
+			contents += item + ", ";
+		return DESCRIPTION + "\n\nContains: " + contents + "\nExits: " + exits;
 	}
 
-	public boolean exitExists(String exit)
+	public boolean isExit(Room room)
 	{
-		for(String e : EXITS)
-			if(e.equalsIgnoreCase(exit))
+		for(String name : EXITS)
+			if(name.equals(room.NAME))
 				return true;
 		return false;
 	}

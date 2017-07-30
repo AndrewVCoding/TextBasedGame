@@ -14,7 +14,12 @@ public class Interface
 
 	public static void moveRoom(Room room)
 	{
-		DISPLAY = room.enter();
-		Player.setLOCATION(room);
+		if(Player.LOCATION.isExit(room))
+		{
+			DISPLAY = room.enter();
+			Player.setLOCATION(room);
+		}
+		else
+			setDISPLAY("You can't go that way");
 	}
 }

@@ -3,6 +3,11 @@ public class CommandHandler
 	private static String GAME_STATE = "start";
 	private static String[] COMMAND;
 
+	/**
+	 * All commands have a unique first word, but can be context sensitive after that.
+	 *
+	 * @param com The user input command
+	 */
 	public static void command(String com)
 	{
 		//First split the command into an array of strings
@@ -17,6 +22,8 @@ public class CommandHandler
 			look();
 		else if(COMMAND[0].equalsIgnoreCase("take"))
 			take();
+		else if(COMMAND[0].equalsIgnoreCase("inventory"))
+			look();
 		else
 			unknown();
 
@@ -35,7 +42,7 @@ public class CommandHandler
 		}
 		else if(GAME_STATE.equals("idle"))
 		{
-			Interface.setDISPLAY("Sorry, that command is not available now.");
+			Interface.setDISPLAY(Interface.DISPLAY + "\n\n>>" + "Sorry, that command is not available now.");
 		}
 		else
 			invalid();
@@ -55,7 +62,7 @@ public class CommandHandler
 			}
 			else
 			{
-				Interface.setDISPLAY("Where do you want to go?");
+				Interface.setDISPLAY(Interface.DISPLAY + "\n\n>>" + "Where do you want to go?");
 				GAME_STATE = "go";
 			}
 		}
@@ -69,7 +76,15 @@ public class CommandHandler
 	{
 		if(GAME_STATE.equals("idle"))
 		{
-			Interface.setDISPLAY(Player.LOCATION.look());
+			if(COMMAND.length > 1)
+			{
+				if(COMMAND[1].equalsIgnoreCase("inventory"))
+					Player.viewInventory();
+			}
+			else if(COMMAND[0].equalsIgnoreCase("inventory"))
+				Player.viewInventory();
+			else
+				Interface.setDISPLAY(Player.LOCATION.look());
 		}
 	}
 
@@ -78,7 +93,23 @@ public class CommandHandler
 	 */
 	private static void take()
 	{
+		if(GAME_STATE.equals("idle"))
+		{
+			String itemName = "";
+			for(int i = 1; i < COMMAND.length - 1; i++)
+				itemName += COMMAND[i] + " ";
 
+			itemName += COMMAND[COMMAND.length - 1];
+
+			Item target = World.getItem(itemName);
+			if(target.TAKEABLE)
+			{
+				Player.LOCATION.CONTENTS.remove(target.NAME);
+				Player.addINVENTORY(target);
+			}
+
+			Interface.setDISPLAY(Interface.DISPLAY + "\n\n>>" + target.PICKUP);
+		}
 	}
 
 	/**
@@ -88,33 +119,44 @@ public class CommandHandler
 	{
 		if(GAME_STATE.equals("character name"))
 		{
-			Player.NAME = COMMAND[0];
+			Player.setNAME(COMMAND[0]);
 			GAME_STATE = "character class";
 			Interface.setDISPLAY("Now pick a class:\n1)warrior\n2)Wizard\n3)Rogue");
 
 		}
 		else if(GAME_STATE.equals("character class"))
 		{
-			switch(COMMAND[0])
+			if(COMMAND[0].equals("1"))
 			{
-				case "1":
-					GAME_STATE = "idle";
-					Player.setCLASS("Warrior");
-					Interface.moveRoom(World.getStartingRoom());
-					Player.setLOCATION(World.getStartingRoom());
-					break;
-				case "2":
-					GAME_STATE = "idle";
-					Player.setCLASS("Wizard");
-					Interface.moveRoom(World.getStartingRoom());
-					Player.setLOCATION(World.getStartingRoom());
-					break;
-				case "3":
-					GAME_STATE = "idle";
-					Player.setCLASS("Rogue");
-					Interface.moveRoom(World.getStartingRoom());
-					Player.setLOCATION(World.getStartingRoom());
-					break;
+				GAME_STATE = "idle";
+				Player.setCLASS("Warrior");
+				Player.setHP(100);
+				Player.setLOCATION(World.getStartingRoom());
+				Interface.setDISPLAY(Player.LOCATION.enter());
+
+			}
+			else if(COMMAND[0].equals("2"))
+			{
+				GAME_STATE = "idle";
+				Player.setCLASS("Wizard");
+				Player.setHP(70);
+				Player.setLOCATION(World.getStartingRoom());
+				Player.LOCATION.enter();
+				Interface.setDISPLAY(Player.LOCATION.enter());
+
+			}
+			else if(COMMAND[0].equals("3"))
+			{
+				GAME_STATE = "idle";
+				Player.setCLASS("Rogue");
+				Player.setHP(80);
+				Player.setLOCATION(World.getStartingRoom());
+				Player.LOCATION.enter();
+				Interface.setDISPLAY(Player.LOCATION.enter());
+			}
+			else
+			{
+				Interface.setDISPLAY(Interface.DISPLAY + "\n\n>>" + "That is not a valid class choice");
 			}
 
 		}
@@ -130,6 +172,6 @@ public class CommandHandler
 
 	private static void invalid()
 	{
-		Interface.setDISPLAY("Sorry, that command is not available now.");
+		Interface.setDISPLAY(Interface.DISPLAY + "\n\n>>" + "Sorry, that command is not available now.");
 	}
 }

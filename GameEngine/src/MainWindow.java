@@ -21,6 +21,7 @@ public class MainWindow extends JFrame implements ActionListener
 	//Player panel components
 	final private JLabel label_player_name = new JLabel("Name: ");
 	final private JLabel label_player_class = new JLabel("Race: ");
+	final private JLabel label_player_hp = new JLabel("HP: ");
 
 	//Location panel components
 	final private JLabel label_location_name = new JLabel("location: ");
@@ -41,6 +42,7 @@ public class MainWindow extends JFrame implements ActionListener
 		label_location_name.setVisible(true);
 		label_player_name.setVisible(true);
 		label_player_class.setVisible(true);
+		label_player_hp.setVisible(true);
 		enter.setText("Enter");
 
 		display.setMinimumSize(dimension_display);
@@ -49,6 +51,7 @@ public class MainWindow extends JFrame implements ActionListener
 		label_player_class.setMinimumSize(dimension_infoLabels);
 		label_player_name.setMinimumSize(dimension_infoLabels);
 		label_location_name.setMinimumSize(dimension_infoLabels);
+		label_player_hp.setMinimumSize(dimension_infoLabels);
 
 		//Input layout
 		GroupLayout inputLayout = new GroupLayout(panel_input);
@@ -61,8 +64,8 @@ public class MainWindow extends JFrame implements ActionListener
 
 		//Player layout
 		GroupLayout playerInfoLayout = new GroupLayout(panel_player);
-		playerInfoLayout.setHorizontalGroup(playerInfoLayout.createParallelGroup().addComponent(label_player_name).addComponent(label_player_class));
-		playerInfoLayout.setVerticalGroup(playerInfoLayout.createSequentialGroup().addComponent(label_player_name).addComponent(label_player_class));
+		playerInfoLayout.setHorizontalGroup(playerInfoLayout.createParallelGroup().addComponent(label_player_name).addComponent(label_player_class).addComponent(label_player_hp));
+		playerInfoLayout.setVerticalGroup(playerInfoLayout.createSequentialGroup().addComponent(label_player_name).addComponent(label_player_class).addComponent(label_player_hp));
 		panel_player.setLayout(playerInfoLayout);
 		panel_player.setVisible(true);
 		//Location Layout
@@ -104,6 +107,7 @@ public class MainWindow extends JFrame implements ActionListener
 			label_location_name.setText("Location: " + Player.LOCATION.NAME);
 		label_player_name.setText("Name: " + Player.NAME);
 		label_player_class.setText("Class: " + Player.CLASS);
+		label_player_hp.setText("HP: " + Player.HP);
 	}
 
 	public void setDisplay(String s)
