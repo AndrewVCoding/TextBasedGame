@@ -2,17 +2,17 @@ public class Interface
 {
 	public static String DISPLAY;
 
-	public void setDISPLAY(String display)
+	public static void setDISPLAY(String display)
 	{
 		DISPLAY = display;
 	}
 
-	public void displayCurrentRoom()
+	public static void displayCurrentRoom()
 	{
 		DISPLAY = Player.LOCATION.look();
 	}
 
-	public void moveRoom(Room room)
+	public static void moveRoom(Room room)
 	{
 		DISPLAY = room.enter();
 		Player.setLOCATION(room);

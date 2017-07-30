@@ -5,8 +5,6 @@ import java.awt.event.ActionListener;
 
 public class MainWindow extends JFrame implements ActionListener
 {
-	final private Interface INTERFACE = new Interface();
-
 	final private JPanel panel_main = new JPanel();
 	final private JPanel panel_input = new JPanel();
 	final private JPanel panel_display = new JPanel();
@@ -56,12 +54,12 @@ public class MainWindow extends JFrame implements ActionListener
 
 	public void updateDisplay()
 	{
-		display.setText(INTERFACE.DISPLAY);
+		display.setText(Interface.DISPLAY);
 	}
 
 	public void setDisplay(String s)
 	{
-		INTERFACE.setDISPLAY(s);
+		Interface.setDISPLAY(s);
 		updateDisplay();
 	}
 
