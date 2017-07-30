@@ -2,7 +2,7 @@ public class Player
 {
 	public static String NAME;
 	public static String CLASS;
-	public static Room LOCATION = World.getStartingRoom();
+	public static Room LOCATION;
 
 	public static void setNAME(String NAME)
 	{

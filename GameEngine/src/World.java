@@ -49,6 +49,7 @@ public class World
 		for(Room room : ROOMS)
 			if(room.NAME.equalsIgnoreCase(name))
 				return room;
+		Interface.setDISPLAY("That room does not exist");
 		return null;
 	}
 }
