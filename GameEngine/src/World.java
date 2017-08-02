@@ -9,27 +9,25 @@ public class World
 	public static void populate()
 	{
 		Item pocketKnife = new Item();
-		pocketKnife.NAME = "pocket knife";
+		pocketKnife.NAME = "knife";
 		pocketKnife.DESCRIPTION = "A small folding knife";
 		pocketKnife.PICKUP = "You carefully slip the knife into your pocket";
-		pocketKnife.EQUIPABLE = true;
 		pocketKnife.TAKEABLE = true;
-		pocketKnife.EFFECT = new String[]{"attack", "2"};
+		pocketKnife.EFFECTS = new String[]{"attack", "2"};
 
 		Item coldPizza = new Item();
-		coldPizza.NAME = "cold pizza";
-		coldPizza.DESCRIPTION = "A cold slice of pizza. Who knows how old it is";
-		coldPizza.PICKUP = "You stuff the greasy slice of cold pizza into your pocket";
-		coldPizza.CONSUMABLE = true;
+		coldPizza.NAME = "pizza";
+		coldPizza.DESCRIPTION = "A slice of pizza. Who knows how old it is";
+		coldPizza.PICKUP = "You stuff the greasy slice of pizza into your pocket";
 		coldPizza.TAKEABLE = true;
-		coldPizza.EFFECT = new String[]{"heal", "5", "You eat the cold slice, savoring each bite of chilly, cheesy goodness."};
+		coldPizza.EFFECTS = new String[]{"eat", "self","health", "5", "You eat the slice, savoring each bite of chilly, cheesy goodness."};
 
 		Item remote = new Item();
 		remote.NAME = "remote";
 		remote.DESCRIPTION = "The tv remote";
 		remote.PICKUP = "You put the remote in your pocket";
 		remote.TAKEABLE = true;
-		remote.EFFECT = new String[]{"use", "tv", "The tv powers on, casting a soft glow across the room", "The screen on the tv grows dark, leaving the room darker than before"};
+		remote.EFFECTS = new String[]{"use", "tv", "The tv powers on, casting a soft glow across the room", "The screen on the tv grows dark, leaving the room darker than before"};
 
 		Item television = new Item();
 		television.NAME = "tv";
@@ -37,7 +35,7 @@ public class World
 		television.PICKUP = "The tv is too heavy to lift and wouldn't fit in your pockets anyways";
 		television.ACT_DESC = "A soft glow eminates from the tv, as it displays current events and news stories about ";
 
-		television.EFFECT = new String[]{"use", "self", "You don't feel like walking up to the tv", "You don't feel like walking up to the tv"};
+		television.EFFECTS = new String[]{"use", "self", "You don't feel like walking up to the tv", "You don't feel like walking up to the tv"};
 
 		ITEMS.add(pocketKnife);
 		ITEMS.add(coldPizza);
@@ -58,7 +56,7 @@ public class World
 		kitchen.ENTRANCE = "You enter your kitchen.";
 		kitchen.DESCRIPTION = "This is your kitchen. You briefly wonder if you should eat something.";
 		kitchen.EXITS.add("livingroom");
-		kitchen.CONTENTS.add("cold pizza");
+		kitchen.CONTENTS.add("pizza");
 
 		Room bedroom = new Room();
 		bedroom.NAME = "bedroom";

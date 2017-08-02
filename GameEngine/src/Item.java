@@ -4,11 +4,9 @@ public class Item
 	public String DESCRIPTION;
 	public String ACT_DESC;
 	public String PICKUP;
-	public boolean CONSUMABLE = false;
-	public boolean EQUIPABLE = false;
 	public boolean TAKEABLE = false;
 	public boolean ACTIVATED = false;
-	public String[] EFFECT;
+	public String[] EFFECTS;
 
 	public String look()
 	{
@@ -20,5 +18,17 @@ public class Item
 	public void pickup()
 	{
 		Interface.setDISPLAY(PICKUP);
+	}
+
+	public int effect(String action)
+	{
+		int index = 0;
+		for(String s : EFFECTS)
+		{
+			if(s.equals(action))
+				return index;
+			index++;
+		}
+		return -1;
 	}
 }

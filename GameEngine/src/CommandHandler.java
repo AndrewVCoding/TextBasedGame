@@ -24,6 +24,8 @@ public class CommandHandler
 			take();
 		else if(COMMAND[0].equalsIgnoreCase("inventory"))
 			look();
+		else if(COMMAND[0].equalsIgnoreCase("use") || COMMAND[0].equalsIgnoreCase("eat") || COMMAND[0].equalsIgnoreCase("drink"))
+			act();
 		else
 			unknown();
 
@@ -89,7 +91,7 @@ public class CommandHandler
 	}
 
 	/**
-	 * todo allow the player to target an item and move it from room contents to player's inventory
+	 * Moves an object from the room to the players inventory
 	 */
 	private static void take()
 	{
@@ -110,6 +112,68 @@ public class CommandHandler
 
 			Interface.setDISPLAY(Interface.DISPLAY + "\n\n>>" + target.PICKUP);
 		}
+	}
+
+	/**
+	 * If the command is to use/eat/drink an item, find the relevant effects and act on them
+	 */
+	public static void act()
+	{
+		System.out.println("ACT");
+		if(COMMAND[1] != null)
+		{
+			Item source = World.getItem(COMMAND[1]);
+
+			//todo add a System class that deals with item visibility and accessibility in regards to the player
+
+			//The item is usable
+			if(source != null)
+			{
+				String action = COMMAND[0];
+				int index = source.effect(action);
+				System.out.println("     acting on " + COMMAND[1] + " with effect at " + index);
+
+				//If the specified action is valid for the item
+				if(index > -1)
+				{
+					System.out.println(COMMAND[1] + " has effect " + action);
+					if(action.equalsIgnoreCase("use"))
+						use(source, index);
+					else if(action.equalsIgnoreCase("eat") || action.equalsIgnoreCase("drink"))
+						consume(source, index);
+					else
+						invalid();
+				}
+			}
+		}
+	}
+
+	/**
+	 * When using an object, array contents are as follows
+	 * [   use | target | activation description | deactivation description ]
+	 * [ index |   +1   |          +2            |             +3           ]
+	 */
+	public static void use(Item source, int index)
+	{
+
+	}
+
+	/**
+	 * When consuming an object, array contents are as follows
+	 * [ consume | target | attribute | amount ]
+	 * [ index   |    +1  |    +2     |   +3   ]
+	 * @param source
+	 */
+	public static void consume(Item source, int index)
+	{
+		System.out.println("consuming " + source.NAME);
+		if(source.EFFECTS[index + 2].equalsIgnoreCase("health"))
+		{
+			Player.HP += Integer.parseInt(source.EFFECTS[index + 3]);
+			Interface.setDISPLAY(Interface.DISPLAY + "\nYou were healed for " + source.EFFECTS[index + 3]);
+		}
+		else
+			Interface.setDISPLAY(Interface.DISPLAY + "\nThe item had no effect");
 	}
 
 	/**
