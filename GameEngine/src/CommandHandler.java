@@ -11,7 +11,7 @@ public class CommandHandler
 	public static void command(String com)
 	{
 		//First split the command into an array of strings
-		COMMAND = com.split(" ");
+		COMMAND = CommandParser.parse(com);
 
 		//Check the first word and run the appropriate method
 		if(COMMAND[0].equalsIgnoreCase("start"))
@@ -24,10 +24,10 @@ public class CommandHandler
 			take();
 		else if(COMMAND[0].equalsIgnoreCase("inventory"))
 			look();
-		else if(COMMAND[0].equalsIgnoreCase("use") || COMMAND[0].equalsIgnoreCase("eat") || COMMAND[0].equalsIgnoreCase("drink"))
+		else if(COMMAND[0].equalsIgnoreCase("use"))
 			act();
 		else
-			unknown();
+			unknown(com);
 
 	}
 
@@ -44,7 +44,7 @@ public class CommandHandler
 		}
 		else if(GAME_STATE.equals("idle"))
 		{
-			Interface.setDISPLAY(Interface.DISPLAY + "\n\n>>" + "Sorry, that command is not available now.");
+			Interface.setDISPLAY(Interface.DISPLAY + "\n\n>>" + "Sorry, that command is not available at start.");
 		}
 		else
 			invalid();
@@ -58,15 +58,7 @@ public class CommandHandler
 	{
 		if(GAME_STATE.equals("idle"))
 		{
-			if(COMMAND.length > 1)
-			{
-				Interface.moveRoom(World.getRoom(COMMAND[1]));
-			}
-			else
-			{
-				Interface.setDISPLAY(Interface.DISPLAY + "\n\n>>" + "Where do you want to go?");
-				GAME_STATE = "go";
-			}
+			Interface.moveRoom(World.getRoom(COMMAND[1]));
 		}
 	}
 
@@ -78,15 +70,17 @@ public class CommandHandler
 	{
 		if(GAME_STATE.equals("idle"))
 		{
-			if(COMMAND.length > 1)
-			{
-				if(COMMAND[1].equalsIgnoreCase("inventory"))
-					Player.viewInventory();
-			}
-			else if(COMMAND[0].equalsIgnoreCase("inventory"))
+			//"look", "inventory"
+			if(COMMAND[1].equalsIgnoreCase("inventory"))
 				Player.viewInventory();
-			else
+			//"look", "room"
+			else if(COMMAND[1].equals("room"))
 				Interface.setDISPLAY(Player.LOCATION.look());
+			//"look", item.NAME
+			else
+				for(Item item : GameSystems.getVisibleItems())
+					if(COMMAND[1].equals(item.NAME))
+						Interface.setDISPLAY(Interface.DISPLAY + "\n>>" + item.look());
 		}
 	}
 
@@ -97,13 +91,7 @@ public class CommandHandler
 	{
 		if(GAME_STATE.equals("idle"))
 		{
-			String itemName = "";
-			for(int i = 1; i < COMMAND.length - 1; i++)
-				itemName += COMMAND[i] + " ";
-
-			itemName += COMMAND[COMMAND.length - 1];
-
-			Item target = World.getItem(itemName);
+			Item target = World.getItem(COMMAND[1]);
 			if(target.TAKEABLE)
 			{
 				Player.LOCATION.CONTENTS.remove(target.NAME);
@@ -119,7 +107,6 @@ public class CommandHandler
 	 */
 	public static void act()
 	{
-		System.out.println("ACT");
 		if(COMMAND[1] != null)
 		{
 			Item source = World.getItem(COMMAND[1]);
@@ -131,12 +118,10 @@ public class CommandHandler
 			{
 				String action = COMMAND[0];
 				int index = source.effect(action);
-				System.out.println("     acting on " + COMMAND[1] + " with effect at " + index);
 
 				//If the specified action is valid for the item
 				if(index > -1)
 				{
-					System.out.println(COMMAND[1] + " has effect " + action);
 					if(action.equalsIgnoreCase("use"))
 						use(source, index);
 					else if(action.equalsIgnoreCase("eat") || action.equalsIgnoreCase("drink"))
@@ -150,18 +135,35 @@ public class CommandHandler
 
 	/**
 	 * When using an object, array contents are as follows
-	 * [   use | target | activation description | deactivation description ]
-	 * [ index |   +1   |          +2            |             +3           ]
+	 * [   use | source | target | activation description | deactivation description ]
+	 * [ index |   +1   |   +2   |          +3            |             +4           ]
 	 */
 	public static void use(Item source, int index)
 	{
+		Item target = World.getItem(COMMAND[2]);
 
+		if(source.EFFECTS[index + 2].equals("player"))
+		{
+			//Place holder for future items
+		}
+
+		else if(source.EFFECTS[index + 2].equals(target.NAME))
+		{
+			if(!target.ACTIVATED)
+				Interface.setDISPLAY(Interface.DISPLAY + "\n" + source.EFFECTS[index + 3]);
+			if(target.ACTIVATED)
+				Interface.setDISPLAY(Interface.DISPLAY + source.EFFECTS[index + 4]);
+
+			target.ACTIVATED = !target.ACTIVATED;
+			System.out.print(target.ACTIVATED);
+		}
 	}
 
 	/**
 	 * When consuming an object, array contents are as follows
 	 * [ consume | target | attribute | amount ]
 	 * [ index   |    +1  |    +2     |   +3   ]
+	 *
 	 * @param source
 	 */
 	public static void consume(Item source, int index)
@@ -179,8 +181,10 @@ public class CommandHandler
 	/**
 	 * The command is unknown, either being a player response to a query or not a valid command
 	 */
-	private static void unknown()
+	private static void unknown(String input)
 	{
+		COMMAND = input.split(" ");
+
 		if(GAME_STATE.equals("character name"))
 		{
 			Player.setNAME(COMMAND[0]);

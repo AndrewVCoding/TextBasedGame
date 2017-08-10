@@ -9,9 +9,9 @@ public class World
 	public static void populate()
 	{
 		Item pocketKnife = new Item();
-		pocketKnife.NAME = "knife";
+		pocketKnife.NAME = "pocket knife";
 		pocketKnife.DESCRIPTION = "A small folding knife";
-		pocketKnife.PICKUP = "You carefully slip the knife into your pocket";
+		pocketKnife.PICKUP = "You carefully slip the pocket knife into your pocket";
 		pocketKnife.TAKEABLE = true;
 		pocketKnife.EFFECTS = new String[]{"attack", "2"};
 
@@ -27,7 +27,7 @@ public class World
 		remote.DESCRIPTION = "The tv remote";
 		remote.PICKUP = "You put the remote in your pocket";
 		remote.TAKEABLE = true;
-		remote.EFFECTS = new String[]{"use", "tv", "The tv powers on, casting a soft glow across the room", "The screen on the tv grows dark, leaving the room darker than before"};
+		remote.EFFECTS = new String[]{"use", "remote","tv", "The tv powers on, casting a soft glow across the room", "The screen on the tv grows dark, leaving the room darker than before"};
 
 		Item television = new Item();
 		television.NAME = "tv";
@@ -43,7 +43,7 @@ public class World
 		ITEMS.add(television);
 
 		Room livingRoom = new Room();
-		livingRoom.NAME = "livingroom";
+		livingRoom.NAME = "living room";
 		livingRoom.ENTRANCE = "You walk into the living room.";
 		livingRoom.DESCRIPTION = "This is your living room. It's very comfy.";
 		livingRoom.EXITS.add("kitchen");
@@ -55,7 +55,7 @@ public class World
 		kitchen.NAME = "kitchen";
 		kitchen.ENTRANCE = "You enter your kitchen.";
 		kitchen.DESCRIPTION = "This is your kitchen. You briefly wonder if you should eat something.";
-		kitchen.EXITS.add("livingroom");
+		kitchen.EXITS.add("living room");
 		kitchen.CONTENTS.add("pizza");
 
 		Room bedroom = new Room();

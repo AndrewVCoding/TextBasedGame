@@ -1,6 +1,4 @@
 To do:
-- implement ability to consume a consumable item, like cold pizza, to restore health
-- implement ability to use an item on another, remote on tv
 - create a system to decide what items are visible to the player, including room and inventory
 - implement container objects, such as drawers or chests
 - implement loading and saving data

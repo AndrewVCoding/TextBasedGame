@@ -11,6 +11,10 @@ public class driver
 		mainWindow.setResizable(false);
 
 		World.populate();
-		mainWindow.setDisplay("Welcome!");
+		mainWindow.setDisplay("Welcome! To begin the game and create your character, input \"start\"");
+
+		//For testing purposes, to get into the game faster, automate the character creation
+		GameSystems.autoStartGame("Andrew", 1);
+		mainWindow.updateDisplay();
 	}
 }
