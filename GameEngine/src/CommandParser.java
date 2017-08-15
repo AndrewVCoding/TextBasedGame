@@ -67,7 +67,7 @@ public class CommandParser
 				{
 					return new String[]{"use", item.NAME};
 				}
-				else if(input.matches("use " + item.NAME + "[ \\w\\d]*"))
+				else if(input.matches("use " + item.NAME + " [ \\w\\d]*"))
 				{
 					source = item;
 				}
@@ -88,6 +88,21 @@ public class CommandParser
 		}
 
 		/*
+		input: eat
+		can be basic: "eat food"
+		these commands are much easier if looking for perfect matches without worrying about partial matches
+		 */
+		if(input.matches("eat [ \\w\\d]*"))
+		{
+			//Check if "eat" is followed by any item names that are visible
+			for(Item item : visibleItems)
+			{
+				if(input.matches("eat " + item.NAME))
+					return new String[]{"consume", item.NAME};
+			}
+		}
+
+		/*
 		input: inventory
 		 */
 		if(input.matches("inventory"))
@@ -102,6 +117,14 @@ public class CommandParser
 				if(input.matches("take " + item.NAME))
 					return new String[]{"take", item.NAME};
 		}
+
+		/*
+		input: open
+		 */
+		if(input.matches("open [ \\w\\d]"))
+			for(Container container: GameSystems.getVisibleContainers())
+				if(input.matches("open [ \\d\\w]" + container.NAME + "[ \\d\\w]"))
+					return new String[]{"open", container.NAME};
 
 		return new String[]{"unknown"};
 	}

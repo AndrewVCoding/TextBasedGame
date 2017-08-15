@@ -1,5 +1,4 @@
 To do:
-- create a system to decide what items are visible to the player, including room and inventory
 - implement container objects, such as drawers or chests
 - implement loading and saving data
 - add creatures and a simple combat system

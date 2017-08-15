@@ -2,14 +2,13 @@ public class Interface
 {
 	public static String DISPLAY;
 
-	public static void setDISPLAY(String display)
+	public static void display(String display)
 	{
-		DISPLAY = display;
+		DISPLAY += "\n\n" + display;
 	}
 
-	public static void moveRoom(Room room)
+	public static void setDisplay(String display)
 	{
-		DISPLAY = room.enter();
-		Player.setLOCATION(room);
+		DISPLAY = display;
 	}
 }

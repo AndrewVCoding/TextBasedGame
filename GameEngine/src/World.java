@@ -5,6 +5,7 @@ public class World
 {
 	final private static List<Room> ROOMS = new ArrayList<>();
 	final private static List<Item> ITEMS = new ArrayList<>();
+	final private static List<Container> CONTAINERS = new ArrayList<>();
 
 	public static void populate()
 	{
@@ -20,7 +21,7 @@ public class World
 		coldPizza.DESCRIPTION = "A slice of pizza. Who knows how old it is";
 		coldPizza.PICKUP = "You stuff the greasy slice of pizza into your pocket";
 		coldPizza.TAKEABLE = true;
-		coldPizza.EFFECTS = new String[]{"eat", "self","health", "5", "You eat the slice, savoring each bite of chilly, cheesy goodness."};
+		coldPizza.EFFECTS = new String[]{"consume", "self","health", "5", "You eat the slice, savoring each bite of chilly, cheesy goodness."};
 
 		Item remote = new Item();
 		remote.NAME = "remote";
@@ -35,7 +36,7 @@ public class World
 		television.PICKUP = "The tv is too heavy to lift and wouldn't fit in your pockets anyways";
 		television.ACT_DESC = "A soft glow eminates from the tv, as it displays current events and news stories about ";
 
-		television.EFFECTS = new String[]{"use", "self", "You don't feel like walking up to the tv", "You don't feel like walking up to the tv"};
+		television.EFFECTS = new String[]{"act", "self", "You don't feel like walking up to the tv", "You don't feel like walking up to the tv"};
 
 		ITEMS.add(pocketKnife);
 		ITEMS.add(coldPizza);
@@ -48,15 +49,15 @@ public class World
 		livingRoom.DESCRIPTION = "This is your living room. It's very comfy.";
 		livingRoom.EXITS.add("kitchen");
 		livingRoom.EXITS.add("bedroom");
-		livingRoom.CONTENTS.add("tv");
-		livingRoom.CONTENTS.add("remote");
+		livingRoom.ITEMS.add(television);
+		livingRoom.ITEMS.add(remote);
 
 		Room kitchen = new Room();
 		kitchen.NAME = "kitchen";
 		kitchen.ENTRANCE = "You enter your kitchen.";
 		kitchen.DESCRIPTION = "This is your kitchen. You briefly wonder if you should eat something.";
 		kitchen.EXITS.add("living room");
-		kitchen.CONTENTS.add("pizza");
+		kitchen.ITEMS.add(coldPizza);
 
 		Room bedroom = new Room();
 		bedroom.NAME = "bedroom";
@@ -64,7 +65,7 @@ public class World
 		bedroom.DESCRIPTION = "This is your bedroom. You wish you were still in bed.";
 		bedroom.EXITS.add("living room");
 		bedroom.EXITS.add("bathroom");
-		bedroom.CONTENTS.add("pocket knife");
+		bedroom.ITEMS.add(pocketKnife);
 
 		Room bathroom = new Room();
 		bathroom.NAME = "bathroom";
@@ -88,7 +89,7 @@ public class World
 		for(Room room : ROOMS)
 			if(room.NAME.equalsIgnoreCase(name))
 				return room;
-		Interface.setDISPLAY("That room does not exist");
+		Interface.display(Interface.DISPLAY + "I don't see a way to get there.");
 		return null;
 	}
 
@@ -97,7 +98,16 @@ public class World
 		for(Item item : ITEMS)
 			if(item.NAME.equalsIgnoreCase(name))
 				return item;
-		Interface.setDISPLAY("I don't see that here");
+		Interface.display(Interface.DISPLAY + "I don't see that here");
+		return null;
+	}
+
+	public static Container getContainer(String name)
+	{
+		for(Container container : CONTAINERS)
+			if(container.NAME.equalsIgnoreCase(name))
+				return container;
+		Interface.display(Interface.DISPLAY + "I don't see that here");
 		return null;
 	}
 }

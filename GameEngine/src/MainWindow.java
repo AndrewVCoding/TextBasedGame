@@ -35,6 +35,7 @@ public class MainWindow extends JFrame implements ActionListener
 	{
 		display.setVisible(true);
 		display.setEditable(false);
+		display.setLineWrap(true);
 		input.setVisible(true);
 		input.addActionListener(this);
 		enter.setVisible(true);
@@ -112,7 +113,7 @@ public class MainWindow extends JFrame implements ActionListener
 
 	public void setDisplay(String s)
 	{
-		Interface.setDISPLAY(s);
+		Interface.display(s);
 		updateDisplay();
 	}
 
