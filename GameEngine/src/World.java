@@ -32,16 +32,32 @@ public class World
 
 		Item television = new Item();
 		television.NAME = "tv";
-		television.DESCRIPTION = "The tv is currently turned off, but you don't want to walk up to it to turn it on.";
+		television.DESCRIPTION = "The tv is currently turned off, but you don't want to walk all the way over to it to turn it on.";
 		television.PICKUP = "The tv is too heavy to lift and wouldn't fit in your pockets anyways";
-		television.ACT_DESC = "A soft glow eminates from the tv, as it displays current events and news stories about ";
-
+		television.ACT_DESC = "A soft glow emanates from the tv, as it displays current events and news stories about current events.";
 		television.EFFECTS = new String[]{"act", "self", "You don't feel like walking up to the tv", "You don't feel like walking up to the tv"};
+
+		Item socks = new Item();
+		socks.NAME = "socks";
+		socks.DESCRIPTION = "A pair of clean socks, neatly folded.";
+		socks.PICKUP = "You pick up the socks and put them in your pocket";
 
 		ITEMS.add(pocketKnife);
 		ITEMS.add(coldPizza);
 		ITEMS.add(remote);
 		ITEMS.add(television);
+		ITEMS.add(socks);
+
+		Container drawers = new Container();
+		drawers.NAME = "drawers";
+		drawers.DESCRIPTION = "The drawers next to your bed are closed";
+		drawers.ACT_DESC = "The drawer hangs open, allowing you to see inside";
+		drawers.OPEN_DESC = "You slide the drawer open to reveal:";
+		drawers.CLOSE_DESC = "You push the drawer closed";
+		drawers.LOCKED = false;
+		drawers.CONTENTS.add(socks);
+
+		CONTAINERS.add(drawers);
 
 		Room livingRoom = new Room();
 		livingRoom.NAME = "living room";
@@ -66,6 +82,7 @@ public class World
 		bedroom.EXITS.add("living room");
 		bedroom.EXITS.add("bathroom");
 		bedroom.ITEMS.add(pocketKnife);
+		bedroom.CONTAINERS.add(drawers);
 
 		Room bathroom = new Room();
 		bathroom.NAME = "bathroom";

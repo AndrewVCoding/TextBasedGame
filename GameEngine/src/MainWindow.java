@@ -18,6 +18,9 @@ public class MainWindow extends JFrame implements ActionListener
 	final private JTextField input = new JTextField();
 	final private JButton enter = new JButton();
 
+	//Scrollpane for display textArea
+	final private JScrollPane scrollPane = new JScrollPane(display);
+
 	//Player panel components
 	final private JLabel label_player_name = new JLabel("Name: ");
 	final private JLabel label_player_class = new JLabel("Race: ");
@@ -47,12 +50,15 @@ public class MainWindow extends JFrame implements ActionListener
 		enter.setText("Enter");
 
 		display.setMinimumSize(dimension_display);
+		scrollPane.setMinimumSize(dimension_display);
 		input.setMinimumSize(dimension_input);
 		enter.setMinimumSize(dimension_enter);
 		label_player_class.setMinimumSize(dimension_infoLabels);
 		label_player_name.setMinimumSize(dimension_infoLabels);
 		label_location_name.setMinimumSize(dimension_infoLabels);
 		label_player_hp.setMinimumSize(dimension_infoLabels);
+
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 
 		//Input layout
 		GroupLayout inputLayout = new GroupLayout(panel_input);
@@ -84,10 +90,10 @@ public class MainWindow extends JFrame implements ActionListener
 
 		//Group together the interaction panel
 		GroupLayout interactionLayout = new GroupLayout(panel_interaction);
-		interactionLayout.linkSize(SwingConstants.HORIZONTAL, panel_input, display);
+		interactionLayout.linkSize(SwingConstants.HORIZONTAL, panel_input, scrollPane);
 		interactionLayout.setAutoCreateContainerGaps(true);
-		interactionLayout.setHorizontalGroup(interactionLayout.createParallelGroup().addComponent(panel_input).addComponent(display));
-		interactionLayout.setVerticalGroup(interactionLayout.createSequentialGroup().addComponent(display).addComponent(panel_input));
+		interactionLayout.setHorizontalGroup(interactionLayout.createParallelGroup().addComponent(panel_input).addComponent(scrollPane));
+		interactionLayout.setVerticalGroup(interactionLayout.createSequentialGroup().addComponent(scrollPane).addComponent(panel_input));
 		panel_interaction.setLayout(interactionLayout);
 		panel_interaction.setVisible(true);
 

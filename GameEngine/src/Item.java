@@ -18,7 +18,7 @@ public class Item
 
 	public void pickup()
 	{
-		Interface.display(Interface.DISPLAY + "\n" + PICKUP);
+		Interface.display(PICKUP);
 	}
 
 	public int effect(String action)

@@ -20,10 +20,10 @@ public class Player
 				display += i + ")" + item.NAME + "\n";
 				i++;
 			}
-			Interface.display(Interface.DISPLAY + "\n\n>>" + "Inventory:\n" + display);
+			Interface.display("Inventory:\n" + display);
 		}
 		else
-			Interface.display(Interface.DISPLAY + "\n\n>>" + "Inventory is empty");
+			Interface.display("Inventory is empty");
 	}
 
 	public static void moveRoom(Room room)

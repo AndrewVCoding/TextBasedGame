@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.List;
 
 public class CommandParser
@@ -10,7 +9,9 @@ public class CommandParser
 		//get a list of all exits
 		List<Room> exits = GameSystems.getVisibleExits();
 		//get a list of all visible items
-		List<Item> visibleItems = GameSystems.getVisibleItems();
+		List<Item> accessibleItems = GameSystems.getAccessibleItems();
+		//get a list of all visible containers
+		List<Container> visibleContainers = GameSystems.getVisibleContainers();
 
 		/*
 		input: start
@@ -28,28 +29,28 @@ public class CommandParser
 			return new String[]{"look", "room", Player.LOCATION.NAME};
 		if(input.matches("look (at |)inventory"))
 			return new String[]{"look", "inventory"};
-		if(input.matches("look at [ \\w\\d]*"))
+		if(input.matches("look [ \\w\\d]*"))
 		{
 			//Check if the target is an exact match for an item or a room
-			for(Item item : visibleItems)
+			for(Item item : accessibleItems)
 				if(input.matches("look (at |)" + item.NAME))
 					return new String[]{"look", item.NAME};
+			return new String[]{"unknown", "I don't see that here"};
 		}
 
 		/*
 		input: go
 		must have the complete or partial match of a visible room name following "go "
 		 */
-		if(input.matches("go[ \\w\\d]*"))
+		if(input.matches("go [ \\w\\d]*"))
 		{
 			for(Room room : exits)
 			{
 				if(input.matches("go (to |to the |)" + room.NAME))
 					return new String[]{"go", room.NAME};
 			}
+			return new String[]{"unknown", "I don't know how to get there."};
 		}
-		if(input.matches("go"))
-			return new String[]{"go"};
 
 		/*
 		input: use
@@ -59,32 +60,26 @@ public class CommandParser
 		 */
 		if(input.matches("use [ \\w\\d]*"))
 		{
+			accessibleItems = GameSystems.getAccessibleItems();
 			Item source = null;
 			//Check if "use" is followed by any item names that are visible
-			for(Item item : visibleItems)
+			for(Item item : accessibleItems)
 			{
 				if(input.matches("use " + item.NAME))
-				{
 					return new String[]{"use", item.NAME};
-				}
 				else if(input.matches("use " + item.NAME + " [ \\w\\d]*"))
-				{
 					source = item;
-				}
+
 			}
 			//Now have the source item if there was more to the input after the item. If a second item name is not found, then just "use item"
 			if(source != null)
 			{
-				for(Item item: visibleItems)
-				{
+				for(Item item: accessibleItems)
 					if(input.matches("use " + source.NAME + " (on|with) " + item.NAME))
-					{
 						return new String[]{"use", source.NAME, item.NAME};
-					}
-					else
-						return new String[]{"use", item.NAME};
-				}
+				return new String[]{"use", source.NAME};
 			}
+			return new String[]{"unknown", "I don't see that here"};
 		}
 
 		/*
@@ -94,12 +89,12 @@ public class CommandParser
 		 */
 		if(input.matches("eat [ \\w\\d]*"))
 		{
+			accessibleItems = GameSystems.getAccessibleItems();
 			//Check if "eat" is followed by any item names that are visible
-			for(Item item : visibleItems)
-			{
+			for(Item item : accessibleItems)
 				if(input.matches("eat " + item.NAME))
 					return new String[]{"consume", item.NAME};
-			}
+			return new String[]{"unknown", "I don't see that here"};
 		}
 
 		/*
@@ -113,19 +108,46 @@ public class CommandParser
 		 */
 		if(input.matches("take [ \\w\\d]*"))
 		{
-			for(Item item: visibleItems)
+			accessibleItems = GameSystems.getAccessibleItems();
+			for(Item item: accessibleItems)
 				if(input.matches("take " + item.NAME))
 					return new String[]{"take", item.NAME};
+			return new String[]{"unknown", "I don't see that here"};
 		}
 
 		/*
 		input: open
 		 */
-		if(input.matches("open [ \\w\\d]"))
-			for(Container container: GameSystems.getVisibleContainers())
-				if(input.matches("open [ \\d\\w]" + container.NAME + "[ \\d\\w]"))
-					return new String[]{"open", container.NAME};
+		if(input.matches("open [ \\w\\d]*"))
+		{
+			visibleContainers = GameSystems.getVisibleContainers();
 
-		return new String[]{"unknown"};
+			for(Container container : visibleContainers)
+				if(input.matches("open (up the |the |)" + container.NAME))
+					return new String[]{"open", container.NAME};
+			return new String[]{"unknown", "I don't see that here"};
+		}
+
+		/*
+		input: close
+		 */
+		if(input.matches("close [ \\w\\d]*"))
+		{
+			visibleContainers = GameSystems.getVisibleContainers();
+
+			for(Container container : visibleContainers)
+				if(input.matches("close (the |)" + container.NAME))
+					return new String[]{"close", container.NAME};
+			return new String[]{"unknown", "I don't see that here"};
+		}
+
+		/*
+		input: custom
+		The game is asking for information input
+		 */
+		if(GameSystems.GAME_STATE.matches("start|character name|character class"))
+			return new String[]{"unknown", "information input"};
+
+		return new String[]{"unknown", "I don't know what you mean"};
 	}
 }

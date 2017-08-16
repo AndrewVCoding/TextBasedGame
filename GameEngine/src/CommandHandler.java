@@ -8,6 +8,7 @@ public class CommandHandler
 	 */
 	public static void command(String com)
 	{
+		Interface.display(">>" + com);
 		//First split the command into an array of strings
 		GameSystems.COMMAND = CommandParser.parse(com);
 
@@ -28,7 +29,9 @@ public class CommandHandler
 			GameSystems.act();
 		else if(GameSystems.COMMAND[0].equalsIgnoreCase("open"))
 			GameSystems.open();
-		else
+		else if(GameSystems.COMMAND[0].equalsIgnoreCase("close"))
+			GameSystems.close();
+		else if(GameSystems.COMMAND[0].equalsIgnoreCase("unknown"))
 			GameSystems.unknown(com);
 
 	}

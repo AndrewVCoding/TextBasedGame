@@ -8,6 +8,7 @@ public class GameSystems
 
 	/**
 	 * Auto starts the game as a prenamed character and class
+	 *
 	 * @param name
 	 * @param clas
 	 */
@@ -19,8 +20,7 @@ public class GameSystems
 	}
 
 	/**
-	 *
-	 * @return a list of all items currently visible to the player
+	 * @return a list of all items currently visible to the player, in their inventory and in the room with them(outside of containers)
 	 */
 	public static List<Item> getVisibleItems()
 	{
@@ -30,9 +30,10 @@ public class GameSystems
 		{
 			for(Item i : Player.INVENTORY)
 				visible.add(i);
-			for(Item s : Player.LOCATION.ITEMS)
-				visible.add(World.getItem(s.NAME));
-		}catch(NullPointerException e)
+			for(Item i : Player.LOCATION.ITEMS)
+				visible.add(i);
+
+		} catch(NullPointerException e)
 		{
 
 		}
@@ -40,17 +41,45 @@ public class GameSystems
 		return visible;
 	}
 
+	/**
+	 * @return a list of all items currently accessible to the player, in their inventory, the room, and in containers
+	 */
+	public static List<Item> getAccessibleItems()
+	{
+		List<Item> accessible = new ArrayList<>();
+
+		try
+		{
+			for(Item i : Player.INVENTORY)
+				accessible.add(i);
+			for(Item i : Player.LOCATION.ITEMS)
+				accessible.add(i);
+			for(Container c : Player.LOCATION.CONTAINERS)
+				if(c.OPEN)
+					for(Item i : c.CONTENTS)
+						accessible.add(i);
+
+		} catch(NullPointerException e)
+		{
+
+		}
+
+		return accessible;
+	}
+
+	/**
+	 * @return a list of all rooms currently connected to the room the player is in
+	 */
 	public static List<Room> getVisibleExits()
 	{
 		List<Room> visible = new ArrayList<>();
 
 		try
 		{
-		for(String s: Player.LOCATION.EXITS)
-			visible.add(World.getRoom(s));
-		}catch(NullPointerException e)
+			for(String s : Player.LOCATION.EXITS)
+				visible.add(World.getRoom(s));
+		} catch(NullPointerException e)
 		{
-
 		}
 
 		return visible;
@@ -60,12 +89,13 @@ public class GameSystems
 	{
 		List<Container> visible = new ArrayList<>();
 
-		for(Container s: Player.LOCATION.CONTAINERS)
-			try
-			{
-				visible.add(World.getContainer(s.NAME));
-			}
-			catch(NullPointerException e){}
+		try
+		{
+			for(Container s : Player.LOCATION.CONTAINERS)
+				visible.add(s);
+		} catch(NullPointerException e)
+		{
+		}
 
 		return visible;
 	}
@@ -117,23 +147,33 @@ public class GameSystems
 				Interface.setDisplay(Player.LOCATION.look());
 				//"look", item.NAME
 			else
-				for(Item item : GameSystems.getVisibleItems())
+				for(Item item : GameSystems.getAccessibleItems())
 					if(COMMAND[1].equals(item.NAME))
 						Interface.display(item.look());
 		}
 	}
 
 	/**
-	 * Moves an object from the room to the players inventory
+	 * Moves an object to the players inventory
 	 */
 	public static void take()
 	{
 		if(GAME_STATE.equals("idle"))
 		{
 			Item target = World.getItem(COMMAND[1]);
+
 			if(target.TAKEABLE)
 			{
-				Player.LOCATION.ITEMS.remove(target.NAME);
+				//If the item is in the room
+				if(Player.LOCATION.ITEMS.contains(target))
+					Player.LOCATION.ITEMS.remove(target);
+
+					//Otherwise, check if it is in a container
+				else
+					for(Container container : Player.LOCATION.CONTAINERS)
+						if(container.CONTENTS.contains(target) && container.OPEN)
+							container.CONTENTS.remove(target);
+
 				Player.INVENTORY.add(target);
 			}
 
@@ -222,18 +262,18 @@ public class GameSystems
 	 */
 	public static void unknown(String input)
 	{
-		COMMAND = input.split(" ");
+		String[] command = input.split(" ");
 
 		if(GAME_STATE.equals("character name"))
 		{
-			Player.NAME = COMMAND[0];
+			Player.NAME = command[0];
 			GAME_STATE = "character class";
 			Interface.display("Now pick a class:\n1)warrior\n2)Wizard\n3)Rogue");
 
 		}
 		else if(GAME_STATE.equals("character class"))
 		{
-			if(COMMAND[0].equals("1"))
+			if(command[0].equals("1"))
 			{
 				GAME_STATE = "idle";
 				Player.CLASS = "Warrior";
@@ -241,7 +281,7 @@ public class GameSystems
 				Player.moveRoom(World.getStartingRoom());
 
 			}
-			else if(COMMAND[0].equals("2"))
+			else if(command[0].equals("2"))
 			{
 				GAME_STATE = "idle";
 				Player.CLASS = "Wizard";
@@ -249,7 +289,7 @@ public class GameSystems
 				Player.moveRoom(World.getStartingRoom());
 
 			}
-			else if(COMMAND[0].equals("3"))
+			else if(command[0].equals("3"))
 			{
 				GAME_STATE = "idle";
 				Player.CLASS = "Rogue";
@@ -262,30 +302,26 @@ public class GameSystems
 			}
 
 		}
-		else if(GAME_STATE.equals("go"))
-		{
-			COMMAND = new String[]{"go", COMMAND[0]};
-			GAME_STATE = "idle";
-			go();
-		}
 		else
 			invalid();
 	}
 
 	public static void open()
 	{
-		//todo this
 		for(Container container : GameSystems.getVisibleContainers())
-		{
 			if(container.NAME.equals(COMMAND[1]))
-			{
-				//todo
-			}
-		}
+				container.open();
+	}
+
+	public static void close()
+	{
+		for(Container container : GameSystems.getVisibleContainers())
+			if(container.NAME.equals(COMMAND[1]))
+				container.close();
 	}
 
 	public static void invalid()
 	{
-		Interface.display("Sorry, that command is not available now.");
+		Interface.display(COMMAND[1]);
 	}
 }

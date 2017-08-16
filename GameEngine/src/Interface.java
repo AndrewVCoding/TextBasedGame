@@ -4,7 +4,7 @@ public class Interface
 
 	public static void display(String display)
 	{
-		DISPLAY += "\n\n" + display;
+		DISPLAY += "\n" + display;
 	}
 
 	public static void setDisplay(String display)

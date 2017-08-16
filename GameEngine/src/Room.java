@@ -21,7 +21,7 @@ public class Room
 			contents += item.NAME + ", ";
 		for(Container container : CONTAINERS)
 			contents += container.NAME + ", ";
-		return ENTRANCE + "\n" + DESCRIPTION + "\n\nContains: " + contents + "\nExits: " + exits;
+		return ENTRANCE + "\n\n" + DESCRIPTION + "\n\nContains: " + contents + "\nExits: " + exits + "\n";
 	}
 
 	public String look()
@@ -34,7 +34,7 @@ public class Room
 			contents += item.NAME + ", ";
 		for(Container container : CONTAINERS)
 			contents += container.NAME + ", ";
-		return DESCRIPTION + "\n\nContains: " + contents + "\nExits: " + exits;
+		return DESCRIPTION + "\n\nContains: " + contents + "\nExits: " + exits + "\n";
 	}
 
 	public boolean isExit(Room room)

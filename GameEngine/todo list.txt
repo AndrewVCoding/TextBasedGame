@@ -1,4 +1,5 @@
 To do:
 - implement container objects, such as drawers or chests
+    -now they work very basically, next add keys
 - implement loading and saving data
 - add creatures and a simple combat system
