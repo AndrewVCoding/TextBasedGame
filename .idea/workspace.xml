@@ -5,19 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aae26b62-91b6-4ef4-8927-2e47d11be383" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/Duntorah.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/IdleState.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/StartState.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/CommandHandler.java" afterPath="$PROJECT_DIR$/GameEngine/src/CommandHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/CommandParser.java" afterPath="$PROJECT_DIR$/GameEngine/src/CommandParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/Container.java" afterPath="$PROJECT_DIR$/GameEngine/src/Container.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/GameSystems.java" afterPath="$PROJECT_DIR$/GameEngine/src/GameSystems.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/Interface.java" afterPath="$PROJECT_DIR$/GameEngine/src/Interface.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/Item.java" afterPath="$PROJECT_DIR$/GameEngine/src/Item.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/MainWindow.java" afterPath="$PROJECT_DIR$/GameEngine/src/MainWindow.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/Player.java" afterPath="$PROJECT_DIR$/GameEngine/src/Player.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/Room.java" afterPath="$PROJECT_DIR$/GameEngine/src/Room.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/World.java" afterPath="$PROJECT_DIR$/GameEngine/src/World.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/todo list.txt" afterPath="$PROJECT_DIR$/GameEngine/todo list.txt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,44 +30,31 @@
       <file leaf-file-name="CommandHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GameEngine/src/CommandHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="12" column="55" lean-forward="false" selection-start-line="12" selection-start-column="55" selection-end-line="12" selection-end-column="55" />
+            <state relative-caret-position="195">
+              <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainWindow.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GameEngine/src/MainWindow.java">
+      <file leaf-file-name="Interface.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GameEngine/src/Interface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="110" column="5" lean-forward="true" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
+            <state relative-caret-position="289">
+              <caret line="17" column="49" lean-forward="true" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Container.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GameEngine/src/Container.java">
+      <file leaf-file-name="DataHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GameEngine/src/DataHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="59" column="67" lean-forward="false" selection-start-line="59" selection-start-column="67" selection-end-line="59" selection-end-column="67" />
+            <state relative-caret-position="136">
+              <caret line="8" column="41" lean-forward="true" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
               <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameSystems.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GameEngine/src/GameSystems.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="262" column="44" lean-forward="true" selection-start-line="262" selection-start-column="44" selection-end-line="262" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#7340#7341#0" expanded="true" />
-                <element signature="e#7376#7377#0" expanded="true" />
+                <element signature="e#115#116#0" expanded="true" />
+                <element signature="e#154#155#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,8 +63,8 @@
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GameEngine/src/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="30" column="43" lean-forward="true" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
+            <state relative-caret-position="416">
+              <caret line="31" column="22" lean-forward="true" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -90,21 +72,45 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommandParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GameEngine/src/CommandParser.java">
+      <file leaf-file-name="GameSystems.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/GameEngine/src/GameSystems.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="147" column="79" lean-forward="false" selection-start-line="147" selection-start-column="79" selection-end-line="147" selection-end-column="79" />
+            <state relative-caret-position="667">
+              <caret line="177" column="49" lean-forward="true" selection-start-line="177" selection-start-column="49" selection-end-line="177" selection-end-column="49" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#5899#5900#0" expanded="true" />
+                <element signature="e#5935#5936#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StartState.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GameEngine/src/StartState.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="todo list.txt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/GameEngine/todo list.txt">
+      <file leaf-file-name="IdleState.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GameEngine/src/IdleState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="48" lean-forward="false" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
+            <state relative-caret-position="421">
+              <caret line="58" column="46" lean-forward="true" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Item.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GameEngine/src/Item.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="23" column="16" lean-forward="true" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -113,8 +119,8 @@
       <file leaf-file-name="World.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GameEngine/src/World.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="54" column="65" lean-forward="true" selection-start-line="54" selection-start-column="65" selection-end-line="54" selection-end-column="65" />
+            <state relative-caret-position="396">
+              <caret line="94" column="121" lean-forward="false" selection-start-line="94" selection-start-column="121" selection-end-line="94" selection-end-column="121" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -125,22 +131,9 @@
       <file leaf-file-name="Room.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GameEngine/src/Room.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="22" column="46" lean-forward="true" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+            <state relative-caret-position="337">
+              <caret line="23" column="46" lean-forward="false" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Item.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GameEngine/src/Item.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
-              <folding>
-                <element signature="e#342#343#0" expanded="true" />
-                <element signature="e#374#375#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -174,16 +167,18 @@
         <option value="$PROJECT_DIR$/GameEngine/src/GameStates.java" />
         <option value="$PROJECT_DIR$/GameEngine/src/driver.java" />
         <option value="$PROJECT_DIR$/GameEngine/src/Item.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/Interface.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/Room.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/Player.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/World.java" />
         <option value="$PROJECT_DIR$/GameEngine/src/Container.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/GameSystems.java" />
         <option value="$PROJECT_DIR$/GameEngine/src/MainWindow.java" />
         <option value="$PROJECT_DIR$/GameEngine/src/CommandHandler.java" />
         <option value="$PROJECT_DIR$/GameEngine/src/CommandParser.java" />
         <option value="$PROJECT_DIR$/GameEngine/todo list.txt" />
+        <option value="$PROJECT_DIR$/GameEngine/src/StartState.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/IdleState.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/World.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/Player.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/Room.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/Interface.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/GameSystems.java" />
       </list>
     </option>
   </component>
@@ -426,7 +421,7 @@
       <workItem from="1502575888837" duration="2846000" />
       <workItem from="1502728941727" duration="2951000" />
       <workItem from="1502822270889" duration="10318000" />
-      <workItem from="1502895809142" duration="7139000" />
+      <workItem from="1502895809142" duration="12993000" />
     </task>
     <task id="LOCAL-00001" summary="Updated all class files to match original project">
       <created>1501284256536</created>
@@ -491,11 +486,18 @@
       <option name="project" value="LOCAL" />
       <updated>1502827511958</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Containers can now be opened and closed, allowing the player to take items from them. The items are properly detected as being visible/invisible to the player based on the state of the container. Still need to add key items to allow locking and unlocking containers and doors.">
+      <created>1502903262955</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1502903262955</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87221000" />
+    <option name="totallyTimeSpent" value="93075000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -549,50 +551,16 @@
     <MESSAGE value="Consumable items can now be eaten/drunk and will heal the player." />
     <MESSAGE value="The command system has been rewritten to integrate the commandParser, allowing for more flexible inputs." />
     <MESSAGE value="Moved all of the functions that effect other objects from CommandHandler to GameSystems. Created Container class and am integrating it into the game, so that they can be unlocked if the player has the correct key in their inventory. Then, when looking at the container it should display its contents and allow the player to take them." />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved all of the functions that effect other objects from CommandHandler to GameSystems. Created Container class and am integrating it into the game, so that they can be unlocked if the player has the correct key in their inventory. Then, when looking at the container it should display its contents and allow the player to take them." />
+    <MESSAGE value="Containers can now be opened and closed, allowing the player to take items from them. The items are properly detected as being visible/invisible to the player based on the state of the container. Still need to add key items to allow locking and unlocking containers and doors." />
+    <option name="LAST_COMMIT_MESSAGE" value="Containers can now be opened and closed, allowing the player to take items from them. The items are properly detected as being visible/invisible to the player based on the state of the container. Still need to add key items to allow locking and unlocking containers and doors." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GameEngine/src/World.java</url>
-          <line>86</line>
-          <properties />
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GameEngine/src/World.java</url>
-          <line>84</line>
-          <properties />
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="48" />
+      <option name="time" value="49" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/World.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="22" column="67" lean-forward="false" selection-start-line="22" selection-start-column="67" selection-end-line="22" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="35" lean-forward="false" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-          <folding>
-            <element signature="e#342#343#0" expanded="true" />
-            <element signature="e#374#375#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GameEngine/src/CommandHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -622,10 +590,10 @@
         <state relative-caret-position="170">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
-            <element signature="e#102#103#0" expanded="true" />
-            <element signature="e#134#135#0" expanded="true" />
-            <element signature="e#185#186#0" expanded="true" />
-            <element signature="e#209#210#0" expanded="true" />
+            <element signature="e#168#169#0" expanded="true" />
+            <element signature="e#326#327#0" expanded="true" />
+            <element signature="e#365#366#0" expanded="true" />
+            <element signature="e#509#510#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -698,10 +666,10 @@
         <state relative-caret-position="238">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
-            <element signature="e#102#103#0" expanded="true" />
-            <element signature="e#134#135#0" expanded="true" />
-            <element signature="e#185#186#0" expanded="true" />
-            <element signature="e#209#210#0" expanded="true" />
+            <element signature="e#168#169#0" expanded="true" />
+            <element signature="e#326#327#0" expanded="true" />
+            <element signature="e#365#366#0" expanded="true" />
+            <element signature="e#509#510#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -763,10 +731,10 @@
         <state relative-caret-position="238">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
-            <element signature="e#102#103#0" expanded="true" />
-            <element signature="e#134#135#0" expanded="true" />
-            <element signature="e#185#186#0" expanded="true" />
-            <element signature="e#209#210#0" expanded="true" />
+            <element signature="e#168#169#0" expanded="true" />
+            <element signature="e#326#327#0" expanded="true" />
+            <element signature="e#365#366#0" expanded="true" />
+            <element signature="e#509#510#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -828,10 +796,10 @@
         <state relative-caret-position="238">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
-            <element signature="e#102#103#0" expanded="true" />
-            <element signature="e#134#135#0" expanded="true" />
-            <element signature="e#185#186#0" expanded="true" />
-            <element signature="e#209#210#0" expanded="true" />
+            <element signature="e#168#169#0" expanded="true" />
+            <element signature="e#326#327#0" expanded="true" />
+            <element signature="e#365#366#0" expanded="true" />
+            <element signature="e#509#510#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -869,13 +837,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/DataHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="41" lean-forward="true" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -1254,68 +1215,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/Interface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="22" lean-forward="true" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-          <folding>
-            <element signature="e#102#103#0" expanded="true" />
-            <element signature="e#134#135#0" expanded="true" />
-            <element signature="e#185#186#0" expanded="true" />
-            <element signature="e#209#210#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/Room.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="22" column="46" lean-forward="true" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="30" column="43" lean-forward="true" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/World.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="54" column="65" lean-forward="true" selection-start-line="54" selection-start-column="65" selection-end-line="54" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/Container.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="59" column="67" lean-forward="false" selection-start-line="59" selection-start-column="67" selection-end-line="59" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
-          <folding>
-            <element signature="e#342#343#0" expanded="true" />
-            <element signature="e#374#375#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GameEngine/src/MainWindow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="123">
@@ -1324,23 +1223,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/CommandHandler.java">
+    <entry file="file://$PROJECT_DIR$/GameEngine/todo list.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="12" column="55" lean-forward="false" selection-start-line="12" selection-start-column="55" selection-end-line="12" selection-end-column="55" />
+        <state relative-caret-position="68">
+          <caret line="4" column="42" lean-forward="true" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/GameSystems.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="262" column="44" lean-forward="true" selection-start-line="262" selection-start-column="44" selection-end-line="262" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#7340#7341#0" expanded="true" />
-            <element signature="e#7376#7377#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1352,11 +1239,104 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/todo list.txt">
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Container.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="48" lean-forward="false" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
+        <state relative-caret-position="365">
+          <caret line="64" column="5" lean-forward="true" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/DataHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="41" lean-forward="true" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+          <folding>
+            <element signature="e#115#116#0" expanded="true" />
+            <element signature="e#154#155#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/World.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="94" column="121" lean-forward="false" selection-start-line="94" selection-start-column="121" selection-end-line="94" selection-end-column="121" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/CommandHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="31" column="22" lean-forward="true" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Room.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="23" column="46" lean-forward="false" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Interface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="49" lean-forward="true" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="23" column="16" lean-forward="true" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/IdleState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="58" column="46" lean-forward="true" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/StartState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/GameSystems.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="177" column="49" lean-forward="true" selection-start-line="177" selection-start-column="49" selection-end-line="177" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5899#5900#0" expanded="true" />
+            <element signature="e#5935#5936#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

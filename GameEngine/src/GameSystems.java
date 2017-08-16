@@ -107,14 +107,9 @@ public class GameSystems
 	public static void start()
 	{
 		if(GAME_STATE.equals("start"))
-		{
-			GAME_STATE = "character name";
-			Interface.display("Please enter a name for your character");
-		}
+			StartState.start();
 		else if(GAME_STATE.equals("idle"))
-		{
 			Interface.display("Sorry, that command is not available right now.");
-		}
 		else
 			invalid();
 	}
@@ -138,19 +133,7 @@ public class GameSystems
 	public static void look()
 	{
 		if(GAME_STATE.equals("idle"))
-		{
-			//"look", "inventory"
-			if(COMMAND[1].equalsIgnoreCase("inventory"))
-				Player.viewInventory();
-				//"look", "room"
-			else if(COMMAND[1].equals("room"))
-				Interface.setDisplay(Player.LOCATION.look());
-				//"look", item.NAME
-			else
-				for(Item item : GameSystems.getAccessibleItems())
-					if(COMMAND[1].equals(item.NAME))
-						Interface.display(item.look());
-		}
+			IdleState.look(COMMAND);
 	}
 
 	/**
@@ -159,26 +142,7 @@ public class GameSystems
 	public static void take()
 	{
 		if(GAME_STATE.equals("idle"))
-		{
-			Item target = World.getItem(COMMAND[1]);
-
-			if(target.TAKEABLE)
-			{
-				//If the item is in the room
-				if(Player.LOCATION.ITEMS.contains(target))
-					Player.LOCATION.ITEMS.remove(target);
-
-					//Otherwise, check if it is in a container
-				else
-					for(Container container : Player.LOCATION.CONTAINERS)
-						if(container.CONTENTS.contains(target) && container.OPEN)
-							container.CONTENTS.remove(target);
-
-				Player.INVENTORY.add(target);
-			}
-
-			Interface.display(target.PICKUP);
-		}
+			IdleState.take(COMMAND);
 	}
 
 	/**
@@ -187,29 +151,7 @@ public class GameSystems
 	public static void act()
 	{
 		if(COMMAND[1] != null)
-		{
-			Item source = World.getItem(COMMAND[1]);
-
-			//todo add a System class that deals with item visibility and accessibility in regards to the player
-
-			//The item is usable
-			if(source != null)
-			{
-				String action = COMMAND[0];
-				int index = source.effect(action);
-
-				//If the specified action is valid for the item
-				if(index > -1)
-				{
-					if(action.equalsIgnoreCase("use"))
-						use(source, index);
-					else if(action.equalsIgnoreCase("consume"))
-						consume(source, index);
-					else
-						invalid();
-				}
-			}
-		}
+			IdleState.act(COMMAND);
 	}
 
 	/**
@@ -234,7 +176,6 @@ public class GameSystems
 				Interface.display(source.EFFECTS[index + 4]);
 
 			target.ACTIVATED = !target.ACTIVATED;
-			System.out.print(target.ACTIVATED);
 		}
 	}
 
@@ -301,6 +242,7 @@ public class GameSystems
 				Interface.display("That is not a valid class choice");
 			}
 
+			Interface.INTERACTIONS = "";
 		}
 		else
 			invalid();

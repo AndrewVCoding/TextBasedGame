@@ -40,6 +40,7 @@ public class World
 		Item socks = new Item();
 		socks.NAME = "socks";
 		socks.DESCRIPTION = "A pair of clean socks, neatly folded.";
+		socks.TAKEABLE = true;
 		socks.PICKUP = "You pick up the socks and put them in your pocket";
 
 		ITEMS.add(pocketKnife);
@@ -63,6 +64,7 @@ public class World
 		livingRoom.NAME = "living room";
 		livingRoom.ENTRANCE = "You walk into the living room.";
 		livingRoom.DESCRIPTION = "This is your living room. It's very comfy.";
+		livingRoom.LOOK = "You look around your living room, taking note of any objects that might be useful.";
 		livingRoom.EXITS.add("kitchen");
 		livingRoom.EXITS.add("bedroom");
 		livingRoom.ITEMS.add(television);
@@ -72,6 +74,7 @@ public class World
 		kitchen.NAME = "kitchen";
 		kitchen.ENTRANCE = "You enter your kitchen.";
 		kitchen.DESCRIPTION = "This is your kitchen. You briefly wonder if you should eat something.";
+		kitchen.LOOK = "You look at the messy kitchen, briefly wondering how you can stand to prepare your meals in such a disgusting environment";
 		kitchen.EXITS.add("living room");
 		kitchen.ITEMS.add(coldPizza);
 
@@ -79,6 +82,7 @@ public class World
 		bedroom.NAME = "bedroom";
 		bedroom.ENTRANCE = "You enter your bedroom.";
 		bedroom.DESCRIPTION = "This is your bedroom. You wish you were still in bed.";
+		bedroom.LOOK = "Your bedroom is immaculately clean, even all of your book shelves are dusted and organized";
 		bedroom.EXITS.add("living room");
 		bedroom.EXITS.add("bathroom");
 		bedroom.ITEMS.add(pocketKnife);
@@ -88,6 +92,7 @@ public class World
 		bathroom.NAME = "bathroom";
 		bathroom.ENTRANCE = "You enter your bathroom.";
 		bathroom.DESCRIPTION = "This is your bathroom. You briefly wonder if you should eat something.";
+		bathroom.LOOK = "What is there to say, it's just a smelly bathroom. The shower is clean, but the toilet seat...";
 		bathroom.EXITS.add("bedroom");
 
 		ROOMS.add(livingRoom);

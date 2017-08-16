@@ -6,12 +6,13 @@ public class Room
 	public String NAME;
 	public String ENTRANCE;
 	public String DESCRIPTION;
+	public String LOOK;
 	public List<String> EXITS = new ArrayList<>();
 	public List<Item> ITEMS = new ArrayList<>();
 	public List<Container> CONTAINERS = new ArrayList<>();
 
 
-	public String enter()
+	public String enter(boolean move)
 	{
 		String exits = "";
 		String contents = "";
@@ -21,7 +22,10 @@ public class Room
 			contents += item.NAME + ", ";
 		for(Container container : CONTAINERS)
 			contents += container.NAME + ", ";
-		return ENTRANCE + "\n\n" + DESCRIPTION + "\n\nContains: " + contents + "\nExits: " + exits + "\n";
+		if(move)
+			return ENTRANCE + "\n\n" + DESCRIPTION + "\n\nContains: " + contents + "\nExits: " + exits + "\n" + "_______________________________________________________________";
+		else
+			return DESCRIPTION + "\n\nContains: " + contents + "\nExits: " + exits + "\n" + "_______________________________________________________________";
 	}
 
 	public String look()
@@ -34,7 +38,7 @@ public class Room
 			contents += item.NAME + ", ";
 		for(Container container : CONTAINERS)
 			contents += container.NAME + ", ";
-		return DESCRIPTION + "\n\nContains: " + contents + "\nExits: " + exits + "\n";
+		return LOOK;
 	}
 
 	public boolean isExit(Room room)

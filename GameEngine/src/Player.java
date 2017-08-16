@@ -28,7 +28,7 @@ public class Player
 
 	public static void moveRoom(Room room)
 	{
-		Interface.setDisplay(room.enter());
 		LOCATION = room;
+		Interface.resetDisplay();
 	}
 }

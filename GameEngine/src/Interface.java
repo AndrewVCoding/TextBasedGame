@@ -1,14 +1,22 @@
 public class Interface
 {
 	public static String DISPLAY;
+	public static String INTERACTIONS;
+	public static String HEADER;
 
 	public static void display(String display)
 	{
-		DISPLAY += "\n" + display;
+		if(GameSystems.GAME_STATE.equals("idle"))
+			HEADER = Player.LOCATION.enter(false);
+		INTERACTIONS += "\n" + display;
+		DISPLAY = HEADER + INTERACTIONS;
 	}
 
-	public static void setDisplay(String display)
+	public static void resetDisplay()
 	{
-		DISPLAY = display;
+		if(GameSystems.GAME_STATE.equals("idle"))
+			HEADER = Player.LOCATION.enter(true);
+		INTERACTIONS = "";
+		DISPLAY = HEADER + INTERACTIONS;
 	}
 }
