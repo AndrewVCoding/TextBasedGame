@@ -74,9 +74,9 @@ class IdleState
 			//Otherwise, check if it is in a container
 			else
 				for(Container container : GameSystems.getVisibleContainers())
-					if(container.CONTENTS.contains(target) && container.OPEN)
+					if(container.ITEMS.contains(target) && container.OPEN)
 					{
-						container.CONTENTS.remove(target);
+						container.ITEMS.remove(target);
 						Player.INVENTORY.add(target);
 					}
 		}

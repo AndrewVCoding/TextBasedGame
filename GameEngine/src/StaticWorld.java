@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A prebuilt set of World data for use in testing the game while developing.
+ * Creates all items, containers, and rooms.
+ */
 class StaticWorld
 {
 	final private static List<Room> ROOMS = new ArrayList<>();
@@ -56,7 +60,7 @@ class StaticWorld
 		drawers.OPEN_DESC = "You slide the drawer open to reveal:";
 		drawers.CLOSE_DESC = "You push the drawer closed";
 		drawers.LOCKED = false;
-		drawers.CONTENTS.add(socks);
+		drawers.ITEMS.add(socks);
 
 		CONTAINERS.add(drawers);
 

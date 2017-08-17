@@ -52,7 +52,7 @@ class GameSystems
 			accessible.addAll(Player.LOCATION.ITEMS);
 			for(Container c : Player.LOCATION.CONTAINERS)
 				if(c.OPEN)
-					accessible.addAll(c.CONTENTS);
+					accessible.addAll(c.ITEMS);
 
 		} catch(NullPointerException e)
 		{

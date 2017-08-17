@@ -9,6 +9,7 @@ public class Room
 	public String DESCRIPTION;
 	public String LOOK;
 	//All contents should be stored by ID rather than name to allow multiple distinct objects with the same name
+	//todo move everything over to the new ContentSlot system
 	public final List<String> EXITS = new ArrayList<>();
 	public final List<Item> ITEMS = new ArrayList<>();
 	public final List<Container> CONTAINERS = new ArrayList<>();

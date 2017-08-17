@@ -11,7 +11,8 @@ public class Container extends Item
 	private String KEY_ID;
 	public boolean OPEN = false;
 	public boolean LOCKED = false;
-	public final List<Item> CONTENTS = new ArrayList<>();
+	public final List<Item> ITEMS = new ArrayList<>();
+	public final List<Container> CONTAINERS = new ArrayList<>();
 
 	public String look()
 	{
@@ -23,26 +24,34 @@ public class Container extends Item
 
 	public void unlock()
 	{
-		for(Item item : Player.INVENTORY)
-			if(item.ID.equals(KEY_ID))
-			{
-				if(LOCKED)
-					Interface.display(UNLOCK);
-				else
-					Interface.display("It is already unlocked");
-			}
+		for(ContentSlot contentSlot : Player.INVENTORY)
+		{
+			//check if the key's ID is in the contentSlot
+			for(String ID : contentSlot.CONTENT_IDS)
+				if(ID.equals(KEY_ID))
+				{
+					if(LOCKED)
+						Interface.display(UNLOCK);
+					else
+						Interface.display("It is already unlocked");
+				}
+		}
 	}
 
 	public void lock()
 	{
-		for(Item item : Player.INVENTORY)
-			if(item.ID.equals(KEY_ID))
-			{
-				if(LOCKED)
-					Interface.display("It is already locked");
-				else
-				Interface.display(LOCK);
-			}
+		for(ContentSlot contentSlot : Player.INVENTORY)
+		{
+			//check if the key's ID is in the contentSlot
+			for(String ID : contentSlot.CONTENT_IDS)
+				if(ID.equals(KEY_ID))
+				{
+					if(!LOCKED)
+						Interface.display(LOCK);
+					else
+						Interface.display("It is already unlocked");
+				}
+		}
 	}
 
 	public void open()
@@ -52,7 +61,7 @@ public class Container extends Item
 			if(!OPEN)
 			{
 				StringBuilder contents = new StringBuilder();
-				for(Item item : CONTENTS)
+				for(Item item : ITEMS)
 					contents.append(item.NAME).append("\n");
 				OPEN = true;
 				Interface.display(OPEN_DESC + "\n" + contents);

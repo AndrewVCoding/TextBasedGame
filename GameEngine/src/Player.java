@@ -8,7 +8,18 @@ class Player
 	public static int HP;
 	public static int MAX_HP;
 	public static Room LOCATION;
-	public static final List<Item> INVENTORY = new ArrayList<>();
+	public static final List<ContentSlot> INVENTORY = new ArrayList<>();
+
+	public static void addToInventory(String contentID)
+	{
+		for(ContentSlot slot : INVENTORY)
+			addToInventory(contentID);
+	}
+
+	public static void removeFromInventory(String contentID)
+	{
+
+	}
 
 	public static void viewInventory()
 	{
@@ -16,9 +27,9 @@ class Player
 		{
 			StringBuilder display = new StringBuilder();
 			int i = 1;
-			for(Item item : INVENTORY)
+			for(ContentSlot contentSlot : INVENTORY)
 			{
-				display.append(i).append(")").append(item.NAME).append("\n");
+				display.append(i).append(")").append(World.getIDName(contentSlot.NAME)).append(" X").append(contentSlot.QUANTITY).append("\n");
 				i++;
 			}
 			Interface.display("Inventory:\n" + display);
