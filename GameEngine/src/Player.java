@@ -1,23 +1,24 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player
+class Player
 {
 	public static String NAME;
 	public static String CLASS;
 	public static int HP;
+	public static int MAX_HP;
 	public static Room LOCATION;
-	public static List<Item> INVENTORY = new ArrayList<>();
+	public static final List<Item> INVENTORY = new ArrayList<>();
 
 	public static void viewInventory()
 	{
 		if(!INVENTORY.isEmpty())
 		{
-			String display = "";
+			StringBuilder display = new StringBuilder();
 			int i = 1;
 			for(Item item : INVENTORY)
 			{
-				display += i + ")" + item.NAME + "\n";
+				display.append(i).append(")").append(item.NAME).append("\n");
 				i++;
 			}
 			Interface.display("Inventory:\n" + display);
@@ -30,5 +31,12 @@ public class Player
 	{
 		LOCATION = room;
 		Interface.resetDisplay();
+	}
+
+	public static void heal(int amount)
+	{
+		HP += amount;
+		if(HP > MAX_HP)
+			HP = MAX_HP;
 	}
 }

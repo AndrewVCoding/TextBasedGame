@@ -4,7 +4,7 @@ public class Item
 	public String DESCRIPTION;
 	public String ACT_DESC;
 	public String PICKUP;
-	public String ID;
+	String ID;
 	public boolean TAKEABLE = false;
 	public boolean ACTIVATED = false;
 	public String[] EFFECTS;

@@ -1,8 +1,8 @@
-public class Interface
+class Interface
 {
 	public static String DISPLAY;
 	public static String INTERACTIONS;
-	public static String HEADER;
+	private static String HEADER;
 
 	public static void display(String display)
 	{

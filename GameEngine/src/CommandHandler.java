@@ -1,6 +1,8 @@
-public class CommandHandler
+/**
+ * Determines which function to call based on the parsed
+ */
+class CommandHandler
 {
-
 	/**
 	 * All commands have a unique first word, but can be context sensitive after that.
 	 *
@@ -8,7 +10,7 @@ public class CommandHandler
 	 */
 	public static void command(String com)
 	{
-		Interface.display(">>" + com);
+		Interface.display("\n>>" + com);
 		//First split the command into an array of strings
 		GameSystems.COMMAND = CommandParser.parse(com);
 

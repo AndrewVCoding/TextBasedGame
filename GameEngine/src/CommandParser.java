@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class CommandParser
+class CommandParser
 {
 	public static String[] parse(String input)
 	{

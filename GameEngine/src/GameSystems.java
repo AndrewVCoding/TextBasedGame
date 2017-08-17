@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameSystems
+class GameSystems
 {
 	public static String GAME_STATE = "start";
 	public static String[] COMMAND;
@@ -9,8 +9,8 @@ public class GameSystems
 	/**
 	 * Auto starts the game as a prenamed character and class
 	 *
-	 * @param name
-	 * @param clas
+	 * @param name preset name for an automatic character
+	 * @param clas preset class for an automatic character
 	 */
 	public static void autoStartGame(String name, int clas)
 	{
@@ -28,10 +28,8 @@ public class GameSystems
 
 		try
 		{
-			for(Item i : Player.INVENTORY)
-				visible.add(i);
-			for(Item i : Player.LOCATION.ITEMS)
-				visible.add(i);
+			visible.addAll(Player.INVENTORY);
+			visible.addAll(Player.LOCATION.ITEMS);
 
 		} catch(NullPointerException e)
 		{
@@ -50,14 +48,11 @@ public class GameSystems
 
 		try
 		{
-			for(Item i : Player.INVENTORY)
-				accessible.add(i);
-			for(Item i : Player.LOCATION.ITEMS)
-				accessible.add(i);
+			accessible.addAll(Player.INVENTORY);
+			accessible.addAll(Player.LOCATION.ITEMS);
 			for(Container c : Player.LOCATION.CONTAINERS)
 				if(c.OPEN)
-					for(Item i : c.CONTENTS)
-						accessible.add(i);
+					accessible.addAll(c.CONTENTS);
 
 		} catch(NullPointerException e)
 		{
@@ -77,7 +72,7 @@ public class GameSystems
 		try
 		{
 			for(String s : Player.LOCATION.EXITS)
-				visible.add(World.getRoom(s));
+				visible.add(StaticWorld.getRoom(s));
 		} catch(NullPointerException e)
 		{
 		}
@@ -91,8 +86,7 @@ public class GameSystems
 
 		try
 		{
-			for(Container s : Player.LOCATION.CONTAINERS)
-				visible.add(s);
+			visible.addAll(Player.LOCATION.CONTAINERS);
 		} catch(NullPointerException e)
 		{
 		}
@@ -121,9 +115,9 @@ public class GameSystems
 	public static void go()
 	{
 		if(GAME_STATE.equals("idle"))
-		{
-			Player.moveRoom(World.getRoom(COMMAND[1]));
-		}
+			IdleState.go(COMMAND);
+		else
+			Interface.display("There is nowhere to go");
 	}
 
 	/**
@@ -134,6 +128,8 @@ public class GameSystems
 	{
 		if(GAME_STATE.equals("idle"))
 			IdleState.look(COMMAND);
+		else
+			Interface.display("There is nothing to look at");
 	}
 
 	/**
@@ -143,6 +139,8 @@ public class GameSystems
 	{
 		if(GAME_STATE.equals("idle"))
 			IdleState.take(COMMAND);
+		else
+			Interface.display("There is nothing to take");
 	}
 
 	/**
@@ -150,8 +148,10 @@ public class GameSystems
 	 */
 	public static void act()
 	{
-		if(COMMAND[1] != null)
+		if(GAME_STATE.equals("idle"))
 			IdleState.act(COMMAND);
+		else
+			Interface.display("There is nothing to do that to");
 	}
 
 	/**
@@ -161,41 +161,10 @@ public class GameSystems
 	 */
 	public static void use(Item source, int index)
 	{
-		Item target = World.getItem(COMMAND[2]);
-
-		if(source.EFFECTS[index + 2].equals("player"))
-		{
-			//Place holder for future items
-		}
-
-		else if(source.EFFECTS[index + 2].equals(target.NAME))
-		{
-			if(!target.ACTIVATED)
-				Interface.display(source.EFFECTS[index + 3]);
-			if(target.ACTIVATED)
-				Interface.display(source.EFFECTS[index + 4]);
-
-			target.ACTIVATED = !target.ACTIVATED;
-		}
-	}
-
-	/**
-	 * When consuming an object, array contents are as follows
-	 * [ consume | target | attribute | amount ]
-	 * [ index   |    +1  |    +2     |   +3   ]
-	 *
-	 * @param source
-	 */
-	public static void consume(Item source, int index)
-	{
-		System.out.println("consuming " + source.NAME);
-		if(source.EFFECTS[index + 2].equalsIgnoreCase("health"))
-		{
-			Player.HP += Integer.parseInt(source.EFFECTS[index + 3]);
-			Interface.display("You were healed for " + source.EFFECTS[index + 3]);
-		}
+		if(GAME_STATE.equals("idle"))
+			IdleState.use(source, index, COMMAND);
 		else
-			Interface.display("The item had no effect");
+			Interface.display("There is nothing to use");
 	}
 
 	/**
@@ -219,7 +188,8 @@ public class GameSystems
 				GAME_STATE = "idle";
 				Player.CLASS = "Warrior";
 				Player.HP = 100;
-				Player.moveRoom(World.getStartingRoom());
+				Player.MAX_HP = 100;
+				Player.moveRoom(StaticWorld.getStartingRoom());
 
 			}
 			else if(command[0].equals("2"))
@@ -227,7 +197,8 @@ public class GameSystems
 				GAME_STATE = "idle";
 				Player.CLASS = "Wizard";
 				Player.HP = 70;
-				Player.moveRoom(World.getStartingRoom());
+				Player.MAX_HP = 70;
+				Player.moveRoom(StaticWorld.getStartingRoom());
 
 			}
 			else if(command[0].equals("3"))
@@ -235,7 +206,8 @@ public class GameSystems
 				GAME_STATE = "idle";
 				Player.CLASS = "Rogue";
 				Player.HP = 80;
-				Player.moveRoom(World.getStartingRoom());
+				Player.MAX_HP = 80;
+				Player.moveRoom(StaticWorld.getStartingRoom());
 			}
 			else
 			{

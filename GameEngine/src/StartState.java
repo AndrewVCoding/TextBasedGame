@@ -1,4 +1,4 @@
-public class StartState
+class StartState
 {
 	public static String[] COMMAND;
 

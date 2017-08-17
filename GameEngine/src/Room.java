@@ -4,24 +4,26 @@ import java.util.List;
 public class Room
 {
 	public String NAME;
+	public String ID;
 	public String ENTRANCE;
 	public String DESCRIPTION;
 	public String LOOK;
-	public List<String> EXITS = new ArrayList<>();
-	public List<Item> ITEMS = new ArrayList<>();
-	public List<Container> CONTAINERS = new ArrayList<>();
+	//All contents should be stored by ID rather than name to allow multiple distinct objects with the same name
+	public final List<String> EXITS = new ArrayList<>();
+	public final List<Item> ITEMS = new ArrayList<>();
+	public final List<Container> CONTAINERS = new ArrayList<>();
 
 
 	public String enter(boolean move)
 	{
-		String exits = "";
-		String contents = "";
+		StringBuilder exits = new StringBuilder();
+		StringBuilder contents = new StringBuilder();
 		for(String exit : EXITS)
-			exits += "\n   " + exit;
+			exits.append("\n   ").append(exit);
 		for(Item item : ITEMS)
-			contents += item.NAME + ", ";
+			contents.append(item.NAME).append(", ");
 		for(Container container : CONTAINERS)
-			contents += container.NAME + ", ";
+			contents.append(container.NAME).append(", ");
 		if(move)
 			return ENTRANCE + "\n\n" + DESCRIPTION + "\n\nContains: " + contents + "\nExits: " + exits + "\n" + "_______________________________________________________________";
 		else
@@ -30,14 +32,14 @@ public class Room
 
 	public String look()
 	{
-		String exits = "";
-		String contents = "";
+		StringBuilder exits = new StringBuilder();
+		StringBuilder contents = new StringBuilder();
 		for(String exit : EXITS)
-			exits += "\n   " + exit;
+			exits.append("\n   ").append(exit);
 		for(Item item : ITEMS)
-			contents += item.NAME + ", ";
+			contents.append(item.NAME).append(", ");
 		for(Container container : CONTAINERS)
-			contents += container.NAME + ", ";
+			contents.append(container.NAME).append(", ");
 		return LOOK;
 	}
 

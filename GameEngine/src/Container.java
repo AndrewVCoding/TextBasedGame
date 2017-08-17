@@ -3,14 +3,15 @@ import java.util.List;
 
 public class Container extends Item
 {
-	public String UNLOCK;
-	public String LOCK;
+	private String UNLOCK;
+	private String LOCK;
 	public String OPEN_DESC;
 	public String CLOSE_DESC;
-	public String KEY_ID;
+	public String ID;
+	private String KEY_ID;
 	public boolean OPEN = false;
 	public boolean LOCKED = false;
-	public List<Item> CONTENTS = new ArrayList<>();
+	public final List<Item> CONTENTS = new ArrayList<>();
 
 	public String look()
 	{
@@ -50,9 +51,9 @@ public class Container extends Item
 		{
 			if(!OPEN)
 			{
-				String contents = "";
+				StringBuilder contents = new StringBuilder();
 				for(Item item : CONTENTS)
-					contents += item.NAME + "\n";
+					contents.append(item.NAME).append("\n");
 				OPEN = true;
 				Interface.display(OPEN_DESC + "\n" + contents);
 			}
