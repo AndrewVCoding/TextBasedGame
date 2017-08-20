@@ -15,6 +15,8 @@ class StaticWorld
 	{
 		Item pocketKnife = new Item();
 		pocketKnife.NAME = "pocket knife";
+		pocketKnife.ID = "I-000000";
+		pocketKnife.INSTANCE = "000000";
 		pocketKnife.DESCRIPTION = "A small folding knife";
 		pocketKnife.PICKUP = "You carefully slip the pocket knife into your pocket";
 		pocketKnife.TAKEABLE = true;
@@ -22,6 +24,8 @@ class StaticWorld
 
 		Item coldPizza = new Item();
 		coldPizza.NAME = "cold pizza";
+		coldPizza.ID = "I-000001";
+		coldPizza.INSTANCE = "000000";
 		coldPizza.DESCRIPTION = "A slice of cold pizza. Who knows how old it is";
 		coldPizza.PICKUP = "You stuff the greasy slice of pizza into your pocket";
 		coldPizza.TAKEABLE = true;
@@ -29,6 +33,8 @@ class StaticWorld
 
 		Item remote = new Item();
 		remote.NAME = "remote";
+		remote.ID = "I-000002";
+		remote.INSTANCE = "000000";
 		remote.DESCRIPTION = "The tv remote";
 		remote.PICKUP = "You put the remote in your pocket";
 		remote.TAKEABLE = true;
@@ -36,6 +42,8 @@ class StaticWorld
 
 		Item television = new Item();
 		television.NAME = "tv";
+		television.ID = "I-000003";
+		television.INSTANCE = "000000";
 		television.DESCRIPTION = "The tv is currently turned off, but you don't want to walk all the way over to it to turn it on.";
 		television.PICKUP = "The tv is too heavy to lift and wouldn't fit in your pockets anyways";
 		television.ACT_DESC = "A soft glow emanates from the tv, as it displays current events and news stories about current events.";
@@ -43,6 +51,8 @@ class StaticWorld
 
 		Item socks = new Item();
 		socks.NAME = "socks";
+		socks.ID = "I-000004";
+		socks.INSTANCE = "000000";
 		socks.DESCRIPTION = "A pair of clean socks, neatly folded.";
 		socks.TAKEABLE = true;
 		socks.PICKUP = "You pick up the socks and put them in your pocket";
@@ -55,12 +65,14 @@ class StaticWorld
 
 		Container drawers = new Container();
 		drawers.NAME = "drawers";
+		drawers.ID = "C-000000";
+		drawers.INSTANCE = "000000";
 		drawers.DESCRIPTION = "The drawers next to your bed are closed";
 		drawers.ACT_DESC = "The drawer hangs open, allowing you to see inside";
 		drawers.OPEN_DESC = "You slide the drawer open to reveal:";
 		drawers.CLOSE_DESC = "You push the drawer closed";
 		drawers.LOCKED = false;
-		drawers.ITEMS.add(socks);
+		drawers.add(socks);
 
 		CONTAINERS.add(drawers);
 
@@ -71,8 +83,8 @@ class StaticWorld
 		livingRoom.LOOK = "You look around your living room, taking note of any objects that might be useful.";
 		livingRoom.EXITS.add("kitchen");
 		livingRoom.EXITS.add("bedroom");
-		livingRoom.ITEMS.add(television);
-		livingRoom.ITEMS.add(remote);
+		livingRoom.add(television);
+		livingRoom.add(remote);
 
 		Room kitchen = new Room();
 		kitchen.NAME = "kitchen";
@@ -80,7 +92,7 @@ class StaticWorld
 		kitchen.DESCRIPTION = "This is your kitchen. You briefly wonder if you should eat something.";
 		kitchen.LOOK = "You look at the messy kitchen, briefly wondering how you can stand to prepare your meals in such a disgusting environment";
 		kitchen.EXITS.add("living room");
-		kitchen.ITEMS.add(coldPizza);
+		kitchen.add(coldPizza);
 
 		Room bedroom = new Room();
 		bedroom.NAME = "bedroom";
@@ -89,8 +101,8 @@ class StaticWorld
 		bedroom.LOOK = "Your bedroom is immaculately clean, even all of your book shelves are dusted and organized";
 		bedroom.EXITS.add("living room");
 		bedroom.EXITS.add("bathroom");
-		bedroom.ITEMS.add(pocketKnife);
-		bedroom.CONTAINERS.add(drawers);
+		bedroom.add(pocketKnife);
+		bedroom.add(drawers);
 
 		Room bathroom = new Room();
 		bathroom.NAME = "bathroom";

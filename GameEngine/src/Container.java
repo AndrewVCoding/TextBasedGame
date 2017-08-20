@@ -11,8 +11,7 @@ public class Container extends Item
 	private String KEY_ID;
 	public boolean OPEN = false;
 	public boolean LOCKED = false;
-	public final List<Item> ITEMS = new ArrayList<>();
-	public final List<Container> CONTAINERS = new ArrayList<>();
+	public final List<ContentSlot> CONTENTS = new ArrayList<>();
 
 	public String look()
 	{
@@ -27,7 +26,7 @@ public class Container extends Item
 		for(ContentSlot contentSlot : Player.INVENTORY)
 		{
 			//check if the key's ID is in the contentSlot
-			for(String ID : contentSlot.CONTENT_IDS)
+			for(String ID : contentSlot.CONTENT_INSTANCES)
 				if(ID.equals(KEY_ID))
 				{
 					if(LOCKED)
@@ -43,7 +42,7 @@ public class Container extends Item
 		for(ContentSlot contentSlot : Player.INVENTORY)
 		{
 			//check if the key's ID is in the contentSlot
-			for(String ID : contentSlot.CONTENT_IDS)
+			for(String ID : contentSlot.CONTENT_INSTANCES)
 				if(ID.equals(KEY_ID))
 				{
 					if(!LOCKED)
@@ -60,10 +59,11 @@ public class Container extends Item
 		{
 			if(!OPEN)
 			{
-				StringBuilder contents = new StringBuilder();
-				for(Item item : ITEMS)
-					contents.append(item.NAME).append("\n");
 				OPEN = true;
+				StringBuilder contents = new StringBuilder();
+				for(ContentSlot slot : CONTENTS)
+					for(String id : slot.CONTENT_INSTANCES)
+						contents.append(World.getIDName(id)).append("\n");
 				Interface.display(OPEN_DESC + "\n" + contents);
 			}
 			else
@@ -80,5 +80,81 @@ public class Container extends Item
 		}
 		else
 			Interface.display("The " + NAME + " is already closed");
+	}
+
+	public boolean contains(Item item)
+	{
+		for(ContentSlot slot : CONTENTS)
+			if(slot.contains(item))
+				return true;
+		return false;
+	}
+
+	public boolean contains(Container container)
+	{
+		for(ContentSlot slot : CONTENTS)
+			if(slot.contains(container))
+				return true;
+		return false;
+	}
+
+	public boolean contains(String id)
+	{
+		for(ContentSlot slot : CONTENTS)
+			if(slot.contains(id))
+				return true;
+		return false;
+	}
+
+	public void add(Item item)
+	{
+		boolean added = false;
+		for(ContentSlot slot : CONTENTS)
+			if(slot.NAME.equals(item.NAME))
+			{
+				slot.add(item);
+				added = true;
+				break;
+			}
+		if(!added)
+			CONTENTS.add(new ContentSlot(item));
+	}
+
+	public void add(Container container)
+	{
+		boolean added = false;
+		for(ContentSlot slot : CONTENTS)
+			if(slot.NAME.equals(container.NAME))
+			{
+				slot.add(container);
+				added = true;
+				break;
+			}
+		if(!added)
+			CONTENTS.add(new ContentSlot(container));
+	}
+
+	public void remove(Item item)
+	{
+		if(contains(item))
+			for(ContentSlot slot : CONTENTS)
+				if(slot.NAME.equals(item.NAME))
+					slot.remove(item);
+	}
+
+	public void remove(Container container)
+	{
+		if(contains(container))
+			for(ContentSlot slot : CONTENTS)
+				if(slot.NAME.equals(container.NAME))
+					slot.remove(container);
+	}
+
+	public void remove(String id)
+	{
+		if(contains(id))
+			for(ContentSlot slot : CONTENTS)
+				if(slot.contains(id))
+					slot.remove(id);
 	}
 }

@@ -178,14 +178,14 @@ class DataHandler
 				//Try to find a room with the parentID
 				Room room = World.getRoom(containerState.parentID);
 				if(room != null)
-					room.CONTAINERS.add(containerState.container);
+					room.add(containerState.container);
 				else //Try to find a container with the parentID
 				{
 					Container container = World.getContainer(containerState.parentID);
 					if(container != null)
-						container.CONTAINERS.add(containerState.container);
+						container.add(containerState.container);
 					else if(containerState.parentID.equals("P-INVENTORY"))
-						Player.addToInventory(containerState.container.ID);
+						Player.addToInventory(containerState.container);
 					else
 						System.out.println("Could not find parent of container: " + containerState.container.NAME);
 				}
@@ -196,14 +196,14 @@ class DataHandler
 				//Try to find a room with the parentID
 				Room room = World.getRoom(itemState.parentID);
 				if(room != null)
-					room.ITEMS.add(itemState.item);
+					room.add(itemState.item);
 				else //Try to find a container with the parentID
 				{
 					Container container = World.getContainer(itemState.parentID);
 					if(container != null)
-						container.ITEMS.add(itemState.item);
+						container.add(itemState.item);
 					else if(itemState.parentID.equals("P-INVENTORY"))
-						Player.addToInventory(itemState.item.ID);
+						Player.addToInventory(itemState.item);
 					else
 						System.out.println("Could not find parent of item: " + itemState.item.NAME);
 				}
@@ -221,7 +221,7 @@ class DataHandler
 		//add itemStates and containerStates for all objects in the player's inventory
 		for(ContentSlot contentSlot : Player.INVENTORY)
 		{
-			for(String ID : contentSlot.CONTENT_IDS)
+			for(String ID : contentSlot.CONTENT_INSTANCES)
 			{
 				if(ID.matches("I-\\d*"))
 					newSave.ITEM_STATES.add(newSave.createItemState(ID, "P-INVENTORY"));

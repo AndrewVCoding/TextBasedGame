@@ -4,6 +4,7 @@ public class Item
 	public String DESCRIPTION;
 	public String ACT_DESC;
 	public String PICKUP;
+	String INSTANCE;
 	String ID;
 	public boolean TAKEABLE = false;
 	public boolean ACTIVATED = false;
@@ -31,5 +32,10 @@ public class Item
 			index++;
 		}
 		return -1;
+	}
+
+	public boolean isVisible()
+	{
+		return World.isVisible(this);
 	}
 }

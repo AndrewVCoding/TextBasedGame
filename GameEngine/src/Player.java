@@ -10,13 +10,36 @@ class Player
 	public static Room LOCATION;
 	public static final List<ContentSlot> INVENTORY = new ArrayList<>();
 
-	public static void addToInventory(String contentID)
+	//todo FIX THIS WHOLE MESS
+	public static void addToInventory(Item item)
 	{
+		boolean added = false;
 		for(ContentSlot slot : INVENTORY)
-			addToInventory(contentID);
+			if(slot.NAME.equals(item.NAME))
+			{
+				slot.add(item);
+				added = true;
+				break;
+			}
+		if(!added)
+			INVENTORY.add(new ContentSlot(item));
 	}
 
-	public static void removeFromInventory(String contentID)
+	public static void addToInventory(Container container)
+	{
+		boolean added = false;
+		for(ContentSlot slot : INVENTORY)
+			if(slot.NAME.equals(container.NAME))
+			{
+				slot.add(container);
+				added = true;
+				break;
+			}
+		if(!added)
+			INVENTORY.add(new ContentSlot(container));
+	}
+
+	public static void removeFromInventory(Item item)
 	{
 
 	}

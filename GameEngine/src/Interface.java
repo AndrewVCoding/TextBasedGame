@@ -7,16 +7,31 @@ class Interface
 	public static void display(String display)
 	{
 		if(GameSystems.GAME_STATE.equals("idle"))
+		{
 			HEADER = Player.LOCATION.enter(false);
-		INTERACTIONS += "\n" + display;
-		DISPLAY = HEADER + INTERACTIONS;
+			INTERACTIONS += "\n" + display;
+			DISPLAY = HEADER + INTERACTIONS;
+		}
+		else
+		{
+			INTERACTIONS += "\n" + display;
+			DISPLAY = INTERACTIONS;
+		}
 	}
 
 	public static void resetDisplay()
 	{
 		if(GameSystems.GAME_STATE.equals("idle"))
+		{
 			HEADER = Player.LOCATION.enter(true);
-		INTERACTIONS = "";
-		DISPLAY = HEADER + INTERACTIONS;
+			INTERACTIONS = "";
+			DISPLAY = HEADER + INTERACTIONS;
+		}
+		else
+		{
+			INTERACTIONS += "";
+			DISPLAY = INTERACTIONS;
+		}
+		System.out.println("resetting display:\n" + DISPLAY);
 	}
 }
