@@ -17,12 +17,12 @@ class IdleState
 	public static void look(Command command)
 	{
 		//"look", "inventory"
-		if(command.get(1).equalsIgnoreCase("inventory"))
+		if(command.equals("look inventory"))
 			Player.viewInventory();
-		else if(command.get(1).equals("room"))
+		else if(command.equals("look"))
 			Interface.display(Player.LOCATION.look());
-		else if(command.OBJECT_ONE != null)
-			command.OBJECT_ONE.look();
+		else if(command.equals("look at"))
+			command.SLOT_ONE.look();
 	}
 
 	/**
@@ -37,30 +37,12 @@ class IdleState
 
 	public static void take(Command command)
 	{
-
+		Player.addToInventory(command.SLOT_ONE.take(1));
 	}
 
 	public static void act(Command command)
 	{
-		Item source = World.getItem(command.get(1));
 
-		//The item is usable
-		if(source != null)
-		{
-			String action = command.get(1);
-			int index = source.effect(action);
-
-			//If the specified action is valid for the item
-			if(index > -1)
-			{
-				if(action.equalsIgnoreCase("use"))
-					use(command, index);
-				else if(action.equalsIgnoreCase("consume"))
-					consume(source, index);
-				else
-					GameSystems.invalid(command);
-			}
-		}
 	}
 
 	/**
@@ -73,7 +55,6 @@ class IdleState
 	 */
 	private static void consume(Item source, int index)
 	{
-		System.out.println("consuming " + source.NAME);
 		if(source.EFFECTS[index + 2].equalsIgnoreCase("health"))
 		{
 			Player.heal(Integer.parseInt(source.EFFECTS[index + 3]));

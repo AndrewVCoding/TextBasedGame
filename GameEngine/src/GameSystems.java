@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
-
 class GameSystems
 {
 	public static String GAME_STATE = "start";
@@ -105,12 +102,11 @@ class GameSystems
 		System.out.println(":unknown:");
 		if(GAME_STATE.equals("start"))
 		{
-			if(command.COMMAND.get(1).equals("create character"))
+			if(command.COMMAND.equals("create character"))
 				CharacterCreation.createCharacter(command);
 		}
 		else if(GAME_STATE.equals("character creation"))
 		{
-			System.out.println("Entering character creation");
 			CharacterCreation.createCharacter(command);
 		}
 		else
@@ -120,23 +116,16 @@ class GameSystems
 	public static void open(Command command)
 	{
 		System.out.println("opening");
-		for(Container container : World.getVisibleContainers())
-			if(container.NAME.equals(command.get(1)))
-				container.open();
 	}
 
 	public static void close(Command command)
 	{
 		System.out.println("closing");
-		for(Container container : World.getVisibleContainers())
-			if(container.NAME.equals(command.get(1)))
-				container.close();
 	}
 
 	public static void invalid(Command command)
 	{
 		System.out.println("invalid");
-		Interface.display(command.get(1));
 	}
 
 	public static void enterGame()

@@ -16,5 +16,7 @@ class driver
 		//For testing purposes, to get into the game faster, automate the character creation
 		GameSystems.autoStartGame("Andrew", 1);
 		mainWindow.updateDisplay();
+
+		World.buildWorld("R-000000");
 	}
 }

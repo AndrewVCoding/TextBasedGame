@@ -7,7 +7,7 @@ import java.util.List;
 public class ContentSlot
 {
 	public String NAME;
-	public String TYPE;
+	//public String TYPE;
 	public String ID;
 	public List<String> CONTENT_INSTANCES = new ArrayList<>();
 	public int QUANTITY;
@@ -16,7 +16,7 @@ public class ContentSlot
 	{
 		NAME = item.NAME;
 		ID = item.ID;
-		TYPE = "item";
+		//TYPE = "item";
 		CONTENT_INSTANCES.add(item.INSTANCE);
 		QUANTITY = 1;
 	}
@@ -25,52 +25,52 @@ public class ContentSlot
 	{
 		NAME = container.NAME;
 		ID = container.ID;
-		TYPE = "container";
+		//TYPE = "container";
 		CONTENT_INSTANCES.add(container.INSTANCE);
 		QUANTITY = 1;
 	}
 
-	public ContentSlot(String id)
+	public ContentSlot(Entity entity)
 	{
-
+		NAME = entity.NAME;
+		ID = entity.ID;
+		//TYPE = "container";
+		CONTENT_INSTANCES.add(entity.INSTANCE);
+		QUANTITY = 1;
 	}
 
-	public String look()
+	public ContentSlot(String key)
 	{
-		if(TYPE.equals("item"))
-			return World.getItem(CONTENT_INSTANCES.get(0)).look();
-		if(TYPE.equals("container"))
-			return World.getContainer(CONTENT_INSTANCES.get(0)).look();
-		return "I don't know what I'm looking at";
+		Entity entity = World.ENTITY_MANAGER.get(key);
+		NAME = entity.NAME;
+		ID = entity.ID;
+		//TYPE = "container";
+		CONTENT_INSTANCES.add(entity.INSTANCE);
+		QUANTITY = 1;
+	}
+
+	public void look()
+	{
+		World.ENTITY_MANAGER.get(ID + ":" + CONTENT_INSTANCES.get(0)).look();
 	}
 
 	public boolean referenced(String input)
 	{
-		if(input.matches("[ \\d\\w]*" + NAME + "[ \\w\\d]*"))
-			return true;
-		return false;
+		return input.matches("[ \\d\\w]*" + NAME + "[ \\w\\d]*");
 	}
 
-	public boolean contains(Item item)
+	public boolean contains(Entity entity)
 	{
 		for(String id : CONTENT_INSTANCES)
-			if(item.ID.equals(id))
+			if(entity.ID.equals(id))
 				return true;
 		return false;
 	}
 
-	public boolean contains(Container container)
+	public boolean contains(String idInstance)
 	{
-		for(String id : CONTENT_INSTANCES)
-			if(container.ID.equals(id))
-				return true;
-		return false;
-	}
-
-	public boolean contains(String inputID)
-	{
-		for(String id : CONTENT_INSTANCES)
-			if(inputID.equals(id))
+		for(String instance : CONTENT_INSTANCES)
+			if(idInstance.equals(ID + ":" + instance))
 				return true;
 		return false;
 	}
@@ -145,7 +145,7 @@ public class ContentSlot
 	/**
 	 * Returns a new content slot with the specified number of objects or, if the specified number is greater than the existing number of objects, this content slot itself
 	 * @param num number of objects requested
-	 * @returnnew content slot with the requested number of objects
+	 * @return content slot with the requested number of objects
 	 */
 	public ContentSlot take(int num)
 	{

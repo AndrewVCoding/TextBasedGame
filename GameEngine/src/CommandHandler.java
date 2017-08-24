@@ -11,32 +11,40 @@ class CommandHandler
 	public static void command(String input)
 	{
 		Interface.display("\n>>" + input);
-		//First split the command into an array of strings
 		Command command = new Command(input);
-		System.out.println("command created with " + command.NUMBER_OF_OBJECTS + " objects");
 
 		//There are no objects referenced in the command
 		if(command.NUMBER_OF_OBJECTS == 0)
 		{
-			if(command.COMMAND.get(0).equals("start"))
+			if(command.equals("start"))
 				GameSystems.start(command);
-			else if(command.COMMAND.get(0).equals("go"))
+			else if(command.equals("create character"))
+				CharacterCreation.createCharacter(command);
+			else if(command.equals("go"))
 				GameSystems.go(command);
-			else if(command.COMMAND.get(0).equals("look"))
+			else if(command.equals("look"))
 				GameSystems.look(command);
-			else if(command.COMMAND.get(0).equals("take"))
+			else if(command.equals("inventory"))
+				GameSystems.look(command);
+			else
+				GameSystems.unknown(command);
+		}
+
+		else if(command.NUMBER_OF_OBJECTS == 1)
+		{
+			if(command.equals("look at"))
+				GameSystems.look(command);
+			else if(command.equals("take"))
 				GameSystems.take(command);
-			else if(command.COMMAND.get(0).equals("inventory"))
-				GameSystems.look(command);
-			else if(command.COMMAND.get(0).equals("use"))
+			else if(command.equals("use"))
 				GameSystems.act(command);
-			else if(command.COMMAND.get(0).equals("consume"))
+			else if(command.equals("consume"))
 				GameSystems.act(command);
-			else if(command.COMMAND.get(0).equals("open"))
+			else if(command.equals("open"))
 				GameSystems.open(command);
-			else if(command.COMMAND.get(0).equals("close"))
+			else if(command.equals("close"))
 				GameSystems.close(command);
-			else if(command.COMMAND.get(0).equals("unknown"))
+			else
 				GameSystems.unknown(command);
 		}
 	}

@@ -3,77 +3,78 @@ import java.util.List;
 
 public class World
 {
-	public static List<Item> ITEMS;
-	public static List<Room> ROOMS;
-	public static List<Container> CONTAINERS;
-	public static List<String> EXITS;
-	public static Player PLAYER;
+	public static EntityManager ENTITY_MANAGER;
+	public static List<Entity> ENTITIES;
+	public static List<Room> ROOMS = new ArrayList<>();
+	public static List<String> EXITS = new ArrayList<>();
 	public static Room STARTING_ROOM;
 	public static Map MAP;
 
 	public static void buildWorld(String startingRoom)
 	{
 		//Load all of the base information
-		DataHandler.loadAllBaseFiles();
+		ENTITIES = DataHandler.loadAllBaseFiles("test");
+
+		//populate the entity manager
+		ENTITY_MANAGER = new EntityManager(ENTITIES);
+
+		System.out.println(ENTITY_MANAGER.toString());
 
 		//Set the starting room
 		STARTING_ROOM = getRoom(startingRoom);
 
 		//Build out the map of the rooms
-		MAP.build(EXITS, ROOMS);
+		//MAP.build(EXITS, ROOMS);
 	}
 
 	/**
-	 * @param instance the ID of the room you want
-	 * @return
+	 * @param id the ID of the room you want
+	 * @return Room with the specified ID
 	 */
-	public static Room getRoom(String instance)
+	public static Room getRoom(String id)
 	{
-		if(instance.equals("start"))
+		if(id.equals("start"))
 			return STARTING_ROOM;
 		for(Room room : ROOMS)
-			if(room.ID.equalsIgnoreCase(instance))
+			if(room.ID.equalsIgnoreCase(id))
 				return room;
 		Interface.display(Interface.DISPLAY + "I don't know how to get there.");
 		return null;
 	}
 
 	/**
-	 * @param instance the ID of the item you want
-	 * @return
+	 * @param key the "ID:Instance" of the item you want
+	 * @return Item with specified key
 	 */
-	public static Item getItem(String instance)
+	public static Item getItem(String key)
 	{
-		for(Item item : ITEMS)
-			if(item.NAME.equalsIgnoreCase(instance))
-				return item;
-		Interface.display(Interface.DISPLAY + "I don't see that here");
-		return null;
+		return ENTITY_MANAGER.getItem(key);
 	}
 
 	/**
-	 * @param instance the ID of the container you want
-	 * @return
+	 * @param key the "ID:Instance" of the container you want
+	 * @return Container with specified key
 	 */
-	public static Container getContainer(String instance)
+	public static Container getContainer(String key)
 	{
-		for(Container container : CONTAINERS)
-			if(container.NAME.equalsIgnoreCase(instance))
-				return container;
-		Interface.display(Interface.DISPLAY + "I don't see that here");
-		return null;
+		return ENTITY_MANAGER.getContainer(key);
 	}
 
 	public static String getIDName(String id)
 	{
-		if(id.matches("R-[\\d]*"))
-			return getRoom(id).NAME;
-		else if(id.matches("I-[\\d]*"))
-			return getItem(id).NAME;
-		else if(id.matches("C-[\\d]*"))
-			return getContainer(id).NAME;
-		else
+		try
+		{
+			if(id.matches("R-[\\d]*"))
+				return getRoom(id).NAME;
+			else if(id.matches("I-[\\d]*"))
+				return getItem(id).NAME;
+			else if(id.matches("C-[\\d]*"))
+				return getContainer(id).NAME;
+		}catch(NullPointerException e)
+		{
 			return "NILL";
+		}
+		return "NILL";
 	}
 
 	public static boolean isVisible(Item item)
@@ -121,14 +122,12 @@ public class World
 
 		try
 		{
-			for(ContentSlot slot : Player.INVENTORY)
-				visible.add(slot);
-			for(ContentSlot slot : Player.LOCATION.CONTENTS)
-				visible.add(slot);
+			visible.addAll(Player.INVENTORY);
+			visible.addAll(Player.LOCATION.CONTENTS);
 
 		} catch(NullPointerException e)
 		{
-
+			System.out.println("Could not get visible slots");
 		}
 
 		return visible;
@@ -152,13 +151,12 @@ public class World
 					{
 						Container container = World.getContainer(id);
 						if(container.OPEN)
-							for(ContentSlot cs : container.CONTENTS)
-								accessible.add(cs);
+							accessible.addAll(container.CONTENTS);
 					}
 
 		} catch(NullPointerException e)
 		{
-
+			System.out.println("Could not get accessible slots");
 		}
 
 		return accessible;
@@ -174,9 +172,10 @@ public class World
 		try
 		{
 			for(String s : Player.LOCATION.EXITS)
-				visible.add(StaticWorld.getRoom(s));
+				visible.add(World.getRoom(s));
 		} catch(NullPointerException e)
 		{
+			System.out.println("Could not get visible exits");
 		}
 
 		return visible;
@@ -194,6 +193,7 @@ public class World
 						visible.add(World.getContainer(id));
 		} catch(NullPointerException e)
 		{
+			System.out.println("Could not get visible containers");
 		}
 
 		return visible;

@@ -32,6 +32,5 @@ class Interface
 			INTERACTIONS += "";
 			DISPLAY = INTERACTIONS;
 		}
-		System.out.println("resetting display:\n" + DISPLAY);
 	}
 }

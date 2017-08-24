@@ -3,22 +3,48 @@ import java.util.List;
 
 public class Container extends Item
 {
-	private String UNLOCK;
-	private String LOCK;
-	public String OPEN_DESC;
-	public String CLOSE_DESC;
-	public String ID;
-	private String KEY_ID;
-	public boolean OPEN = false;
-	public boolean LOCKED = false;
-	public final List<ContentSlot> CONTENTS = new ArrayList<>();
+	private final String UNLOCK;
+	private final String LOCK;
+	public final String OPEN_DESC;
+	public final String CLOSE_DESC;
+	private final String KEY_ID;
+	public boolean OPEN;
+	public boolean LOCKED;
+	public final List<ContentSlot> CONTENTS;
 
-	public String look()
+	public Container()
+	{
+		super();
+		UNLOCK = "default";
+		LOCK = "default";
+		OPEN_DESC = "default";
+		CLOSE_DESC = "default";
+		KEY_ID = "K-000000";
+		OPEN = false;
+		LOCKED = false;
+		CONTENTS = new ArrayList<>();
+	}
+
+	public Container(String name, String id, String instance, String description, String actDescription, String pickup, boolean takeable, boolean activated, String[] effects,
+					 String unlock, String lock, String open_desc, String close_desc, String key_id, boolean open, boolean locked)
+	{
+		super(name, id, instance, description, actDescription, pickup, takeable, activated, effects);
+		UNLOCK = unlock;
+		LOCK = lock;
+		OPEN_DESC = open_desc;
+		CLOSE_DESC = close_desc;
+		KEY_ID = key_id;
+		OPEN = open;
+		LOCKED = locked;
+		CONTENTS = new ArrayList<>();
+	}
+
+	public void look()
 	{
 		if(OPEN)
-			return ACT_DESC;
+			Interface.display(ACT_DESC);
 		else
-			return DESCRIPTION;
+			Interface.display(DESCRIPTION);
 	}
 
 	public void unlock()

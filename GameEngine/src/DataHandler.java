@@ -20,11 +20,8 @@ class DataHandler
 
 	public static void loadAllBaseFiles()
 	{
-		//First load all items
-		loadItems();
-
-		//Load all containers
-		loadContainers();
+		//First load all entities and send through the EntityManager
+		loadEntities();
 
 		//Load all rooms
 		loadRooms();
@@ -33,55 +30,50 @@ class DataHandler
 		loadSaves();
 	}
 
-	public static void loadItems()
+	public static List<Entity> loadAllBaseFiles(String test)
 	{
-		List<Item> itemList = new ArrayList<>();
+		return StaticWorld.getEntities();
+	}
+
+	public static List<Entity> loadEntities()
+	{
+		List<Entity> entities = new ArrayList<>();
 		JsonReader jReader;
 		File[] itemFiles = new File(ITEMS_LOC).listFiles();
+		File[] containerFiles = new File(CONTAINERS_LOC).listFiles();
 		try
 		{
+			assert itemFiles != null;
 			for(File file : itemFiles)
 			{
 				try
 				{
 					jReader = new JsonReader(new FileReader(file));
-					itemList.add(GSON.fromJson(jReader, Item.class));
+					entities.add(GSON.fromJson(jReader, Item.class));
 				} catch(FileNotFoundException e)
 				{
 					System.out.println("Could not find file" + file.getName());
 				}
 			}
-			World.ITEMS = itemList;
-		} catch(NullPointerException e)
-		{
-			System.out.println("Could not load items");
-		}
-	}
 
-	public static void loadContainers()
-	{
-		//Load all containers
-		List<Container> containerList = new ArrayList<>();
-		JsonReader jReader;
-		File[] containerFiles = new File(CONTAINERS_LOC).listFiles();
-		try
-		{
+			assert containerFiles != null;
 			for(File file : containerFiles)
 			{
 				try
 				{
 					jReader = new JsonReader(new FileReader(file));
-					containerList.add(GSON.fromJson(jReader, Container.class));
+					entities.add(GSON.fromJson(jReader, Container.class));
 				} catch(FileNotFoundException e)
 				{
 					System.out.println("Could not find file" + file.getName());
 				}
 			}
-			World.CONTAINERS = containerList;
 		} catch(NullPointerException e)
 		{
-			System.out.println("Could not load containers");
+			System.out.println("Could not load items");
 		}
+
+		return entities;
 	}
 
 	public static void loadRooms()
@@ -91,6 +83,7 @@ class DataHandler
 		File[] roomFiles = new File(ROOMS_LOC).listFiles();
 		try
 		{
+			assert roomFiles != null;
 			for(File file : roomFiles)
 			{
 				try
@@ -116,6 +109,7 @@ class DataHandler
 		File[] saveFiles = new File(SAVE_LOC).listFiles();
 		try
 		{
+			assert saveFiles != null;
 			for(File file : saveFiles)
 			{
 				try

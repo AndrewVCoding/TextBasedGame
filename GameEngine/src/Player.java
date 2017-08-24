@@ -39,6 +39,20 @@ class Player
 			INVENTORY.add(new ContentSlot(container));
 	}
 
+	public static void addToInventory(ContentSlot contentSlot)
+	{
+		boolean added = false;
+		for(ContentSlot slot : INVENTORY)
+			if(slot.NAME.equals(contentSlot.NAME))
+			{
+				slot.add(contentSlot);
+				added = true;
+				break;
+			}
+		if(!added)
+			INVENTORY.add(contentSlot);
+	}
+
 	public static void removeFromInventory(Item item)
 	{
 

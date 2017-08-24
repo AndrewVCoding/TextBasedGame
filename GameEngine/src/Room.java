@@ -21,7 +21,12 @@ public class Room
 		for(String exit : EXITS)
 			exits.append("\n   ").append(exit);
 		for(ContentSlot slot : CONTENTS)
+		{
+			if(slot.QUANTITY > 0)
 			contents.append(slot.NAME).append(", ");
+			else
+				CONTENTS.remove(slot);
+		}
 		if(move)
 			return ENTRANCE + "\n\n" + DESCRIPTION + "\n\nContains: " + contents + "\nExits: " + exits + "\n" + "_______________________________________________________________";
 		else
@@ -35,8 +40,12 @@ public class Room
 		for(String exit : EXITS)
 			exits.append("\n   ").append(exit);
 		for(ContentSlot slot : CONTENTS)
-			for(String id : slot.CONTENT_INSTANCES)
-				contents.append(World.getIDName(id)).append(", ");
+		{
+			if(slot.QUANTITY > 0)
+				contents.append(slot.NAME).append(", ");
+			else
+				CONTENTS.remove(slot);
+		}
 		return LOOK;
 	}
 
