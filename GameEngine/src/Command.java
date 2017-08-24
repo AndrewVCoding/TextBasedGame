@@ -16,12 +16,31 @@ public class Command
 		NUMBER_OF_OBJECTS = getNumberOfObj();
 
 		if(NUMBER_OF_OBJECTS == 0)
-			COMMAND = CommandParser.simpleCommand(INPUT);
+		{
+			if(INPUT.matches("go [ \\w\\d]*"))
+			{
+				if(getRoom())
+					COMMAND = "go";
+			}
+			else
+				COMMAND = CommandParser.simpleCommand(INPUT);
+		}
 		else if(NUMBER_OF_OBJECTS == 1)
 			COMMAND = CommandParser.oneObjCommand(INPUT, SLOT_ONE.NAME);
 		else if(NUMBER_OF_OBJECTS == 2)
 			COMMAND = CommandParser.twoObjCommand(INPUT, SLOT_ONE.NAME, SLOT_TWO.NAME);
 
+	}
+
+	public boolean getRoom()
+	{
+		for(Room room : World.getVisibleExits())
+			if(INPUT.matches("go (to |to the |)" + room.NAME))
+			{
+				DESTINATION = room;
+				return true;
+			}
+		return false;
 	}
 
 	public int getNumberOfObj()

@@ -18,13 +18,13 @@ public class World
 		//populate the entity manager
 		ENTITY_MANAGER = new EntityManager(ENTITIES);
 
-		System.out.println(ENTITY_MANAGER.toString());
-
 		//Set the starting room
 		STARTING_ROOM = getRoom(startingRoom);
 
 		//Build out the map of the rooms
-		//MAP.build(EXITS, ROOMS);
+		MAP = new Map();
+		MAP.build(EXITS, ROOMS);
+		MAP.print();
 	}
 
 	/**
@@ -70,7 +70,7 @@ public class World
 				return getItem(id).NAME;
 			else if(id.matches("C-[\\d]*"))
 				return getContainer(id).NAME;
-		}catch(NullPointerException e)
+		} catch(NullPointerException e)
 		{
 			return "NILL";
 		}
@@ -167,18 +167,7 @@ public class World
 	 */
 	public static List<Room> getVisibleExits()
 	{
-		List<Room> visible = new ArrayList<>();
-
-		try
-		{
-			for(String s : Player.LOCATION.EXITS)
-				visible.add(World.getRoom(s));
-		} catch(NullPointerException e)
-		{
-			System.out.println("Could not get visible exits");
-		}
-
-		return visible;
+		return MAP.getExits();
 	}
 
 	public static List<Container> getVisibleContainers()

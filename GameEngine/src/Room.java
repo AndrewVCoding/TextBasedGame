@@ -12,22 +12,32 @@ public class Room
 	//todo move everything over to the new ContentSlot system
 	public final List<ContentSlot> CONTENTS = new ArrayList<>();
 	public final List<String> EXITS = new ArrayList<>();
+	private List<ContentSlot> TO_PURGE = new ArrayList<>();
 
-
-	public String enter(boolean move)
+	public String spawn()
 	{
+		Interface.MOVED = false;
+		System.out.println(":enter:");
+		purge();
 		StringBuilder exits = new StringBuilder();
 		StringBuilder contents = new StringBuilder();
 		for(String exit : EXITS)
 			exits.append("\n   ").append(exit);
-		for(ContentSlot slot : CONTENTS)
-		{
-			if(slot.QUANTITY > 0)
-			contents.append(slot.NAME).append(", ");
-			else
-				CONTENTS.remove(slot);
-		}
-		if(move)
+		buildDisplay(exits, contents);
+			return DESCRIPTION + "\n\nContains: " + contents + "\nExits: " + exits + "\n" + "_______________________________________________________________";
+	}
+
+	public String enter(boolean moved)
+	{
+		Interface.MOVED = moved;
+		System.out.println(":enter:");
+		purge();
+		StringBuilder exits = new StringBuilder();
+		StringBuilder contents = new StringBuilder();
+		for(String exit : EXITS)
+			exits.append("\n   ").append(exit);
+		buildDisplay(exits, contents);
+		if(moved)
 			return ENTRANCE + "\n\n" + DESCRIPTION + "\n\nContains: " + contents + "\nExits: " + exits + "\n" + "_______________________________________________________________";
 		else
 			return DESCRIPTION + "\n\nContains: " + contents + "\nExits: " + exits + "\n" + "_______________________________________________________________";
@@ -35,6 +45,7 @@ public class Room
 
 	public String look()
 	{
+		purge();
 		StringBuilder exits = new StringBuilder();
 		StringBuilder contents = new StringBuilder();
 		for(String exit : EXITS)
@@ -47,6 +58,17 @@ public class Room
 				CONTENTS.remove(slot);
 		}
 		return LOOK;
+	}
+
+	public void buildDisplay(StringBuilder exits, StringBuilder contents)
+	{
+		for(ContentSlot slot : CONTENTS)
+		{
+			if(slot.QUANTITY == 1)
+				contents.append(slot.NAME).append(", ");
+			else if(slot.QUANTITY > 1)
+				contents.append(slot.NAME + " x" + slot.QUANTITY).append(", ");
+		}
 	}
 
 	public boolean contains(Item item)
@@ -126,5 +148,24 @@ public class Room
 			for(ContentSlot slot : CONTENTS)
 				if(slot.contains(id))
 				slot.remove(id);
+	}
+
+	/**
+	 * removes any ContentSlots which have been marked to be purged
+	 */
+	public void purge()
+	{
+		for(ContentSlot slot : CONTENTS)
+		{
+			if(slot.PURGE)
+			{
+				slot.purge();
+				TO_PURGE.add(slot);
+			}
+		}
+
+		for(ContentSlot slot : TO_PURGE)
+			CONTENTS.remove(slot);
+		TO_PURGE = new ArrayList<>();
 	}
 }

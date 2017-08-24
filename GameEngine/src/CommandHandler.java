@@ -10,7 +10,7 @@ class CommandHandler
 	 */
 	public static void command(String input)
 	{
-		Interface.display("\n>>" + input);
+		Interface.INTERACTIONS += "\n>>" + input;
 		Command command = new Command(input);
 
 		//There are no objects referenced in the command
@@ -25,7 +25,7 @@ class CommandHandler
 			else if(command.equals("look"))
 				GameSystems.look(command);
 			else if(command.equals("inventory"))
-				GameSystems.look(command);
+				Player.viewInventory();
 			else
 				GameSystems.unknown(command);
 		}

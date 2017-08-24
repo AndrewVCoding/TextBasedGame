@@ -20,8 +20,8 @@ class CommandParser
 		{
 			if(input.matches("(look|look around)"))
 				output = "look";
-			else if(input.matches("look (at |)inventory"))
-				output ="look inventory";
+			else if(input.matches("(look (at |)|)inventory"))
+				output ="inventory";
 		}
 		return output;
 	}
@@ -43,6 +43,10 @@ class CommandParser
 				output = "use";
 			else if(input.matches("(eat|drink) (the |)" + objName))
 				output = "consume";
+			else if(input.matches("open (the |)" + objName))
+				output = "open";
+			else if(input.matches("close (the |)" + objName))
+				output = "close";
 		}
 		return output;
 	}

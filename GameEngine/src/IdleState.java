@@ -37,7 +37,10 @@ class IdleState
 
 	public static void take(Command command)
 	{
-		Player.addToInventory(command.SLOT_ONE.take(1));
+		if(Player.INVENTORY.contains(command.SLOT_ONE))
+			Interface.display("You already have that");
+		else
+			command.SLOT_ONE.take(1);
 	}
 
 	public static void act(Command command)

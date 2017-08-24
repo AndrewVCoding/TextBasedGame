@@ -38,7 +38,7 @@ public class Item extends Entity
 			Interface.display(DESCRIPTION);
 	}
 
-	public void pickup()
+	public void take()
 	{
 		Interface.display(PICKUP);
 	}

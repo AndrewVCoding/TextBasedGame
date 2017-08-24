@@ -21,7 +21,6 @@ class GameSystems
 	 */
 	public static void start(Command command)
 	{
-		System.out.println(":start:");
 		if(GAME_STATE.equals("start"))
 			StartState.start();
 		else if(GAME_STATE.equals("idle"))
@@ -36,11 +35,10 @@ class GameSystems
 	 */
 	public static void go(Command command)
 	{
-		System.out.println(":go:");
 		if(GAME_STATE.equals("idle"))
 			IdleState.go(command);
 		else
-			Interface.display("There is nowhere to go");
+			Interface.display("You can't leave right now");
 	}
 
 	/**
@@ -49,7 +47,6 @@ class GameSystems
 	 */
 	public static void look(Command command)
 	{
-		System.out.println(":look:");
 		if(GAME_STATE.equals("idle"))
 			IdleState.look(command);
 		else
@@ -61,11 +58,12 @@ class GameSystems
 	 */
 	public static void take(Command command)
 	{
-		System.out.println(":take:");
 		if(GAME_STATE.equals("idle"))
+		{
 			IdleState.take(command);
+		}
 		else
-			Interface.display("There is nothing to take");
+			Interface.display("You can't do that right now");
 	}
 
 	/**
@@ -116,6 +114,8 @@ class GameSystems
 	public static void open(Command command)
 	{
 		System.out.println("opening");
+
+		command.SLOT_ONE.getTop().open();
 	}
 
 	public static void close(Command command)
@@ -132,5 +132,6 @@ class GameSystems
 	{
 		GAME_STATE = "idle";
 		Interface.resetDisplay();
+		Player.LOCATION.spawn();
 	}
 }

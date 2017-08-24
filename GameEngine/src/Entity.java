@@ -3,7 +3,7 @@ public class Entity
 	public final String NAME;
 	public final String ID;
 	public final String INSTANCE;
-	public String LOCATION;
+	public boolean PURGE = false;
 
 	public Entity()
 	{
@@ -23,5 +23,20 @@ public class Entity
 	{
 		System.out.println("Entity look");
 		Interface.display(NAME);
+	}
+
+	public void take()
+	{
+		Interface.display(NAME + " can not be taken");
+	}
+
+	public void open()
+	{
+		Interface.display(NAME + " can not be opened");
+	}
+
+	public String getKey()
+	{
+		return ID + ":" + INSTANCE;
 	}
 }

@@ -8,6 +8,7 @@ import java.util.List;
 class StaticWorld
 {
 	final private static List<Room> ROOMS = new ArrayList<>();
+	final private static List<String> PATHS = new ArrayList<>();
 	final private static List<Entity> ENTITIES = new ArrayList<>();
 	final private static List<Item> ITEMS = new ArrayList<>();
 	final private static List<Container> CONTAINERS = new ArrayList<>();
@@ -96,6 +97,15 @@ class StaticWorld
 		World.ROOMS.add(kitchen);
 		World.ROOMS.add(bathroom);
 		World.ROOMS.add(bedroom);
+
+		World.EXITS.add("R-000000|R-000001");
+		World.EXITS.add("R-000001|R-000000");
+		World.EXITS.add("R-000000|R-000002");
+		World.EXITS.add("R-000002|R-000000");
+		World.EXITS.add("R-000003|R-000000");
+		World.EXITS.add("R-000000|R-000003");
+		World.EXITS.add("R-000003|R-000002");
+		World.EXITS.add("R-000002|R-000003");
 
 		World.STARTING_ROOM = livingRoom;
 	}
