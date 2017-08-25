@@ -65,7 +65,7 @@ class GameSystems
 	}
 
 	/**
-	 * If the command is to use/eat/drink an item, find the relevant effects and act on them
+	 * If the command is to effect/eat/drink an item, find the relevant effects and act on them
 	 */
 	public static void act(Command command)
 	{
@@ -81,13 +81,13 @@ class GameSystems
 	 * [   act | source | target | activation description | deactivation description ]
 	 * [    0  |    1   |    2   |           3            |              4           ]
 	 */
-	public static void use(Command command, int index)
+	public static void use(Command command)
 	{
-		System.out.println(":use:");
+		System.out.println(":effect:");
 		if(GAME_STATE.equals("idle"))
-			IdleState.use(command, index);
+			IdleState.effect(command);
 		else
-			Interface.display("There is nothing to use");
+			Interface.display("There is nothing to effect");
 	}
 
 	/**

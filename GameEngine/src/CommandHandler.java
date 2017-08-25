@@ -42,8 +42,8 @@ class CommandHandler
 				GameSystems.look(command);
 			else if(command.equals("take"))
 				GameSystems.take(command);
-			else if(command.equals("use"))
-				GameSystems.act(command);
+			else if(command.COMMAND.matches("act\\|\\d\\d*"))
+				GameSystems.use(command);
 			else if(command.equals("consume"))
 				GameSystems.act(command);
 			else if(command.equals("open"))

@@ -4,11 +4,11 @@
   "PICKUP": "The tv is too heavy to lift and wouldn\u0027t fit in your pockets anyways",
   "TAKEABLE": false,
   "ACTIVATED": false,
-  "EFFECTS": [
+  "EFFECTS": [[
     "act",
     "self",
     "You don\u0027t feel like walking up to the tv",
-    "You don\u0027t feel like walking up to the tv"
+    "You don\u0027t feel like walking up to the tv"]
   ],
   "NAME": "tv",
   "ID": "I-000003",

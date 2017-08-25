@@ -11,6 +11,10 @@
       "CONTENT_INSTANCES": [
         "000000"
       ],
+      "EFFECTS": [[
+        "attack",
+        "2"]
+      ],
       "TO_PURGE": [],
       "QUANTITY": 1,
       "PURGE": false
@@ -21,6 +25,7 @@
       "CONTENT_INSTANCES": [
         "000000"
       ],
+      "EFFECTS": [["none"]],
       "TO_PURGE": [],
       "QUANTITY": 1,
       "PURGE": false
