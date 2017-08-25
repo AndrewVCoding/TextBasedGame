@@ -2,26 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aae26b62-91b6-4ef4-8927-2e47d11be383" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/InstanceManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/Paths.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/PlayerTemplate.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/data/saves/Tset.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/data/worldData/paths.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/objects/containers/C-000000drawers.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/objects/items/I-000000pocket knife.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/objects/items/I-000001cold pizza.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/objects/items/I-000002remote.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/objects/items/I-000003tv.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/objects/items/I-000004socks.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/rooms/R-000000living room.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/rooms/R-000001kitchen.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/rooms/R-000002bedroom.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/rooms/R-000003bathroom.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/CharacterCreation.java" afterPath="$PROJECT_DIR$/GameEngine/src/CharacterCreation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/Command.java" afterPath="$PROJECT_DIR$/GameEngine/src/Command.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/CommandHandler.java" afterPath="$PROJECT_DIR$/GameEngine/src/CommandHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/CommandParser.java" afterPath="$PROJECT_DIR$/GameEngine/src/CommandParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/DataHandler.java" afterPath="$PROJECT_DIR$/GameEngine/src/DataHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/EntityManager.java" afterPath="$PROJECT_DIR$/GameEngine/src/EntityManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/GameSystems.java" afterPath="$PROJECT_DIR$/GameEngine/src/GameSystems.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/Interface.java" afterPath="$PROJECT_DIR$/GameEngine/src/Interface.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/MainWindow.java" afterPath="$PROJECT_DIR$/GameEngine/src/MainWindow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/Map.java" afterPath="$PROJECT_DIR$/GameEngine/src/Map.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/Player.java" afterPath="$PROJECT_DIR$/GameEngine/src/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/Room.java" afterPath="$PROJECT_DIR$/GameEngine/src/Room.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/SaveState.java" afterPath="$PROJECT_DIR$/GameEngine/src/SaveState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/StaticWorld.java" afterPath="$PROJECT_DIR$/GameEngine/src/StaticWorld.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/World.java" afterPath="$PROJECT_DIR$/GameEngine/src/World.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/driver.java" afterPath="$PROJECT_DIR$/GameEngine/src/driver.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -504,7 +497,7 @@
       <workItem from="1503156062165" duration="20571000" />
       <workItem from="1503430794971" duration="25538000" />
       <workItem from="1503541576711" duration="5303000" />
-      <workItem from="1503597888159" duration="31947000" />
+      <workItem from="1503597888159" duration="32141000" />
     </task>
     <task id="LOCAL-00001" summary="Updated all class files to match original project">
       <created>1501284256536</created>
@@ -618,11 +611,18 @@
       <option name="project" value="LOCAL" />
       <updated>1503610887187</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="DataHandler now can save and load data for the game">
+      <created>1503631448888</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1503631448888</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="225111000" />
+    <option name="totallyTimeSpent" value="225305000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -635,7 +635,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -650,7 +649,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19946666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19946666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -693,7 +692,8 @@
     <MESSAGE value="To accommodate the new ContentSlot system, I also had to rework the command structure, so that now a Command object contains the command and references to any relevant objects. The character creation has also been moved to its own class and refactored to be easily expandable for future changes.&#10;&#10;Still todo: refactor actions involving items with the new ContentSlot system." />
     <MESSAGE value="Redesigning the way the engine tracks entities, instead keeping them all in one structure and retrieving them by key." />
     <MESSAGE value="Entities are now properly tracked by key(ID:INSTANCE). Now reworking commands to work with the new Entity system." />
-    <option name="LAST_COMMIT_MESSAGE" value="Entities are now properly tracked by key(ID:INSTANCE). Now reworking commands to work with the new Entity system." />
+    <MESSAGE value="DataHandler now can save and load data for the game" />
+    <option name="LAST_COMMIT_MESSAGE" value="DataHandler now can save and load data for the game" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

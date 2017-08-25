@@ -1,0 +1,12 @@
+{
+  "NAME": "bathroom",
+  "ID": "R-000003",
+  "ENTRANCE": "You enter your bathroom.",
+  "DESCRIPTION": "This is your bathroom. You briefly wonder if you should eat something.",
+  "LOOK": "What is there to say, it\u0027s just a smelly bathroom. The shower is clean, but the toilet seat...",
+  "CONTENTS": [],
+  "EXITS": [
+    "bedroom"
+  ],
+  "TO_PURGE": []
+}

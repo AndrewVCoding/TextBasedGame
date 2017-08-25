@@ -1,0 +1,18 @@
+{
+  "DESCRIPTION": "A slice of cold pizza. Who knows how old it is",
+  "ACT_DESC": "none",
+  "PICKUP": "You stuff the greasy slice of pizza into your pocket",
+  "TAKEABLE": true,
+  "ACTIVATED": false,
+  "EFFECTS": [
+    "consume",
+    "self",
+    "health",
+    "5",
+    "You eat the slice, savoring each bite of chilly, cheesy goodness."
+  ],
+  "NAME": "cold pizza",
+  "ID": "I-000001",
+  "INSTANCE": "000000",
+  "PURGE": false
+}
