@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Item extends Entity
 {
 	public final String DESCRIPTION;
@@ -5,7 +8,7 @@ public class Item extends Entity
 	public final String PICKUP;
 	public boolean TAKEABLE;
 	public boolean ACTIVATED;
-	public final String[] EFFECTS;
+	public final List<String[]> EFFECTS;
 
 	public Item()
 	{
@@ -15,10 +18,11 @@ public class Item extends Entity
 		PICKUP = "default";
 		TAKEABLE = false;
 		ACTIVATED = false;
-		EFFECTS = new String[]{"default"};
+		EFFECTS = new ArrayList<>();
 	}
 
-	public Item(String name, String id, String instance, String description, String actDescription, String pickup, boolean takeable, boolean activated, String[] effects)
+	public Item(String name, String id, String instance, String description, String actDescription, String pickup,
+				boolean takeable, boolean activated, List<String[]> effects)
 	{
 		super(name, id, instance);
 		DESCRIPTION = description;
@@ -26,7 +30,9 @@ public class Item extends Entity
 		PICKUP = pickup;
 		TAKEABLE = takeable;
 		ACTIVATED = activated;
-		EFFECTS = effects;
+		EFFECTS = new ArrayList<>();
+		for(String[] effect : effects)
+			EFFECTS.add(effect);
 	}
 
 	public void look()
@@ -43,16 +49,9 @@ public class Item extends Entity
 		Interface.display(PICKUP);
 	}
 
-	public int effect(String action)
+	public List<String[]> getEffects()
 	{
-		int index = 0;
-		for(String s : EFFECTS)
-		{
-			if(s.equals(action))
-				return index;
-			index++;
-		}
-		return -1;
+		return EFFECTS;
 	}
 
 	public boolean isVisible()

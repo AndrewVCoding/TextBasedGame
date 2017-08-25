@@ -4,8 +4,8 @@
   "PICKUP": "You pick up the socks and put them in your pocket",
   "TAKEABLE": true,
   "ACTIVATED": false,
-  "EFFECTS": [
-    "none"
+  "EFFECTS": [[
+    "none"]
   ],
   "NAME": "socks",
   "ID": "I-000004",

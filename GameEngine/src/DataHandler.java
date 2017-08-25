@@ -194,7 +194,6 @@ class DataHandler
 		{
 			World.ROOMS = SAVE_STATE.ROOMS;
 			World.PATHS = SAVE_STATE.PATHS;
-			StaticWorld.buildPaths();
 			//Put all entities in a list for the EntityManager
 			List<Entity> entities = new ArrayList<>();
 			for(Item item : SAVE_STATE.ITEMS)

@@ -4,12 +4,12 @@
   "PICKUP": "You put the remote in your pocket",
   "TAKEABLE": true,
   "ACTIVATED": false,
-  "EFFECTS": [
-    "use",
+  "EFFECTS": [[
+    "use with",
     "remote",
     "tv",
     "The tv powers on, casting a soft glow across the room",
-    "The screen on the tv grows dark, leaving the room darker than before"
+    "The screen on the tv grows dark, leaving the room darker than before"]
   ],
   "NAME": "remote",
   "ID": "I-000002",

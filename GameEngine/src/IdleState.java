@@ -1,6 +1,6 @@
 /**
  * Available commands while idle are:
- * look, take, use, consume, go
+ * look, take, effect, consume, go
  */
 class IdleState
 {
@@ -27,12 +27,16 @@ class IdleState
 
 	/**
 	 * When using an object, array contents are as follows
-	 * [   act | source | target | activation description | deactivation description ]
-	 * [    0  |    1   |    2   |           3            |              4           ]
+	 * [ effect | target | activation description | deactivation description ]
+	 * [   0    |    1   |            2           |             3            ]
 	 */
-	public static void use(Command command, int index)
+	public static void effect(Command command)
 	{
+		//get the index of the effect
+		String[] com = command.COMMAND.split("|");
+		int index = Integer.parseInt(com[1]);
 
+		command.SLOT_ONE.effect(index);
 	}
 
 	public static void take(Command command)
@@ -46,24 +50,5 @@ class IdleState
 	public static void act(Command command)
 	{
 
-	}
-
-	/**
-	 * When consuming an object, array contents are as follows
-	 * [ consume | target | attribute | amount | description]
-	 * [ index   |    +1  |    +2     |   +3   |     +4     ]
-	 *
-	 * @param source The item being consumed
-	 * @param index  The index of the Effects array of the item where the consume effect starts
-	 */
-	private static void consume(Item source, int index)
-	{
-		if(source.EFFECTS[index + 2].equalsIgnoreCase("health"))
-		{
-			Player.heal(Integer.parseInt(source.EFFECTS[index + 3]));
-			Interface.display(source.EFFECTS[index + 4]);
-		}
-		else
-			Interface.display("The item had no effect");
 	}
 }

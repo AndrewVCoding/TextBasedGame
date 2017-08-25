@@ -1,11 +1,11 @@
 {
-  "NAME": "Tset",
+  "NAME": "Test",
   "GAME_STATE": "idle",
   "DISPLAY": "This is your living room. It\u0027s very comfy.\n\nContains: tv, remote, \nExits: \n   kitchen\n   bedroom\n   bathroom\n_______________________________________________________________",
-  "INTERACTIONS": "\n\u003e\u003esave Tset",
+  "INTERACTIONS": "\n\u003e\u003esave Test",
   "HEADER": "This is your living room. It\u0027s very comfy.\n\nContains: tv, remote, \nExits: \n   kitchen\n   bedroom\n   bathroom\n_______________________________________________________________",
   "PLAYER": {
-    "NAME": "Tset",
+    "NAME": "Test",
     "CLASS": "Warrior",
     "HP": 100,
     "MAX_HP": 100,
@@ -22,6 +22,14 @@
           "CONTENT_INSTANCES": [
             "000000"
           ],
+          "EFFECTS": [
+            [
+              "act",
+              "self",
+              "You don\u0027t feel like walking up to the tv",
+              "You don\u0027t feel like walking up to the tv"
+            ]
+          ],
           "TO_PURGE": [],
           "QUANTITY": 1,
           "PURGE": false
@@ -31,6 +39,15 @@
           "ID": "I-000002",
           "CONTENT_INSTANCES": [
             "000000"
+          ],
+          "EFFECTS": [
+            [
+              "use with",
+              "remote",
+              "tv",
+              "The tv powers on, casting a soft glow across the room",
+              "The screen on the tv grows dark, leaving the room darker than before"
+            ]
           ],
           "TO_PURGE": [],
           "QUANTITY": 1,
@@ -55,8 +72,10 @@
       "TAKEABLE": true,
       "ACTIVATED": false,
       "EFFECTS": [
-        "attack",
-        "2"
+        [
+          "attack",
+          "2"
+        ]
       ],
       "NAME": "pocket knife",
       "ID": "I-000000",
@@ -70,11 +89,13 @@
       "TAKEABLE": true,
       "ACTIVATED": false,
       "EFFECTS": [
-        "consume",
-        "self",
-        "health",
-        "5",
-        "You eat the slice, savoring each bite of chilly, cheesy goodness."
+        [
+          "consume",
+          "self",
+          "health",
+          "5",
+          "You eat the slice, savoring each bite of chilly, cheesy goodness."
+        ]
       ],
       "NAME": "cold pizza",
       "ID": "I-000001",
@@ -88,11 +109,13 @@
       "TAKEABLE": true,
       "ACTIVATED": false,
       "EFFECTS": [
-        "use",
-        "remote",
-        "tv",
-        "The tv powers on, casting a soft glow across the room",
-        "The screen on the tv grows dark, leaving the room darker than before"
+        [
+          "use with",
+          "remote",
+          "tv",
+          "The tv powers on, casting a soft glow across the room",
+          "The screen on the tv grows dark, leaving the room darker than before"
+        ]
       ],
       "NAME": "remote",
       "ID": "I-000002",
@@ -106,10 +129,12 @@
       "TAKEABLE": false,
       "ACTIVATED": false,
       "EFFECTS": [
-        "act",
-        "self",
-        "You don\u0027t feel like walking up to the tv",
-        "You don\u0027t feel like walking up to the tv"
+        [
+          "act",
+          "self",
+          "You don\u0027t feel like walking up to the tv",
+          "You don\u0027t feel like walking up to the tv"
+        ]
       ],
       "NAME": "tv",
       "ID": "I-000003",
@@ -123,7 +148,9 @@
       "TAKEABLE": true,
       "ACTIVATED": false,
       "EFFECTS": [
-        "none"
+        [
+          "none"
+        ]
       ],
       "NAME": "socks",
       "ID": "I-000004",
@@ -158,7 +185,9 @@
       "TAKEABLE": false,
       "ACTIVATED": false,
       "EFFECTS": [
-        "none"
+        [
+          "none"
+        ]
       ],
       "NAME": "drawers",
       "ID": "C-000000",
@@ -180,6 +209,14 @@
           "CONTENT_INSTANCES": [
             "000000"
           ],
+          "EFFECTS": [
+            [
+              "act",
+              "self",
+              "You don\u0027t feel like walking up to the tv",
+              "You don\u0027t feel like walking up to the tv"
+            ]
+          ],
           "TO_PURGE": [],
           "QUANTITY": 1,
           "PURGE": false
@@ -189,6 +226,15 @@
           "ID": "I-000002",
           "CONTENT_INSTANCES": [
             "000000"
+          ],
+          "EFFECTS": [
+            [
+              "use with",
+              "remote",
+              "tv",
+              "The tv powers on, casting a soft glow across the room",
+              "The screen on the tv grows dark, leaving the room darker than before"
+            ]
           ],
           "TO_PURGE": [],
           "QUANTITY": 1,
@@ -215,6 +261,15 @@
           "CONTENT_INSTANCES": [
             "000000"
           ],
+          "EFFECTS": [
+            [
+              "consume",
+              "self",
+              "health",
+              "5",
+              "You eat the slice, savoring each bite of chilly, cheesy goodness."
+            ]
+          ],
           "TO_PURGE": [],
           "QUANTITY": 1,
           "PURGE": false
@@ -238,6 +293,12 @@
           "CONTENT_INSTANCES": [
             "000000"
           ],
+          "EFFECTS": [
+            [
+              "attack",
+              "2"
+            ]
+          ],
           "TO_PURGE": [],
           "QUANTITY": 1,
           "PURGE": false
@@ -247,6 +308,11 @@
           "ID": "C-000000",
           "CONTENT_INSTANCES": [
             "000000"
+          ],
+          "EFFECTS": [
+            [
+              "none"
+            ]
           ],
           "TO_PURGE": [],
           "QUANTITY": 1,

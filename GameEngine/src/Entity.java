@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Entity
 {
 	public final String NAME;
@@ -38,5 +40,12 @@ public class Entity
 	public String getKey()
 	{
 		return ID + ":" + INSTANCE;
+	}
+
+	public List<String[]> getEffects()
+	{
+		List<String[]> output = new ArrayList<>();
+		output.add(new String[]{"none"});
+		return output;
 	}
 }

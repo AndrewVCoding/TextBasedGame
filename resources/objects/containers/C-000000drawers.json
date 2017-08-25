@@ -13,6 +13,9 @@
       "CONTENT_INSTANCES": [
         "000000"
       ],
+      "EFFECTS": [[
+        "none"]
+      ],
       "TO_PURGE": [],
       "QUANTITY": 1,
       "PURGE": false
@@ -23,9 +26,7 @@
   "PICKUP": "none",
   "TAKEABLE": false,
   "ACTIVATED": false,
-  "EFFECTS": [
-    "none"
-  ],
+  "EFFECTS": [["none"]],
   "NAME": "drawers",
   "ID": "C-000000",
   "INSTANCE": "000000",

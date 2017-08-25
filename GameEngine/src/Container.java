@@ -25,8 +25,10 @@ public class Container extends Item
 		CONTENTS = new ArrayList<>();
 	}
 
-	public Container(String name, String id, String instance, String description, String actDescription, String pickup, boolean takeable, boolean activated, String[] effects,
-					 String unlock, String lock, String open_desc, String close_desc, String key_id, boolean open, boolean locked)
+	public Container(String name, String id, String instance, String description, String actDescription, String pickup,
+					 boolean takeable, boolean activated, List<String[]> effects,
+					 String unlock, String lock, String open_desc, String close_desc, String key_id, boolean open,
+					 boolean locked)
 	{
 		super(name, id, instance, description, actDescription, pickup, takeable, activated, effects);
 		UNLOCK = unlock;
@@ -39,46 +41,64 @@ public class Container extends Item
 		CONTENTS = new ArrayList<>();
 	}
 
+	/**
+	 * Displays a visual description of the Container and lists it's contents
+	 */
 	public void look()
 	{
 		if(OPEN)
+		{
 			Interface.display(ACT_DESC);
+			displayContents();
+		}
 		else
 			Interface.display(DESCRIPTION);
 	}
 
-	public void unlock()
+	/**
+	 * unlocks the container if the correct key is given
+	 *
+	 * @param key The key of the item being used with the container
+	 */
+	public void unlock(String key)
 	{
-		for(ContentSlot contentSlot : Player.INVENTORY)
+		//check if the key is the correct entity to unlock the container
+		if(key.equals(KEY_ID))
 		{
-			//check if the key's ID is in the contentSlot
-			for(String ID : contentSlot.CONTENT_INSTANCES)
-				if(ID.equals(KEY_ID))
-				{
-					if(LOCKED)
-						Interface.display(UNLOCK);
-					else
-						Interface.display("It is already unlocked");
-				}
+			if(LOCKED)
+			{
+				Interface.display(UNLOCK);
+				LOCKED = false;
+			}
+			else
+				Interface.display("It is already unlocked");
 		}
 	}
 
-	public void lock()
+	/**
+	 * locks the container if the correct key is given
+	 *
+	 * @param key The key of the item being used with the container
+	 */
+	public void lock(String key)
 	{
-		for(ContentSlot contentSlot : Player.INVENTORY)
+		if(key.equals(KEY_ID))
 		{
-			//check if the key's ID is in the contentSlot
-			for(String ID : contentSlot.CONTENT_INSTANCES)
-				if(ID.equals(KEY_ID))
-				{
-					if(!LOCKED)
-						Interface.display(LOCK);
-					else
-						Interface.display("It is already unlocked");
-				}
+			if(OPEN)
+				close();
+			if(!LOCKED)
+			{
+				Interface.display(LOCK);
+				LOCKED = true;
+			}
+			else
+				Interface.display("It is already locked");
 		}
 	}
 
+	/**
+	 * displays the open description for the Container and sets it to open if unlocked
+	 */
 	public void open()
 	{
 		if(!LOCKED)
@@ -86,17 +106,16 @@ public class Container extends Item
 			if(!OPEN)
 			{
 				OPEN = true;
-				StringBuilder contents = new StringBuilder();
-				for(ContentSlot slot : CONTENTS)
-					for(String id : slot.CONTENT_INSTANCES)
-						contents.append(World.getIDName(id)).append("\n");
-				Interface.display(OPEN_DESC + "\n" + contents);
+				displayContents();
 			}
 			else
 				Interface.display("The " + NAME + " is already open");
 		}
 	}
 
+	/**
+	 * Displays the description for closing the Container and sets it to closed
+	 */
 	public void close()
 	{
 		if(OPEN)
@@ -108,79 +127,95 @@ public class Container extends Item
 			Interface.display("The " + NAME + " is already closed");
 	}
 
-	public boolean contains(Item item)
+	/**
+	 * Displays the contents of the chest
+	 */
+	public void displayContents()
+	{
+		StringBuilder contents = new StringBuilder();
+		for(ContentSlot slot : CONTENTS)
+			for(String id : slot.CONTENT_INSTANCES)
+				contents.append(World.getIDName(id)).append("\n");
+		Interface.display(OPEN_DESC + "\n" + contents);
+
+	}
+
+	/**
+	 * @param entity
+	 * @return true if the Entity is contained in the container
+	 */
+	public boolean contains(Entity entity)
 	{
 		for(ContentSlot slot : CONTENTS)
-			if(slot.contains(item))
+			if(slot.contains(entity))
 				return true;
 		return false;
 	}
 
-	public boolean contains(Container container)
+	/**
+	 *
+	 * @param key
+	 * @return true if the key corresponds to an entity in the container
+	 */
+	public boolean contains(String key)
 	{
+		String[] com = key.split(":");
+		String instance = com[1];
+
 		for(ContentSlot slot : CONTENTS)
-			if(slot.contains(container))
-				return true;
+			if(slot.ID.equals(com[0]))
+				if(slot.contains(key))
+					return true;
 		return false;
 	}
 
-	public boolean contains(String id)
-	{
-		for(ContentSlot slot : CONTENTS)
-			if(slot.contains(id))
-				return true;
-		return false;
-	}
-
-	public void add(Item item)
+	/**
+	 * adds the entity to the proper ContainerSlot in the container
+	 * @param entity
+	 */
+	public void add(Entity entity)
 	{
 		boolean added = false;
 		for(ContentSlot slot : CONTENTS)
-			if(slot.NAME.equals(item.NAME))
+			if(slot.NAME.equals(entity.NAME))
 			{
-				slot.add(item);
+				slot.add(entity);
 				added = true;
 				break;
 			}
 		if(!added)
-			CONTENTS.add(new ContentSlot(item));
+			CONTENTS.add(new ContentSlot(entity));
 	}
 
-	public void add(Container container)
+	/**
+	 * Removes the specified entity from the container
+	 * @param entity
+	 */
+	public void remove(Entity entity)
 	{
-		boolean added = false;
-		for(ContentSlot slot : CONTENTS)
-			if(slot.NAME.equals(container.NAME))
-			{
-				slot.add(container);
-				added = true;
-				break;
-			}
-		if(!added)
-			CONTENTS.add(new ContentSlot(container));
-	}
-
-	public void remove(Item item)
-	{
-		if(contains(item))
+		if(contains(entity))
 			for(ContentSlot slot : CONTENTS)
-				if(slot.NAME.equals(item.NAME))
-					slot.remove(item);
+				if(slot.NAME.equals(entity.NAME))
+					slot.remove(entity);
 	}
 
-	public void remove(Container container)
+	/**
+	 * Removes the entity specified by the key from the container
+	 * @param key
+	 */
+	public void remove(String key)
 	{
-		if(contains(container))
+		if(contains(key))
 			for(ContentSlot slot : CONTENTS)
-				if(slot.NAME.equals(container.NAME))
-					slot.remove(container);
+				if(slot.contains(key))
+					slot.remove(key);
 	}
 
-	public void remove(String id)
+	/**
+	 * @return the list of effects for the object
+	 */
+	public List<String[]> getEffects()
 	{
-		if(contains(id))
-			for(ContentSlot slot : CONTENTS)
-				if(slot.contains(id))
-					slot.remove(id);
+		return EFFECTS;
 	}
 }

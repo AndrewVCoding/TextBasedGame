@@ -4,9 +4,9 @@
   "PICKUP": "You carefully slip the pocket knife into your pocket",
   "TAKEABLE": true,
   "ACTIVATED": false,
-  "EFFECTS": [
+  "EFFECTS": [[
     "attack",
-    "2"
+    "2"]
   ],
   "NAME": "pocket knife",
   "ID": "I-000000",

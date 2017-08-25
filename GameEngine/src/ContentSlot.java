@@ -9,6 +9,7 @@ public class ContentSlot
 	public String NAME;
 	public String ID;
 	public List<String> CONTENT_INSTANCES = new ArrayList<>();
+	public List<String[]> EFFECTS = new ArrayList<>();
 	public List<String> TO_PURGE = new ArrayList<>();
 	public int QUANTITY;
 	public boolean PURGE = false;
@@ -22,6 +23,7 @@ public class ContentSlot
 		NAME = entity.NAME;
 		ID = entity.ID;
 		CONTENT_INSTANCES.add(entity.INSTANCE);
+		EFFECTS = entity.getEffects();
 		QUANTITY = 1;
 	}
 
@@ -50,16 +52,29 @@ public class ContentSlot
 		QUANTITY = contentSlot.QUANTITY;
 	}
 
+	/**
+	 * Calls the look function of the top entity in the slot
+	 */
 	public void look()
 	{
 		World.ENTITY_MANAGER.get(getKey()).look();
 	}
 
+	/**
+	 *
+	 * @param input
+	 * @return true if the NAME of the ContentSlot is found within the input
+	 */
 	public boolean referenced(String input)
 	{
 		return input.matches("[ \\d\\w]*" + NAME + "[ \\w\\d]*");
 	}
 
+	/**
+	 *
+	 * @param entity
+	 * @return true if the entity's instance is listed in the ContentSlot
+	 */
 	public boolean contains(Entity entity)
 	{
 		for(String id : CONTENT_INSTANCES)
@@ -68,6 +83,11 @@ public class ContentSlot
 		return false;
 	}
 
+	/**
+	 *
+	 * @param key
+	 * @return true if the entity specified by the key is listed in the ContentSlot
+	 */
 	public boolean contains(String key)
 	{
 		for(String instance : CONTENT_INSTANCES)
@@ -76,6 +96,10 @@ public class ContentSlot
 		return false;
 	}
 
+	/**
+	 * Adds the entity's instance to the list in
+	 * @param entity
+	 */
 	public void add(Entity entity)
 	{
 		if(entity.NAME.equals(NAME))
@@ -86,23 +110,35 @@ public class ContentSlot
 			}
 	}
 
-	public void add(String id)
+	/**
+	 * Adds the instance to the list in the ContentSlot
+	 * @param instance
+	 */
+	public void add(String instance)
 	{
-		if(World.getIDName(id).equals(NAME))
-			if(!CONTENT_INSTANCES.contains(id))
+		if(World.getIDName(instance).equals(NAME))
+			if(!CONTENT_INSTANCES.contains(instance))
 			{
-				CONTENT_INSTANCES.add(id);
+				CONTENT_INSTANCES.add(instance);
 				QUANTITY++;
 			}
 	}
 
+	/**
+	 * Adds all instances of one ContentSlot to the list in this ContentSlot
+	 * @param slot
+	 */
 	public void add(ContentSlot slot)
 	{
 		if(slot.NAME.equals(NAME))
-			for(String newID : slot.CONTENT_INSTANCES)
-				add(newID);
+			for(String newInstance : slot.CONTENT_INSTANCES)
+				add(newInstance);
 	}
 
+	/**
+	 * Removes an entity's instance from ContentSlot
+	 * @param entity
+	 */
 	public void remove(Entity entity)
 	{
 		for(String instance : CONTENT_INSTANCES)
@@ -113,10 +149,14 @@ public class ContentSlot
 			}
 	}
 
-	public void remove(String inputInstance)
+	/**
+	 * Removes an instance from the ContentSlot based on the key
+	 * @param key
+	 */
+	public void remove(String key)
 	{
 		for(String instance : CONTENT_INSTANCES)
-			if(inputInstance.equals(instance))
+			if(key.equals(ID + ":" + instance))
 			{
 				CONTENT_INSTANCES.remove(instance);
 				QUANTITY--;
@@ -165,6 +205,10 @@ public class ContentSlot
 		System.out.println(QUANTITY + " left");
 	}
 
+	/**
+	 * Returns the first Entity in the ContentSlot
+	 * @return
+	 */
 	public Entity getTop()
 	{
 		return World.ENTITY_MANAGER.get(getKey());
@@ -179,6 +223,9 @@ public class ContentSlot
 		return ID + ":" + CONTENT_INSTANCES.get(0);
 	}
 
+	/**
+	 * removes any empty ContentSlots
+	 */
 	public void purge()
 	{
 		for(String instance : CONTENT_INSTANCES)
@@ -187,5 +234,10 @@ public class ContentSlot
 		for(String instance : TO_PURGE)
 			CONTENT_INSTANCES.remove(instance);
 		TO_PURGE = new ArrayList<>();
+	}
+
+	public void effect(int index)
+	{
+		System.out.println("ContentSlot effect: " + index);
 	}
 }
