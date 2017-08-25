@@ -1,0 +1,14 @@
+{
+  "DESCRIPTION": "A pair of clean socks, neatly folded.",
+  "ACT_DESC": "none",
+  "PICKUP": "You pick up the socks and put them in your pocket",
+  "TAKEABLE": true,
+  "ACTIVATED": false,
+  "EFFECTS": [[
+    "none"]
+  ],
+  "NAME": "socks",
+  "ID": "I-000004",
+  "INSTANCE": "000000",
+  "PURGE": false
+}

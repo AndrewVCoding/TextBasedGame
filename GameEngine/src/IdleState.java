@@ -1,73 +1,54 @@
-import java.lang.management.GarbageCollectorMXBean;
-
-public class IdleState
+/**
+ * Available commands while idle are:
+ * look, take, effect, consume, go
+ */
+class IdleState
 {
-	public static String[] COMMAND;
 
-	public static void look(String[] command)
+	/**
+	 * When the command is go XXXXX then move the player to the specified room
+	 * todo allow using quicker commands to move to other rooms, giving each exit multiple reference names to look for in a command
+	 */
+	public static void go(Command command)
+	{
+		Player.moveRoom(command.DESTINATION);
+	}
+
+	public static void look(Command command)
 	{
 		//"look", "inventory"
-		if(command[1].equalsIgnoreCase("inventory"))
+		if(command.equals("look inventory"))
 			Player.viewInventory();
-			//"look", "room"
-		else if(command[1].equals("room"))
+		else if(command.equals("look"))
 			Interface.display(Player.LOCATION.look());
-			//"look", item.NAME
+		else if(command.equals("look at"))
+			command.SLOT_ONE.look();
+	}
+
+	/**
+	 * When using an object, array contents are as follows
+	 * [ effect | target | activation description | deactivation description ]
+	 * [   0    |    1   |            2           |             3            ]
+	 */
+	public static void effect(Command command)
+	{
+		//get the index of the effect
+		String[] com = command.COMMAND.split("|");
+		int index = Integer.parseInt(com[1]);
+
+		command.SLOT_ONE.effect(index);
+	}
+
+	public static void take(Command command)
+	{
+		if(Player.INVENTORY.contains(command.SLOT_ONE))
+			Interface.display("You already have that");
 		else
-			for(Item item : GameSystems.getAccessibleItems())
-				if(command[1].equals(item.NAME))
-					Interface.display(item.look());
+			command.SLOT_ONE.take(1);
 	}
 
-	public static void take(String[] command)
+	public static void act(Command command)
 	{
-		Item target = new Item();
 
-		for(Item item : GameSystems.getAccessibleItems())
-			if(item.NAME.equals(command[1]))
-				target = item;
-
-		if(target.TAKEABLE)
-		{
-			//If the item is in the room
-			if(Player.LOCATION.ITEMS.contains(target))
-			{
-				Player.LOCATION.ITEMS.remove(target);
-				Player.INVENTORY.add(target);
-			}
-
-			//Otherwise, check if it is in a container
-			else
-				for(Container container : GameSystems.getVisibleContainers())
-					if(container.CONTENTS.contains(target) && container.OPEN)
-					{
-						container.CONTENTS.remove(target);
-						Player.INVENTORY.add(target);
-					}
-		}
-		Interface.display(target.PICKUP);
-	}
-
-	public static void act(String[] command)
-	{
-		Item source = World.getItem(command[1]);
-
-		//The item is usable
-		if(source != null)
-		{
-			String action = command[0];
-			int index = source.effect(action);
-
-			//If the specified action is valid for the item
-			if(index > -1)
-			{
-				if(action.equalsIgnoreCase("use"))
-					GameSystems.use(source, index);
-				else if(action.equalsIgnoreCase("consume"))
-					GameSystems.consume(source, index);
-				else
-					GameSystems.invalid();
-			}
-		}
 	}
 }

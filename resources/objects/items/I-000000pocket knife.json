@@ -1,0 +1,15 @@
+{
+  "DESCRIPTION": "A small folding knife",
+  "ACT_DESC": "none",
+  "PICKUP": "You carefully slip the pocket knife into your pocket",
+  "TAKEABLE": true,
+  "ACTIVATED": false,
+  "EFFECTS": [[
+    "attack",
+    "2"]
+  ],
+  "NAME": "pocket knife",
+  "ID": "I-000000",
+  "INSTANCE": "000000",
+  "PURGE": false
+}

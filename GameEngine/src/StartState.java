@@ -1,7 +1,5 @@
-public class StartState
+class StartState
 {
-	public static String[] COMMAND;
-
 	/**
 	 * When the game is first loaded, the only option is to start the game, which currently goes to create a new character
 	 * todo add in load/save world/player options

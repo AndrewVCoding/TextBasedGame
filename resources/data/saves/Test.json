@@ -1,0 +1,351 @@
+{
+  "NAME": "Test",
+  "GAME_STATE": "idle",
+  "DISPLAY": "This is your living room. It\u0027s very comfy.\n\nContains: tv, remote, \nExits: \n   kitchen\n   bedroom\n   bathroom\n_______________________________________________________________",
+  "INTERACTIONS": "\n\u003e\u003esave Test",
+  "HEADER": "This is your living room. It\u0027s very comfy.\n\nContains: tv, remote, \nExits: \n   kitchen\n   bedroom\n   bathroom\n_______________________________________________________________",
+  "PLAYER": {
+    "NAME": "Test",
+    "CLASS": "Warrior",
+    "HP": 100,
+    "MAX_HP": 100,
+    "LOCATION": {
+      "NAME": "living room",
+      "ID": "R-000000",
+      "ENTRANCE": "You walk into the living room.",
+      "DESCRIPTION": "This is your living room. It\u0027s very comfy.",
+      "LOOK": "You look around your living room, taking note of any objects that might be useful.",
+      "CONTENTS": [
+        {
+          "NAME": "tv",
+          "ID": "I-000003",
+          "CONTENT_INSTANCES": [
+            "000000"
+          ],
+          "EFFECTS": [
+            [
+              "act",
+              "self",
+              "You don\u0027t feel like walking up to the tv",
+              "You don\u0027t feel like walking up to the tv"
+            ]
+          ],
+          "TO_PURGE": [],
+          "QUANTITY": 1,
+          "PURGE": false
+        },
+        {
+          "NAME": "remote",
+          "ID": "I-000002",
+          "CONTENT_INSTANCES": [
+            "000000"
+          ],
+          "EFFECTS": [
+            [
+              "use with",
+              "remote",
+              "tv",
+              "The tv powers on, casting a soft glow across the room",
+              "The screen on the tv grows dark, leaving the room darker than before"
+            ]
+          ],
+          "TO_PURGE": [],
+          "QUANTITY": 1,
+          "PURGE": false
+        }
+      ],
+      "EXITS": [
+        "kitchen",
+        "bedroom",
+        "bathroom"
+      ],
+      "TO_PURGE": []
+    },
+    "INVENTORY": [],
+    "TO_PURGE": []
+  },
+  "ITEMS": [
+    {
+      "DESCRIPTION": "A small folding knife",
+      "ACT_DESC": "none",
+      "PICKUP": "You carefully slip the pocket knife into your pocket",
+      "TAKEABLE": true,
+      "ACTIVATED": false,
+      "EFFECTS": [
+        [
+          "attack",
+          "2"
+        ]
+      ],
+      "NAME": "pocket knife",
+      "ID": "I-000000",
+      "INSTANCE": "000000",
+      "PURGE": false
+    },
+    {
+      "DESCRIPTION": "A slice of cold pizza. Who knows how old it is",
+      "ACT_DESC": "none",
+      "PICKUP": "You stuff the greasy slice of pizza into your pocket",
+      "TAKEABLE": true,
+      "ACTIVATED": false,
+      "EFFECTS": [
+        [
+          "consume",
+          "self",
+          "health",
+          "5",
+          "You eat the slice, savoring each bite of chilly, cheesy goodness."
+        ]
+      ],
+      "NAME": "cold pizza",
+      "ID": "I-000001",
+      "INSTANCE": "000000",
+      "PURGE": false
+    },
+    {
+      "DESCRIPTION": "The tv remote",
+      "ACT_DESC": "none",
+      "PICKUP": "You put the remote in your pocket",
+      "TAKEABLE": true,
+      "ACTIVATED": false,
+      "EFFECTS": [
+        [
+          "use with",
+          "remote",
+          "tv",
+          "The tv powers on, casting a soft glow across the room",
+          "The screen on the tv grows dark, leaving the room darker than before"
+        ]
+      ],
+      "NAME": "remote",
+      "ID": "I-000002",
+      "INSTANCE": "000000",
+      "PURGE": false
+    },
+    {
+      "DESCRIPTION": "The tv is currently turned off, but you don\u0027t want to walk all the way over to it to turn it on.",
+      "ACT_DESC": "A soft glow emanates from the tv, as it displays current events and news stories about current events.",
+      "PICKUP": "The tv is too heavy to lift and wouldn\u0027t fit in your pockets anyways",
+      "TAKEABLE": false,
+      "ACTIVATED": false,
+      "EFFECTS": [
+        [
+          "act",
+          "self",
+          "You don\u0027t feel like walking up to the tv",
+          "You don\u0027t feel like walking up to the tv"
+        ]
+      ],
+      "NAME": "tv",
+      "ID": "I-000003",
+      "INSTANCE": "000000",
+      "PURGE": false
+    },
+    {
+      "DESCRIPTION": "A pair of clean socks, neatly folded.",
+      "ACT_DESC": "none",
+      "PICKUP": "You pick up the socks and put them in your pocket",
+      "TAKEABLE": true,
+      "ACTIVATED": false,
+      "EFFECTS": [
+        [
+          "none"
+        ]
+      ],
+      "NAME": "socks",
+      "ID": "I-000004",
+      "INSTANCE": "000000",
+      "PURGE": false
+    }
+  ],
+  "CONTAINERS": [
+    {
+      "UNLOCK": "none",
+      "LOCK": "none",
+      "OPEN_DESC": "You slide the drawer open to reveal:",
+      "CLOSE_DESC": "You push the drawer closed",
+      "KEY_ID": "k-000000",
+      "OPEN": false,
+      "LOCKED": false,
+      "CONTENTS": [
+        {
+          "NAME": "socks",
+          "ID": "I-000004",
+          "CONTENT_INSTANCES": [
+            "000000"
+          ],
+          "TO_PURGE": [],
+          "QUANTITY": 1,
+          "PURGE": false
+        }
+      ],
+      "DESCRIPTION": "The drawers next to your bed are closed",
+      "ACT_DESC": "The drawer hangs open, allowing you to see inside",
+      "PICKUP": "none",
+      "TAKEABLE": false,
+      "ACTIVATED": false,
+      "EFFECTS": [
+        [
+          "none"
+        ]
+      ],
+      "NAME": "drawers",
+      "ID": "C-000000",
+      "INSTANCE": "000000",
+      "PURGE": false
+    }
+  ],
+  "ROOMS": [
+    {
+      "NAME": "living room",
+      "ID": "R-000000",
+      "ENTRANCE": "You walk into the living room.",
+      "DESCRIPTION": "This is your living room. It\u0027s very comfy.",
+      "LOOK": "You look around your living room, taking note of any objects that might be useful.",
+      "CONTENTS": [
+        {
+          "NAME": "tv",
+          "ID": "I-000003",
+          "CONTENT_INSTANCES": [
+            "000000"
+          ],
+          "EFFECTS": [
+            [
+              "act",
+              "self",
+              "You don\u0027t feel like walking up to the tv",
+              "You don\u0027t feel like walking up to the tv"
+            ]
+          ],
+          "TO_PURGE": [],
+          "QUANTITY": 1,
+          "PURGE": false
+        },
+        {
+          "NAME": "remote",
+          "ID": "I-000002",
+          "CONTENT_INSTANCES": [
+            "000000"
+          ],
+          "EFFECTS": [
+            [
+              "use with",
+              "remote",
+              "tv",
+              "The tv powers on, casting a soft glow across the room",
+              "The screen on the tv grows dark, leaving the room darker than before"
+            ]
+          ],
+          "TO_PURGE": [],
+          "QUANTITY": 1,
+          "PURGE": false
+        }
+      ],
+      "EXITS": [
+        "kitchen",
+        "bedroom",
+        "bathroom"
+      ],
+      "TO_PURGE": []
+    },
+    {
+      "NAME": "kitchen",
+      "ID": "R-000001",
+      "ENTRANCE": "You enter your kitchen.",
+      "DESCRIPTION": "This is your kitchen. You briefly wonder if you should eat something.",
+      "LOOK": "You look at the messy kitchen, briefly wondering how you can stand to prepare your meals in such a disgusting environment",
+      "CONTENTS": [
+        {
+          "NAME": "cold pizza",
+          "ID": "I-000001",
+          "CONTENT_INSTANCES": [
+            "000000"
+          ],
+          "EFFECTS": [
+            [
+              "consume",
+              "self",
+              "health",
+              "5",
+              "You eat the slice, savoring each bite of chilly, cheesy goodness."
+            ]
+          ],
+          "TO_PURGE": [],
+          "QUANTITY": 1,
+          "PURGE": false
+        }
+      ],
+      "EXITS": [
+        "living room"
+      ],
+      "TO_PURGE": []
+    },
+    {
+      "NAME": "bedroom",
+      "ID": "R-000002",
+      "ENTRANCE": "You enter your bedroom.",
+      "DESCRIPTION": "This is your bedroom. You wish you were still in bed.",
+      "LOOK": "Your bedroom is immaculately clean, even all of your book shelves are dusted and organized",
+      "CONTENTS": [
+        {
+          "NAME": "pocket knife",
+          "ID": "I-000000",
+          "CONTENT_INSTANCES": [
+            "000000"
+          ],
+          "EFFECTS": [
+            [
+              "attack",
+              "2"
+            ]
+          ],
+          "TO_PURGE": [],
+          "QUANTITY": 1,
+          "PURGE": false
+        },
+        {
+          "NAME": "drawers",
+          "ID": "C-000000",
+          "CONTENT_INSTANCES": [
+            "000000"
+          ],
+          "EFFECTS": [
+            [
+              "none"
+            ]
+          ],
+          "TO_PURGE": [],
+          "QUANTITY": 1,
+          "PURGE": false
+        }
+      ],
+      "EXITS": [
+        "living room",
+        "bathroom"
+      ],
+      "TO_PURGE": []
+    },
+    {
+      "NAME": "bathroom",
+      "ID": "R-000003",
+      "ENTRANCE": "You enter your bathroom.",
+      "DESCRIPTION": "This is your bathroom. You briefly wonder if you should eat something.",
+      "LOOK": "What is there to say, it\u0027s just a smelly bathroom. The shower is clean, but the toilet seat...",
+      "CONTENTS": [],
+      "EXITS": [
+        "bedroom"
+      ],
+      "TO_PURGE": []
+    }
+  ],
+  "PATHS": [
+    "R-000000|R-000001",
+    "R-000000|R-000002",
+    "R-000000|R-000003",
+    "R-000001|R-000000",
+    "R-000002|R-000000",
+    "R-000002|R-000003",
+    "R-000003|R-000000",
+    "R-000003|R-000002"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "UNLOCK": "none",
+  "LOCK": "none",
+  "OPEN_DESC": "You slide the drawer open to reveal:",
+  "CLOSE_DESC": "You push the drawer closed",
+  "KEY_ID": "k-000000",
+  "OPEN": false,
+  "LOCKED": false,
+  "CONTENTS": [
+    {
+      "NAME": "socks",
+      "ID": "I-000004",
+      "CONTENT_INSTANCES": [
+        "000000"
+      ],
+      "EFFECTS": [[
+        "none"]
+      ],
+      "TO_PURGE": [],
+      "QUANTITY": 1,
+      "PURGE": false
+    }
+  ],
+  "DESCRIPTION": "The drawers next to your bed are closed",
+  "ACT_DESC": "The drawer hangs open, allowing you to see inside",
+  "PICKUP": "none",
+  "TAKEABLE": false,
+  "ACTIVATED": false,
+  "EFFECTS": [["none"]],
+  "NAME": "drawers",
+  "ID": "C-000000",
+  "INSTANCE": "000000",
+  "PURGE": false
+}

@@ -1,157 +1,79 @@
-import java.util.ArrayList;
-import java.util.List;
-
-public class GameSystems
+class GameSystems
 {
 	public static String GAME_STATE = "start";
-	public static String[] COMMAND;
 
 	/**
 	 * Auto starts the game as a prenamed character and class
 	 *
-	 * @param name
-	 * @param clas
+	 * @param name preset name for an automatic character
+	 * @param clas preset class for an automatic character
 	 */
 	public static void autoStartGame(String name, int clas)
 	{
-		CommandHandler.command("start");
-		CommandHandler.command(name);
-		CommandHandler.command("" + clas);
-	}
 
-	/**
-	 * @return a list of all items currently visible to the player, in their inventory and in the room with them(outside of containers)
-	 */
-	public static List<Item> getVisibleItems()
-	{
-		List<Item> visible = new ArrayList<>();
-
-		try
-		{
-			for(Item i : Player.INVENTORY)
-				visible.add(i);
-			for(Item i : Player.LOCATION.ITEMS)
-				visible.add(i);
-
-		} catch(NullPointerException e)
-		{
-
-		}
-
-		return visible;
-	}
-
-	/**
-	 * @return a list of all items currently accessible to the player, in their inventory, the room, and in containers
-	 */
-	public static List<Item> getAccessibleItems()
-	{
-		List<Item> accessible = new ArrayList<>();
-
-		try
-		{
-			for(Item i : Player.INVENTORY)
-				accessible.add(i);
-			for(Item i : Player.LOCATION.ITEMS)
-				accessible.add(i);
-			for(Container c : Player.LOCATION.CONTAINERS)
-				if(c.OPEN)
-					for(Item i : c.CONTENTS)
-						accessible.add(i);
-
-		} catch(NullPointerException e)
-		{
-
-		}
-
-		return accessible;
-	}
-
-	/**
-	 * @return a list of all rooms currently connected to the room the player is in
-	 */
-	public static List<Room> getVisibleExits()
-	{
-		List<Room> visible = new ArrayList<>();
-
-		try
-		{
-			for(String s : Player.LOCATION.EXITS)
-				visible.add(World.getRoom(s));
-		} catch(NullPointerException e)
-		{
-		}
-
-		return visible;
-	}
-
-	public static List<Container> getVisibleContainers()
-	{
-		List<Container> visible = new ArrayList<>();
-
-		try
-		{
-			for(Container s : Player.LOCATION.CONTAINERS)
-				visible.add(s);
-		} catch(NullPointerException e)
-		{
-		}
-
-		return visible;
 	}
 
 	/**
 	 * When the game is first loaded, the only option is to start the game, which currently goes to create a new character
 	 * todo add in load/save world/player options
 	 */
-	public static void start()
+	public static void start(Command command)
 	{
 		if(GAME_STATE.equals("start"))
 			StartState.start();
 		else if(GAME_STATE.equals("idle"))
 			Interface.display("Sorry, that command is not available right now.");
 		else
-			invalid();
+			invalid(command);
 	}
 
 	/**
 	 * When the command is go XXXXX then move the player to the specified room
 	 * todo allow using just N/S/E/W as quick commands, as well as just putting the name of the exit/destination room
 	 */
-	public static void go()
+	public static void go(Command command)
 	{
 		if(GAME_STATE.equals("idle"))
-		{
-			Player.moveRoom(World.getRoom(COMMAND[1]));
-		}
+			IdleState.go(command);
+		else
+			Interface.display("You can't leave right now");
 	}
 
 	/**
 	 * displays an overview of the player's current location
 	 * todo allow the player to target a specific item to look at
 	 */
-	public static void look()
+	public static void look(Command command)
 	{
 		if(GAME_STATE.equals("idle"))
-			IdleState.look(COMMAND);
+			IdleState.look(command);
+		else
+			Interface.display("There is nothing to look at");
 	}
 
 	/**
 	 * Moves an object to the players inventory
 	 */
-	public static void take()
+	public static void take(Command command)
 	{
 		if(GAME_STATE.equals("idle"))
-			IdleState.take(COMMAND);
+		{
+			IdleState.take(command);
+		}
+		else
+			Interface.display("You can't do that right now");
 	}
 
 	/**
-	 * If the command is to use/eat/drink an item, find the relevant effects and act on them
+	 * If the command is to effect/eat/drink an item, find the relevant effects and act on them
 	 */
-	public static void act()
+	public static void act(Command command)
 	{
-		if(COMMAND[1] != null)
-			IdleState.act(COMMAND);
+		System.out.println(":act:");
+		if(GAME_STATE.equals("idle"))
+			IdleState.act(command);
+		else
+			Interface.display("There is nothing to do that to");
 	}
 
 	/**
@@ -159,111 +81,55 @@ public class GameSystems
 	 * [   act | source | target | activation description | deactivation description ]
 	 * [    0  |    1   |    2   |           3            |              4           ]
 	 */
-	public static void use(Item source, int index)
+	public static void use(Command command)
 	{
-		Item target = World.getItem(COMMAND[2]);
-
-		if(source.EFFECTS[index + 2].equals("player"))
-		{
-			//Place holder for future items
-		}
-
-		else if(source.EFFECTS[index + 2].equals(target.NAME))
-		{
-			if(!target.ACTIVATED)
-				Interface.display(source.EFFECTS[index + 3]);
-			if(target.ACTIVATED)
-				Interface.display(source.EFFECTS[index + 4]);
-
-			target.ACTIVATED = !target.ACTIVATED;
-		}
-	}
-
-	/**
-	 * When consuming an object, array contents are as follows
-	 * [ consume | target | attribute | amount ]
-	 * [ index   |    +1  |    +2     |   +3   ]
-	 *
-	 * @param source
-	 */
-	public static void consume(Item source, int index)
-	{
-		System.out.println("consuming " + source.NAME);
-		if(source.EFFECTS[index + 2].equalsIgnoreCase("health"))
-		{
-			Player.HP += Integer.parseInt(source.EFFECTS[index + 3]);
-			Interface.display("You were healed for " + source.EFFECTS[index + 3]);
-		}
+		System.out.println(":effect:");
+		if(GAME_STATE.equals("idle"))
+			IdleState.effect(command);
 		else
-			Interface.display("The item had no effect");
+			Interface.display("There is nothing to effect");
 	}
 
 	/**
 	 * The command is unknown, either being a player response to a query or not a valid command
 	 */
-	public static void unknown(String input)
+	public static void unknown(Command command)
 	{
-		String[] command = input.split(" ");
-
-		if(GAME_STATE.equals("character name"))
+		System.out.println(":unknown:");
+		if(GAME_STATE.equals("start"))
 		{
-			Player.NAME = command[0];
-			GAME_STATE = "character class";
-			Interface.display("Now pick a class:\n1)warrior\n2)Wizard\n3)Rogue");
-
+			if(command.COMMAND.equals("create character"))
+				CharacterCreation.createCharacter(command);
 		}
-		else if(GAME_STATE.equals("character class"))
+		else if(GAME_STATE.equals("character creation"))
 		{
-			if(command[0].equals("1"))
-			{
-				GAME_STATE = "idle";
-				Player.CLASS = "Warrior";
-				Player.HP = 100;
-				Player.moveRoom(World.getStartingRoom());
-
-			}
-			else if(command[0].equals("2"))
-			{
-				GAME_STATE = "idle";
-				Player.CLASS = "Wizard";
-				Player.HP = 70;
-				Player.moveRoom(World.getStartingRoom());
-
-			}
-			else if(command[0].equals("3"))
-			{
-				GAME_STATE = "idle";
-				Player.CLASS = "Rogue";
-				Player.HP = 80;
-				Player.moveRoom(World.getStartingRoom());
-			}
-			else
-			{
-				Interface.display("That is not a valid class choice");
-			}
-
-			Interface.INTERACTIONS = "";
+			CharacterCreation.createCharacter(command);
 		}
 		else
-			invalid();
+			invalid(command);
 	}
 
-	public static void open()
+	public static void open(Command command)
 	{
-		for(Container container : GameSystems.getVisibleContainers())
-			if(container.NAME.equals(COMMAND[1]))
-				container.open();
+		System.out.println("opening");
+
+		command.SLOT_ONE.getTop().open();
 	}
 
-	public static void close()
+	public static void close(Command command)
 	{
-		for(Container container : GameSystems.getVisibleContainers())
-			if(container.NAME.equals(COMMAND[1]))
-				container.close();
+		System.out.println("closing");
 	}
 
-	public static void invalid()
+	public static void invalid(Command command)
 	{
-		Interface.display(COMMAND[1]);
+		System.out.println("invalid");
+	}
+
+	public static void enterGame()
+	{
+		GAME_STATE = "idle";
+		World.getRoom(World.STARTING_ROOM).spawn();
+		Interface.resetDisplay(false);
 	}
 }

@@ -1,0 +1,18 @@
+{
+  "DESCRIPTION": "The tv remote",
+  "ACT_DESC": "none",
+  "PICKUP": "You put the remote in your pocket",
+  "TAKEABLE": true,
+  "ACTIVATED": false,
+  "EFFECTS": [[
+    "use with",
+    "remote",
+    "tv",
+    "The tv powers on, casting a soft glow across the room",
+    "The screen on the tv grows dark, leaving the room darker than before"]
+  ],
+  "NAME": "remote",
+  "ID": "I-000002",
+  "INSTANCE": "000000",
+  "PURGE": false
+}
