@@ -3,27 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="aae26b62-91b6-4ef4-8927-2e47d11be383" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/Command.java" afterPath="$PROJECT_DIR$/GameEngine/src/Command.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/CommandHandler.java" afterPath="$PROJECT_DIR$/GameEngine/src/CommandHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/CommandParser.java" afterPath="$PROJECT_DIR$/GameEngine/src/CommandParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/Container.java" afterPath="$PROJECT_DIR$/GameEngine/src/Container.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/ContentSlot.java" afterPath="$PROJECT_DIR$/GameEngine/src/ContentSlot.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/DataHandler.java" afterPath="$PROJECT_DIR$/GameEngine/src/DataHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/Entity.java" afterPath="$PROJECT_DIR$/GameEngine/src/Entity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/GameSystems.java" afterPath="$PROJECT_DIR$/GameEngine/src/GameSystems.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/IdleState.java" afterPath="$PROJECT_DIR$/GameEngine/src/IdleState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/Item.java" afterPath="$PROJECT_DIR$/GameEngine/src/Item.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/StaticWorld.java" afterPath="$PROJECT_DIR$/GameEngine/src/StaticWorld.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/objects/containers/C-000000drawers.json" afterPath="$PROJECT_DIR$/resources/objects/containers/C-000000drawers.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/objects/items/I-000000pocket knife.json" afterPath="$PROJECT_DIR$/resources/objects/items/I-000000pocket knife.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/objects/items/I-000001cold pizza.json" afterPath="$PROJECT_DIR$/resources/objects/items/I-000001cold pizza.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/objects/items/I-000002remote.json" afterPath="$PROJECT_DIR$/resources/objects/items/I-000002remote.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/objects/items/I-000003tv.json" afterPath="$PROJECT_DIR$/resources/objects/items/I-000003tv.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/objects/items/I-000004socks.json" afterPath="$PROJECT_DIR$/resources/objects/items/I-000004socks.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/rooms/R-000000living room.json" afterPath="$PROJECT_DIR$/resources/rooms/R-000000living room.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/rooms/R-000001kitchen.json" afterPath="$PROJECT_DIR$/resources/rooms/R-000001kitchen.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/rooms/R-000002bedroom.json" afterPath="$PROJECT_DIR$/resources/rooms/R-000002bedroom.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/data/saves/Tset.json" afterPath="$PROJECT_DIR$/resources/data/saves/Test.json" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -536,7 +515,7 @@
       <workItem from="1503430794971" duration="25538000" />
       <workItem from="1503541576711" duration="5303000" />
       <workItem from="1503597888159" duration="32209000" />
-      <workItem from="1503668584872" duration="12325000" />
+      <workItem from="1503668584872" duration="12337000" />
     </task>
     <task id="LOCAL-00001" summary="Updated all class files to match original project">
       <created>1501284256536</created>
@@ -664,11 +643,18 @@
       <option name="project" value="LOCAL" />
       <updated>1503631608504</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="DataHandler now can save and load data for the game">
+      <created>1503688317936</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1503688317936</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="237698000" />
+    <option name="totallyTimeSpent" value="237710000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
