@@ -3,133 +3,196 @@ import java.util.List;
 
 public class World
 {
-	final private static List<Room> ROOMS = new ArrayList<>();
-	final private static List<Item> ITEMS = new ArrayList<>();
-	final private static List<Container> CONTAINERS = new ArrayList<>();
+	public static EntityManager ENTITY_MANAGER;
+	public static List<Entity> ENTITIES;
+	public static List<Room> ROOMS = new ArrayList<>();
+	public static List<String> PATHS = new ArrayList<>();
+	public static String STARTING_ROOM = "R-000000";
+	public static Map MAP;
 
-	public static void populate()
+	public static void buildWorld()
 	{
-		Item pocketKnife = new Item();
-		pocketKnife.NAME = "pocket knife";
-		pocketKnife.DESCRIPTION = "A small folding knife";
-		pocketKnife.PICKUP = "You carefully slip the pocket knife into your pocket";
-		pocketKnife.TAKEABLE = true;
-		pocketKnife.EFFECTS = new String[]{"attack", "2"};
+		//populate the entity manager
+		ENTITY_MANAGER = new EntityManager(ENTITIES);
 
-		Item coldPizza = new Item();
-		coldPizza.NAME = "pizza";
-		coldPizza.DESCRIPTION = "A slice of pizza. Who knows how old it is";
-		coldPizza.PICKUP = "You stuff the greasy slice of pizza into your pocket";
-		coldPizza.TAKEABLE = true;
-		coldPizza.EFFECTS = new String[]{"consume", "self","health", "5", "You eat the slice, savoring each bite of chilly, cheesy goodness."};
-
-		Item remote = new Item();
-		remote.NAME = "remote";
-		remote.DESCRIPTION = "The tv remote";
-		remote.PICKUP = "You put the remote in your pocket";
-		remote.TAKEABLE = true;
-		remote.EFFECTS = new String[]{"use", "remote","tv", "The tv powers on, casting a soft glow across the room", "The screen on the tv grows dark, leaving the room darker than before"};
-
-		Item television = new Item();
-		television.NAME = "tv";
-		television.DESCRIPTION = "The tv is currently turned off, but you don't want to walk all the way over to it to turn it on.";
-		television.PICKUP = "The tv is too heavy to lift and wouldn't fit in your pockets anyways";
-		television.ACT_DESC = "A soft glow emanates from the tv, as it displays current events and news stories about current events.";
-		television.EFFECTS = new String[]{"act", "self", "You don't feel like walking up to the tv", "You don't feel like walking up to the tv"};
-
-		Item socks = new Item();
-		socks.NAME = "socks";
-		socks.DESCRIPTION = "A pair of clean socks, neatly folded.";
-		socks.TAKEABLE = true;
-		socks.PICKUP = "You pick up the socks and put them in your pocket";
-
-		ITEMS.add(pocketKnife);
-		ITEMS.add(coldPizza);
-		ITEMS.add(remote);
-		ITEMS.add(television);
-		ITEMS.add(socks);
-
-		Container drawers = new Container();
-		drawers.NAME = "drawers";
-		drawers.DESCRIPTION = "The drawers next to your bed are closed";
-		drawers.ACT_DESC = "The drawer hangs open, allowing you to see inside";
-		drawers.OPEN_DESC = "You slide the drawer open to reveal:";
-		drawers.CLOSE_DESC = "You push the drawer closed";
-		drawers.LOCKED = false;
-		drawers.CONTENTS.add(socks);
-
-		CONTAINERS.add(drawers);
-
-		Room livingRoom = new Room();
-		livingRoom.NAME = "living room";
-		livingRoom.ENTRANCE = "You walk into the living room.";
-		livingRoom.DESCRIPTION = "This is your living room. It's very comfy.";
-		livingRoom.LOOK = "You look around your living room, taking note of any objects that might be useful.";
-		livingRoom.EXITS.add("kitchen");
-		livingRoom.EXITS.add("bedroom");
-		livingRoom.ITEMS.add(television);
-		livingRoom.ITEMS.add(remote);
-
-		Room kitchen = new Room();
-		kitchen.NAME = "kitchen";
-		kitchen.ENTRANCE = "You enter your kitchen.";
-		kitchen.DESCRIPTION = "This is your kitchen. You briefly wonder if you should eat something.";
-		kitchen.LOOK = "You look at the messy kitchen, briefly wondering how you can stand to prepare your meals in such a disgusting environment";
-		kitchen.EXITS.add("living room");
-		kitchen.ITEMS.add(coldPizza);
-
-		Room bedroom = new Room();
-		bedroom.NAME = "bedroom";
-		bedroom.ENTRANCE = "You enter your bedroom.";
-		bedroom.DESCRIPTION = "This is your bedroom. You wish you were still in bed.";
-		bedroom.LOOK = "Your bedroom is immaculately clean, even all of your book shelves are dusted and organized";
-		bedroom.EXITS.add("living room");
-		bedroom.EXITS.add("bathroom");
-		bedroom.ITEMS.add(pocketKnife);
-		bedroom.CONTAINERS.add(drawers);
-
-		Room bathroom = new Room();
-		bathroom.NAME = "bathroom";
-		bathroom.ENTRANCE = "You enter your bathroom.";
-		bathroom.DESCRIPTION = "This is your bathroom. You briefly wonder if you should eat something.";
-		bathroom.LOOK = "What is there to say, it's just a smelly bathroom. The shower is clean, but the toilet seat...";
-		bathroom.EXITS.add("bedroom");
-
-		ROOMS.add(livingRoom);
-		ROOMS.add(kitchen);
-		ROOMS.add(bathroom);
-		ROOMS.add(bedroom);
+		//Build out the map of the rooms
+		MAP = new Map();
+		MAP.build(PATHS, ROOMS);
+		MAP.print();
 	}
 
-	public static Room getStartingRoom()
-	{
-		return ROOMS.get(0);
-	}
-
-	public static Room getRoom(String name)
+	/**
+	 * @param id the ID of the room you want
+	 * @return Room with the specified ID
+	 */
+	public static Room getRoom(String id)
 	{
 		for(Room room : ROOMS)
-			if(room.NAME.equalsIgnoreCase(name))
+			if(room.ID.equalsIgnoreCase(id))
 				return room;
-		Interface.display(Interface.DISPLAY + "I don't see a way to get there.");
+		Interface.display(Interface.DISPLAY + "I don't know how to get there.");
 		return null;
 	}
 
-	public static Item getItem(String name)
+	/**
+	 * @param key the "ID:Instance" of the item you want
+	 * @return Item with specified key
+	 */
+	public static Item getItem(String key)
 	{
-		for(Item item : ITEMS)
-			if(item.NAME.equalsIgnoreCase(name))
-				return item;
-		Interface.display(Interface.DISPLAY + "I don't see that here");
-		return null;
+		return ENTITY_MANAGER.getItem(key);
 	}
 
-	public static Container getContainer(String name)
+	/**
+	 * @param key the "ID:Instance" of the container you want
+	 * @return Container with specified key
+	 */
+	public static Container getContainer(String key)
 	{
-		for(Container container : CONTAINERS)
-			if(container.NAME.equalsIgnoreCase(name))
-				return container;
-		Interface.display(Interface.DISPLAY + "I don't see that here");
-		return null;
+		return ENTITY_MANAGER.getContainer(key);
+	}
+
+	public static String getIDName(String id)
+	{
+		try
+		{
+			if(id.matches("R-[\\d]*"))
+				return getRoom(id).NAME;
+			else if(id.matches("I-[\\d]*"))
+				return getItem(id).NAME;
+			else if(id.matches("C-[\\d]*"))
+				return getContainer(id).NAME;
+		} catch(NullPointerException e)
+		{
+			return "NILL";
+		}
+		return "NILL";
+	}
+
+	public static boolean isVisible(Item item)
+	{
+		for(ContentSlot slot : getVisibleSlots())
+			for(String id : slot.CONTENT_INSTANCES)
+				if(item.ID.equals(id))
+					return true;
+		return false;
+	}
+
+	public static boolean isVisible(Container container)
+	{
+		for(ContentSlot slot : getVisibleSlots())
+			for(String id : slot.CONTENT_INSTANCES)
+				if(container.ID.equals(id))
+					return true;
+		return false;
+	}
+
+	public static boolean isAccessible(Item item)
+	{
+		for(ContentSlot slot : getAccessibleSlots())
+			for(String id : slot.CONTENT_INSTANCES)
+				if(item.ID.equals(id))
+					return true;
+		return false;
+	}
+
+	public static boolean isAccessible(Container container)
+	{
+		for(ContentSlot slot : getAccessibleSlots())
+			for(String id : slot.CONTENT_INSTANCES)
+				if(container.ID.equals(id))
+					return true;
+		return false;
+	}
+
+	/**
+	 * @return a list of all items currently visible to the player, in their inventory and in the room with them(outside of containers)
+	 */
+	public static List<ContentSlot> getVisibleSlots()
+	{
+		List<ContentSlot> visible = new ArrayList<>();
+
+		try
+		{
+			visible.addAll(Player.INVENTORY);
+			visible.addAll(Player.LOCATION.CONTENTS);
+
+		} catch(NullPointerException e)
+		{
+			System.out.println("Could not get visible slots");
+		}
+
+		return visible;
+	}
+
+	/**
+	 * @return a list of all items currently accessible to the player, in their inventory, the room, and in containers
+	 */
+	public static List<ContentSlot> getAccessibleSlots()
+	{
+		List<ContentSlot> accessible = new ArrayList<>();
+
+		try
+		{
+			//Get all visible IDs
+			accessible = getVisibleSlots();
+			//If any containers are visible and open, add the IDs of their contents
+			for(ContentSlot slot : accessible)
+				for(String id : slot.CONTENT_INSTANCES)
+					if(id.matches("C-\\d*"))
+					{
+						Container container = World.getContainer(id);
+						if(container.OPEN)
+							accessible.addAll(container.CONTENTS);
+					}
+
+		} catch(NullPointerException e)
+		{
+			System.out.println("Could not get accessible slots");
+		}
+
+		return accessible;
+	}
+
+	/**
+	 * @return a list of all rooms currently connected to the room the player is in
+	 */
+	public static List<Room> getVisibleExits()
+	{
+		try
+		{
+			return MAP.getExits();
+		}catch(NullPointerException e)
+		{
+			System.out.println("no exits found");
+			return null;
+		}
+	}
+
+	public static List<Container> getVisibleContainers()
+	{
+		List<Container> visible = new ArrayList<>();
+
+		try
+		{
+			for(ContentSlot slot : getVisibleSlots())
+				for(String id : slot.CONTENT_INSTANCES)
+					if(id.matches("C-\\d*"))
+						visible.add(World.getContainer(id));
+		} catch(NullPointerException e)
+		{
+			System.out.println("Could not get visible containers");
+		}
+
+		return visible;
+	}
+
+	public static List<ContentSlot> getAccesibleSlotsNamed(String name)
+	{
+		List<ContentSlot> output = new ArrayList<>();
+		for(ContentSlot slot : World.getAccessibleSlots())
+			if(slot.referenced(name))
+				output.add(slot);
+		return output;
 	}
 }

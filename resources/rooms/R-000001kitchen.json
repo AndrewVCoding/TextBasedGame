@@ -1,0 +1,23 @@
+{
+  "NAME": "kitchen",
+  "ID": "R-000001",
+  "ENTRANCE": "You enter your kitchen.",
+  "DESCRIPTION": "This is your kitchen. You briefly wonder if you should eat something.",
+  "LOOK": "You look at the messy kitchen, briefly wondering how you can stand to prepare your meals in such a disgusting environment",
+  "CONTENTS": [
+    {
+      "NAME": "cold pizza",
+      "ID": "I-000001",
+      "CONTENT_INSTANCES": [
+        "000000"
+      ],
+      "TO_PURGE": [],
+      "QUANTITY": 1,
+      "PURGE": false
+    }
+  ],
+  "EXITS": [
+    "living room"
+  ],
+  "TO_PURGE": []
+}

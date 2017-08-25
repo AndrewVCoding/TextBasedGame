@@ -1,0 +1,35 @@
+{
+  "NAME": "living room",
+  "ID": "R-000000",
+  "ENTRANCE": "You walk into the living room.",
+  "DESCRIPTION": "This is your living room. It\u0027s very comfy.",
+  "LOOK": "You look around your living room, taking note of any objects that might be useful.",
+  "CONTENTS": [
+    {
+      "NAME": "tv",
+      "ID": "I-000003",
+      "CONTENT_INSTANCES": [
+        "000000"
+      ],
+      "TO_PURGE": [],
+      "QUANTITY": 1,
+      "PURGE": false
+    },
+    {
+      "NAME": "remote",
+      "ID": "I-000002",
+      "CONTENT_INSTANCES": [
+        "000000"
+      ],
+      "TO_PURGE": [],
+      "QUANTITY": 1,
+      "PURGE": false
+    }
+  ],
+  "EXITS": [
+    "kitchen",
+    "bedroom",
+    "bathroom"
+  ],
+  "TO_PURGE": []
+}

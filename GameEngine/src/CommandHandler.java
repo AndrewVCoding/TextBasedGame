@@ -1,38 +1,57 @@
-public class CommandHandler
+/**
+ * Determines which function to call based on the parsed
+ */
+class CommandHandler
 {
-
 	/**
 	 * All commands have a unique first word, but can be context sensitive after that.
 	 *
-	 * @param com The user input command
+	 * @param input The user input command
 	 */
-	public static void command(String com)
+	public static void command(String input)
 	{
-		Interface.display(">>" + com);
-		//First split the command into an array of strings
-		GameSystems.COMMAND = CommandParser.parse(com);
+		Interface.INTERACTIONS += "\n>>" + input;
+		Command command = new Command(input);
 
-		//Check the first word and run the appropriate method
-		if(GameSystems.COMMAND[0].equalsIgnoreCase("start"))
-			GameSystems.start();
-		else if(GameSystems.COMMAND[0].equalsIgnoreCase("go"))
-			GameSystems.go();
-		else if(GameSystems.COMMAND[0].equalsIgnoreCase("look"))
-			GameSystems.look();
-		else if(GameSystems.COMMAND[0].equalsIgnoreCase("take"))
-			GameSystems.take();
-		else if(GameSystems.COMMAND[0].equalsIgnoreCase("inventory"))
-			GameSystems.look();
-		else if(GameSystems.COMMAND[0].equalsIgnoreCase("use"))
-			GameSystems.act();
-		else if(GameSystems.COMMAND[0].equalsIgnoreCase("consume"))
-			GameSystems.act();
-		else if(GameSystems.COMMAND[0].equalsIgnoreCase("open"))
-			GameSystems.open();
-		else if(GameSystems.COMMAND[0].equalsIgnoreCase("close"))
-			GameSystems.close();
-		else if(GameSystems.COMMAND[0].equalsIgnoreCase("unknown"))
-			GameSystems.unknown(com);
+		//There are no objects referenced in the command
+		if(command.NUMBER_OF_OBJECTS == 0)
+		{
+			if(command.equals("start"))
+				GameSystems.start(command);
+			else if(command.equals("save"))
+				DataHandler.saveGame(command.TARGET);
+			else if(command.equals("load"))
+				DataHandler.loadGame(command.TARGET);
+			else if(command.equals("list saves"))
+				DataHandler.listSaves();
+			else if(command.equals("create character"))
+				CharacterCreation.createCharacter(command);
+			else if(command.equals("go"))
+				GameSystems.go(command);
+			else if(command.equals("look"))
+				GameSystems.look(command);
+			else if(command.equals("inventory"))
+				Player.viewInventory();
+			else
+				GameSystems.unknown(command);
+		}
 
+		else if(command.NUMBER_OF_OBJECTS == 1)
+		{
+			if(command.equals("look at"))
+				GameSystems.look(command);
+			else if(command.equals("take"))
+				GameSystems.take(command);
+			else if(command.equals("use"))
+				GameSystems.act(command);
+			else if(command.equals("consume"))
+				GameSystems.act(command);
+			else if(command.equals("open"))
+				GameSystems.open(command);
+			else if(command.equals("close"))
+				GameSystems.close(command);
+			else
+				GameSystems.unknown(command);
+		}
 	}
 }

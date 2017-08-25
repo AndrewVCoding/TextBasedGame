@@ -1,0 +1,17 @@
+{
+  "DESCRIPTION": "The tv is currently turned off, but you don\u0027t want to walk all the way over to it to turn it on.",
+  "ACT_DESC": "A soft glow emanates from the tv, as it displays current events and news stories about current events.",
+  "PICKUP": "The tv is too heavy to lift and wouldn\u0027t fit in your pockets anyways",
+  "TAKEABLE": false,
+  "ACTIVATED": false,
+  "EFFECTS": [
+    "act",
+    "self",
+    "You don\u0027t feel like walking up to the tv",
+    "You don\u0027t feel like walking up to the tv"
+  ],
+  "NAME": "tv",
+  "ID": "I-000003",
+  "INSTANCE": "000000",
+  "PURGE": false
+}

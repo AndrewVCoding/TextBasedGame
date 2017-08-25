@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainWindow extends JFrame implements ActionListener
+class MainWindow extends JFrame implements ActionListener
 {
 	//Seperate panels for layout
 	final private JPanel panel_main = new JPanel();
@@ -38,6 +38,7 @@ public class MainWindow extends JFrame implements ActionListener
 	{
 		display.setVisible(true);
 		display.setEditable(false);
+		display.setWrapStyleWord(true);
 		display.setLineWrap(true);
 		input.setVisible(true);
 		input.addActionListener(this);

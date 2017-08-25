@@ -1,73 +1,69 @@
-import java.lang.management.GarbageCollectorMXBean;
-
-public class IdleState
+/**
+ * Available commands while idle are:
+ * look, take, use, consume, go
+ */
+class IdleState
 {
-	public static String[] COMMAND;
 
-	public static void look(String[] command)
+	/**
+	 * When the command is go XXXXX then move the player to the specified room
+	 * todo allow using quicker commands to move to other rooms, giving each exit multiple reference names to look for in a command
+	 */
+	public static void go(Command command)
+	{
+		Player.moveRoom(command.DESTINATION);
+	}
+
+	public static void look(Command command)
 	{
 		//"look", "inventory"
-		if(command[1].equalsIgnoreCase("inventory"))
+		if(command.equals("look inventory"))
 			Player.viewInventory();
-			//"look", "room"
-		else if(command[1].equals("room"))
+		else if(command.equals("look"))
 			Interface.display(Player.LOCATION.look());
-			//"look", item.NAME
+		else if(command.equals("look at"))
+			command.SLOT_ONE.look();
+	}
+
+	/**
+	 * When using an object, array contents are as follows
+	 * [   act | source | target | activation description | deactivation description ]
+	 * [    0  |    1   |    2   |           3            |              4           ]
+	 */
+	public static void use(Command command, int index)
+	{
+
+	}
+
+	public static void take(Command command)
+	{
+		if(Player.INVENTORY.contains(command.SLOT_ONE))
+			Interface.display("You already have that");
 		else
-			for(Item item : GameSystems.getAccessibleItems())
-				if(command[1].equals(item.NAME))
-					Interface.display(item.look());
+			command.SLOT_ONE.take(1);
 	}
 
-	public static void take(String[] command)
+	public static void act(Command command)
 	{
-		Item target = new Item();
 
-		for(Item item : GameSystems.getAccessibleItems())
-			if(item.NAME.equals(command[1]))
-				target = item;
-
-		if(target.TAKEABLE)
-		{
-			//If the item is in the room
-			if(Player.LOCATION.ITEMS.contains(target))
-			{
-				Player.LOCATION.ITEMS.remove(target);
-				Player.INVENTORY.add(target);
-			}
-
-			//Otherwise, check if it is in a container
-			else
-				for(Container container : GameSystems.getVisibleContainers())
-					if(container.CONTENTS.contains(target) && container.OPEN)
-					{
-						container.CONTENTS.remove(target);
-						Player.INVENTORY.add(target);
-					}
-		}
-		Interface.display(target.PICKUP);
 	}
 
-	public static void act(String[] command)
+	/**
+	 * When consuming an object, array contents are as follows
+	 * [ consume | target | attribute | amount | description]
+	 * [ index   |    +1  |    +2     |   +3   |     +4     ]
+	 *
+	 * @param source The item being consumed
+	 * @param index  The index of the Effects array of the item where the consume effect starts
+	 */
+	private static void consume(Item source, int index)
 	{
-		Item source = World.getItem(command[1]);
-
-		//The item is usable
-		if(source != null)
+		if(source.EFFECTS[index + 2].equalsIgnoreCase("health"))
 		{
-			String action = command[0];
-			int index = source.effect(action);
-
-			//If the specified action is valid for the item
-			if(index > -1)
-			{
-				if(action.equalsIgnoreCase("use"))
-					GameSystems.use(source, index);
-				else if(action.equalsIgnoreCase("consume"))
-					GameSystems.consume(source, index);
-				else
-					GameSystems.invalid();
-			}
+			Player.heal(Integer.parseInt(source.EFFECTS[index + 3]));
+			Interface.display(source.EFFECTS[index + 4]);
 		}
+		else
+			Interface.display("The item had no effect");
 	}
 }
