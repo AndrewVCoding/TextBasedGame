@@ -98,16 +98,26 @@ class StaticWorld
 		World.ROOMS.add(bathroom);
 		World.ROOMS.add(bedroom);
 
-		World.EXITS.add("R-000000|R-000001");
-		World.EXITS.add("R-000001|R-000000");
-		World.EXITS.add("R-000000|R-000002");
-		World.EXITS.add("R-000002|R-000000");
-		World.EXITS.add("R-000003|R-000000");
-		World.EXITS.add("R-000000|R-000003");
-		World.EXITS.add("R-000003|R-000002");
-		World.EXITS.add("R-000002|R-000003");
+		World.PATHS.add("R-000000|R-000001");
+		World.PATHS.add("R-000001|R-000000");
+		World.PATHS.add("R-000000|R-000002");
+		World.PATHS.add("R-000002|R-000000");
+		World.PATHS.add("R-000003|R-000000");
+		World.PATHS.add("R-000000|R-000003");
+		World.PATHS.add("R-000003|R-000002");
+		World.PATHS.add("R-000002|R-000003");
+	}
 
-		World.STARTING_ROOM = livingRoom;
+	public static void buildPaths()
+	{
+		World.PATHS.add("R-000000|R-000001");
+		World.PATHS.add("R-000001|R-000000");
+		World.PATHS.add("R-000000|R-000002");
+		World.PATHS.add("R-000002|R-000000");
+		World.PATHS.add("R-000003|R-000000");
+		World.PATHS.add("R-000000|R-000003");
+		World.PATHS.add("R-000003|R-000002");
+		World.PATHS.add("R-000002|R-000003");
 	}
 
 	public static List<Entity> getEntities()

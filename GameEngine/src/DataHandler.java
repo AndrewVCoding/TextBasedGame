@@ -9,33 +9,41 @@ import java.util.List;
 class DataHandler
 {
 	private static Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-	private static String DIR_LOC = System.getProperty("user.dir") + "\\TextBasedGame";
+	private static String DIR_LOC = System.getProperty("user.dir");
 	private static String ROOMS_LOC = DIR_LOC + "\\resources\\rooms\\";
 	private static String ITEMS_LOC = DIR_LOC + "\\resources\\objects\\items\\";
 	private static String CONTAINERS_LOC = DIR_LOC + "\\resources\\objects\\containers\\";
-	private static String MAP_LOC = DIR_LOC + "\\resources\\data\\worldData\\";
 	private static String SAVE_LOC = DIR_LOC + "\\resources\\data\\saves\\";
+	private static String PATHS_LOC = DIR_LOC + "\\resources\\data\\worldData\\";
 	private static List<SaveState> SAVES = new ArrayList<>();
-	private static SaveState SAVE_STATE = null;
+	private static SaveState SAVE_STATE;
 
+	/**
+	 * Loads all basic files from resources needed to construct the game world
+	 */
 	public static void loadAllBaseFiles()
 	{
 		//First load all entities and send through the EntityManager
+		System.out.println("Loading Entities");
 		loadEntities();
 
 		//Load all rooms
+		System.out.println("Loading Rooms");
 		loadRooms();
 
+		//Load base paths
+		System.out.println("Loading Paths");
+		loadPaths();
+
 		//Load list of all saved games
+		System.out.println("Loading SaveStates");
 		loadSaves();
 	}
 
-	public static List<Entity> loadAllBaseFiles(String test)
-	{
-		return StaticWorld.getEntities();
-	}
-
-	public static List<Entity> loadEntities()
+	/**
+	 * Loads all entities from files
+	 */
+	public static void loadEntities()
 	{
 		List<Entity> entities = new ArrayList<>();
 		JsonReader jReader;
@@ -46,36 +54,40 @@ class DataHandler
 			assert itemFiles != null;
 			for(File file : itemFiles)
 			{
+				System.out.println("Reading File: " + ITEMS_LOC + file.getName());
 				try
 				{
 					jReader = new JsonReader(new FileReader(file));
 					entities.add(GSON.fromJson(jReader, Item.class));
 				} catch(FileNotFoundException e)
 				{
-					System.out.println("Could not find file" + file.getName());
+					System.out.println("Could not read file" + file.getName());
 				}
 			}
 
 			assert containerFiles != null;
 			for(File file : containerFiles)
 			{
+				System.out.println("Reading File: " + CONTAINERS_LOC + file.getName());
 				try
 				{
 					jReader = new JsonReader(new FileReader(file));
 					entities.add(GSON.fromJson(jReader, Container.class));
 				} catch(FileNotFoundException e)
 				{
-					System.out.println("Could not find file" + file.getName());
+					System.out.println("Could not read file" + file.getName());
 				}
 			}
+			World.ENTITIES = entities;
 		} catch(NullPointerException e)
 		{
 			System.out.println("Could not load items");
 		}
-
-		return entities;
 	}
 
+	/**
+	 * Loads a list of all the default rooms for the game
+	 */
 	public static void loadRooms()
 	{
 		List<Room> roomList = new ArrayList<>();
@@ -86,6 +98,7 @@ class DataHandler
 			assert roomFiles != null;
 			for(File file : roomFiles)
 			{
+				System.out.println("Reading File: " + ITEMS_LOC + file.getName());
 				try
 				{
 					jReader = new JsonReader(new FileReader(file));
@@ -102,6 +115,9 @@ class DataHandler
 		}
 	}
 
+	/**
+	 * loads a list of all save states
+	 */
 	public static void loadSaves()
 	{
 		List<SaveState> saveStateList = new ArrayList<>();
@@ -112,6 +128,7 @@ class DataHandler
 			assert saveFiles != null;
 			for(File file : saveFiles)
 			{
+				System.out.println("Reading File: " + SAVE_LOC + file.getName());
 				try
 				{
 					jReader = new JsonReader(new FileReader(file));
@@ -129,99 +146,174 @@ class DataHandler
 		}
 	}
 
+	/**
+	 * loads the file containing all paths between rooms
+	 */
 	public static void loadPaths()
 	{
-		List<String> exits = new ArrayList<>();
+		JsonReader jReader;
+		Paths paths = new Paths();
+		File pathFile = new File(PATHS_LOC + "paths.json");
 		try
 		{
-			FileInputStream fileInputStream = new FileInputStream(MAP_LOC);
-			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+			assert pathFile != null;
+			System.out.println("Reading Path File: " + PATHS_LOC + pathFile.getName());
+			try
+			{
+				jReader = new JsonReader(new FileReader(pathFile));
+				paths = GSON.fromJson(jReader, Paths.class);
+			} catch(FileNotFoundException e)
+			{
+				System.out.println("Could not find Paths File" + pathFile.getName());
+			}
 
-			int numLines = Integer.parseInt(bufferedReader.readLine());
 
-			for(int i = 0; i < numLines; i++)
-				exits.add(bufferedReader.readLine());
-
-			World.EXITS = exits;
-		} catch(FileNotFoundException e)
+			World.PATHS = paths.PATHS;
+		} catch(NullPointerException e)
 		{
-			System.out.println("Could not load exit data: FileNotFound");
-		} catch(IOException e)
-		{
-			System.out.println("Could not read number of lines in exit data");
+			System.out.println("Could not load save files");
 		}
 	}
 
+	/**
+	 * loads a particular save file
+	 * @param saveName the name of the save file
+	 */
 	public static void loadGame(String saveName)
 	{
 		//Find the correct save file
 		for(SaveState saveState : SAVES)
 		{
-			if(saveState.PLAYER_STATE.NAME.equals(saveName))
+			if(saveState.NAME.equals(saveName))
 			{
 				SAVE_STATE = saveState;
 				break;
 			}
 		}
-		//If it was not found, print out that it was not found
 		if(SAVE_STATE != null)
 		{
-			//Find the parents of all containers
-			for(SaveState.containerState containerState : SAVE_STATE.CONTAINER_STATES)
-			{
-				//Try to find a room with the parentID
-				Room room = World.getRoom(containerState.parentID);
-				if(room != null)
-					room.add(containerState.container);
-				else //Try to find a container with the parentID
-				{
-					Container container = World.getContainer(containerState.parentID);
-					if(container != null)
-						container.add(containerState.container);
-					else if(containerState.parentID.equals("P-INVENTORY"))
-						Player.addToInventory(containerState.container);
-					else
-						System.out.println("Could not find parent of container: " + containerState.container.NAME);
-				}
-			}
-			//find the parents of all items
-			for(SaveState.itemState itemState : SAVE_STATE.ITEM_STATES)
-			{
-				//Try to find a room with the parentID
-				Room room = World.getRoom(itemState.parentID);
-				if(room != null)
-					room.add(itemState.item);
-				else //Try to find a container with the parentID
-				{
-					Container container = World.getContainer(itemState.parentID);
-					if(container != null)
-						container.add(itemState.item);
-					else if(itemState.parentID.equals("P-INVENTORY"))
-						Player.addToInventory(itemState.item);
-					else
-						System.out.println("Could not find parent of item: " + itemState.item.NAME);
-				}
-			}
+			World.ROOMS = SAVE_STATE.ROOMS;
+			World.PATHS = SAVE_STATE.PATHS;
+			StaticWorld.buildPaths();
+			//Put all entities in a list for the EntityManager
+			List<Entity> entities = new ArrayList<>();
+			for(Item item : SAVE_STATE.ITEMS)
+				entities.add(item);
+			for(Container container : SAVE_STATE.CONTAINERS)
+				entities.add(container);
+
+			GameSystems.GAME_STATE = SAVE_STATE.GAME_STATE;
+
+			Player.createFromTemplate(SAVE_STATE.PLAYER);
+
+			Interface.INTERACTIONS = SAVE_STATE.INTERACTIONS;
+			Interface.HEADER = SAVE_STATE.HEADER;
+			Interface.DISPLAY = SAVE_STATE.DISPLAY;
+
+			World.buildWorld();
 		}
 		else
 			System.out.println("Could not find save file: " + saveName);
 	}
 
-	public void saveGame()
+	/**
+	 * saves the current game to a SaveState
+	 * @param name the name of the SaveState
+	 */
+	public static void saveGame(String name)
 	{
 		//Create a new SaveState
-		SaveState newSave = new SaveState();
+		SaveState newSave = new SaveState(name);
 
-		//add itemStates and containerStates for all objects in the player's inventory
-		for(ContentSlot contentSlot : Player.INVENTORY)
+		//Save it as a Gson object
+		String json = GSON.toJson(newSave);
+
+		PrintWriter out;
+		try
 		{
-			for(String ID : contentSlot.CONTENT_INSTANCES)
-			{
-				if(ID.matches("I-\\d*"))
-					newSave.ITEM_STATES.add(newSave.createItemState(ID, "P-INVENTORY"));
-				else if(ID.matches("C-\\d*"))
-					newSave.CONTAINER_STATES.add(newSave.createContainerState(ID, "P-INVENTORY"));
-			}
+			out = new PrintWriter(SAVE_LOC + newSave.NAME + ".json");
+			out.println(json);
+
+			System.out.println("game saved to: " + SAVE_LOC + newSave.NAME + ".json");
+
+			out.flush();
+			out.close();
+		} catch(FileNotFoundException e)
+		{
+			System.out.println("Could not write to file: " + SAVE_LOC + newSave.NAME + ".json");
 		}
+
+		//After saving a game, reload the list of saves so it includes the new one
+		loadSaves();
+	}
+
+	/**
+	 * used for saving templates/test versions of resources
+	 */
+	public static void saveBaseFiles()
+	{
+		for(Entity entity:World.ENTITIES)
+			save(entity);
+		for(Room room : World.ROOMS)
+			save(room);
+	}
+
+	public static void save(Entity entity)
+	{
+		String json = GSON.toJson(entity);
+
+		String directory = DIR_LOC + "\\resources\\";
+		if(entity.ID.matches("I-\\d{6}"))
+			directory = ITEMS_LOC;
+		if(entity.ID.matches("C-\\d{6}"))
+			directory = CONTAINERS_LOC;
+
+		PrintWriter out;
+		try
+		{
+			out = new PrintWriter(directory + entity.ID + entity.NAME + ".json");
+			out.println(json);
+
+			System.out.println("game saved to: " + directory + entity.ID + entity.NAME + ".json");
+
+			out.flush();
+			out.close();
+		} catch(FileNotFoundException e)
+		{
+			System.out.println("Could not write to file: " + directory + entity.ID + entity.NAME + ".json");
+		}
+	}
+
+	public static void save(Room room)
+	{
+		String json = GSON.toJson(room);
+
+		PrintWriter out;
+		try
+		{
+			out = new PrintWriter(ROOMS_LOC + room.ID + room.NAME + ".json");
+			out.println(json);
+
+			System.out.println("game saved to: " + ROOMS_LOC + room.ID + room.NAME + ".json");
+
+			out.flush();
+			out.close();
+		} catch(FileNotFoundException e)
+		{
+			System.out.println("Could not write to file: " + ROOMS_LOC + room.ID + room.NAME + ".json");
+		}
+	}
+
+	public static void listSaves()
+	{
+		String output = "";
+		int i = 0;
+		for(SaveState saveState : SAVES)
+		{
+			output += i + ") " + saveState.NAME + "\n";
+			i++;
+		}
+
+		Interface.display(output);
 	}
 }

@@ -3,13 +3,14 @@
  */
 class CommandParser
 {
-	public static String simpleCommand(String input)
+	public static String simpleCommand(Command command)
 	{
+		String input = command.INPUT;
 		String output = "unknown";
 
 		if(GameSystems.GAME_STATE.equals("start"))
 		{
-			if(input.equals("create character"))
+			if(input.matches("create character|new character|new|start"))
 				output = "create character";
 		}
 		else if(GameSystems.GAME_STATE.equals("character creation"))
@@ -18,6 +19,8 @@ class CommandParser
 		}
 		else if(GameSystems.GAME_STATE.equals("idle"))
 		{
+			if(input.matches("go [ \\w\\d]*") && command.hasRoom())
+				output = "go";
 			if(input.matches("(look|look around)"))
 				output = "look";
 			else if(input.matches("(look (at |)|)inventory"))

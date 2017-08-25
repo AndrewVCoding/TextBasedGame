@@ -23,7 +23,10 @@ public class CharacterCreation
 		else if(getStage().equals("class"))
 			pickClass(input[1]);
 		if(getStage().equals("idle"))
+		{
+			World.buildWorld();
 			GameSystems.enterGame();
+		}
 		displayPrompt();
 	}
 
@@ -40,7 +43,6 @@ public class CharacterCreation
 			Player.CLASS = "Warrior";
 			Player.HP = 100;
 			Player.MAX_HP = 100;
-			Player.moveRoom(World.STARTING_ROOM);
 			STAGE_NUM++;
 		}
 		else if(input.equals("2"))
@@ -48,7 +50,6 @@ public class CharacterCreation
 			Player.CLASS = "Wizard";
 			Player.HP = 70;
 			Player.MAX_HP = 70;
-			Player.moveRoom(World.STARTING_ROOM);
 			STAGE_NUM++;
 		}
 		else if(input.equals("3"))
@@ -56,7 +57,6 @@ public class CharacterCreation
 			Player.CLASS = "Rogue";
 			Player.HP = 80;
 			Player.MAX_HP = 80;
-			Player.moveRoom(World.STARTING_ROOM);
 			STAGE_NUM++;
 		}
 		else
@@ -70,8 +70,14 @@ public class CharacterCreation
 		return STAGE[STAGE_NUM];
 	}
 
+	public static int getStageNum()
+	{
+		return STAGE_NUM;
+	}
+
 	private static void displayPrompt()
 	{
+		Interface.INTERACTIONS = "";
 		if(!STAGE[STAGE_NUM].equals("idle"))
 		{
 			if(STAGE[STAGE_NUM].equals("name"))
@@ -79,5 +85,10 @@ public class CharacterCreation
 			if(STAGE[STAGE_NUM].equals("class"))
 				Interface.display("Now pick a class:\n1)warrior\n2)Wizard\n3)Rogue");
 		}
+	}
+
+	public static void setStageNum(int num)
+	{
+		STAGE_NUM = num;
 	}
 }

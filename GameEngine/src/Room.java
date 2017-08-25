@@ -16,8 +16,8 @@ public class Room
 
 	public String spawn()
 	{
-		Interface.MOVED = false;
-		System.out.println(":enter:");
+		Player.LOCATION = this;
+		System.out.println(":spawn:" + NAME + ":" + this);
 		purge();
 		StringBuilder exits = new StringBuilder();
 		StringBuilder contents = new StringBuilder();
@@ -29,8 +29,7 @@ public class Room
 
 	public String enter(boolean moved)
 	{
-		Interface.MOVED = moved;
-		System.out.println(":enter:");
+		System.out.println(":enter:" + NAME + ":" + this);
 		purge();
 		StringBuilder exits = new StringBuilder();
 		StringBuilder contents = new StringBuilder();
@@ -155,6 +154,7 @@ public class Room
 	 */
 	public void purge()
 	{
+		System.out.println("Purging: ");
 		for(ContentSlot slot : CONTENTS)
 		{
 			if(slot.PURGE)
@@ -165,7 +165,13 @@ public class Room
 		}
 
 		for(ContentSlot slot : TO_PURGE)
+		{
+			System.out.println("   " + slot.NAME);
 			CONTENTS.remove(slot);
+		}
 		TO_PURGE = new ArrayList<>();
+
+		for(ContentSlot slot : CONTENTS)
+			System.out.println(slot.NAME + " left after purge");
 	}
 }

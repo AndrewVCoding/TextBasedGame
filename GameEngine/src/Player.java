@@ -7,39 +7,19 @@ class Player
 	public static String CLASS;
 	public static int HP;
 	public static int MAX_HP;
-	public static Room LOCATION = World.STARTING_ROOM;
-	public static final List<ContentSlot> INVENTORY = new ArrayList<>();
-	private static List<ContentSlot> TO_PURGE = new ArrayList<>();
+	public static Room LOCATION;
+	public static List<ContentSlot> INVENTORY = new ArrayList<>();
+	public static List<ContentSlot> TO_PURGE = new ArrayList<>();
 
-	//todo FIX THIS WHOLE MESS
-	public static void addToInventory(Item item)
+	public static void createFromTemplate(PlayerTemplate template)
 	{
-		purge();
-		boolean added = false;
-		for(ContentSlot slot : INVENTORY)
-			if(slot.NAME.equals(item.NAME))
-			{
-				slot.add(item);
-				added = true;
-				break;
-			}
-		if(!added)
-			INVENTORY.add(new ContentSlot(item));
-	}
-
-	public static void addToInventory(Entity entity)
-	{
-		purge();
-		boolean added = false;
-		for(ContentSlot slot : INVENTORY)
-			if(slot.NAME.equals(entity.NAME))
-			{
-				slot.add(entity);
-				added = true;
-				break;
-			}
-		if(!added)
-			INVENTORY.add(new ContentSlot(entity));
+		NAME = template.NAME;
+		CLASS = template.CLASS;
+		HP = template.HP;
+		MAX_HP = template.MAX_HP;
+		LOCATION = template.LOCATION;
+		INVENTORY = template.INVENTORY;
+		TO_PURGE = template.TO_PURGE;
 	}
 
 	public static void addToInventory(ContentSlot contentSlot)
@@ -57,10 +37,7 @@ class Player
 			INVENTORY.add(contentSlot);
 	}
 
-	public static void removeFromInventory(Item item)
-	{
-
-	}
+	//todo set up a system to put items from inventory into a Room's contents or a Container. It will work basically the same as adding to inventory but in reverse.
 
 	public static void viewInventory()
 	{
@@ -86,7 +63,7 @@ class Player
 	public static void moveRoom(Room room)
 	{
 		LOCATION = room;
-		Interface.resetDisplay();
+		Interface.resetDisplay(true);
 	}
 
 	public static void heal(int amount)

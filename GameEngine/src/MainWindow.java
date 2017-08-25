@@ -38,6 +38,7 @@ class MainWindow extends JFrame implements ActionListener
 	{
 		display.setVisible(true);
 		display.setEditable(false);
+		display.setWrapStyleWord(true);
 		display.setLineWrap(true);
 		input.setVisible(true);
 		input.addActionListener(this);

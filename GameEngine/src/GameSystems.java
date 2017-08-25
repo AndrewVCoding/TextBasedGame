@@ -10,9 +10,7 @@ class GameSystems
 	 */
 	public static void autoStartGame(String name, int clas)
 	{
-		CommandHandler.command("create character");
-		CommandHandler.command(name);
-		CommandHandler.command("" + clas);
+
 	}
 
 	/**
@@ -131,7 +129,7 @@ class GameSystems
 	public static void enterGame()
 	{
 		GAME_STATE = "idle";
-		Interface.resetDisplay();
-		Player.LOCATION.spawn();
+		World.getRoom(World.STARTING_ROOM).spawn();
+		Interface.resetDisplay(false);
 	}
 }

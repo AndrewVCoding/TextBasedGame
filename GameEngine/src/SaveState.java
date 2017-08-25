@@ -1,74 +1,52 @@
+import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Keeps track of where objects are in the world and their current state, as well as player information and exit information
+ * A snapshot of the current state of the game, including the Player, World, Room contents, Container contents, Map, Interactions, etc
  */
 public class SaveState
 {
-	/**
-	 * Every instance of an item has an itemState that tracks where it is located in the world and its ID
-	 */
-	public class itemState
-	{
-		Item item;
-		String ID;
-		String parentID;
+	public String NAME;
 
-		public itemState(Item i, String p)
+	//Class: GameSystems
+	public String GAME_STATE;
+
+	//Class: Interface
+	public String DISPLAY;
+	public String INTERACTIONS;
+	public String HEADER;
+
+	//Class: Map
+	//Saved in World
+
+	//Class: Player saved as PlayerTemplate
+	public PlayerTemplate PLAYER;
+
+	//Class: World
+	public List<Item> ITEMS = new ArrayList<>();
+	public List<Container> CONTAINERS = new ArrayList<>();
+	public List<Room> ROOMS = new ArrayList<>();
+	public List<String> PATHS = new ArrayList<>();
+
+
+	public SaveState(String name)
+	{
+		NAME = name;
+		GAME_STATE = GameSystems.GAME_STATE;
+		DISPLAY = Interface.DISPLAY;
+		INTERACTIONS = Interface.INTERACTIONS;
+		HEADER = Interface.HEADER;
+		PLAYER = new PlayerTemplate();
+		ROOMS = World.ROOMS;
+		PATHS = World.MAP.toList();
+
+		//Save all Entities to their respective lists
+		for(Entity entity : World.ENTITIES)
 		{
-			item = i;
-			ID = item.ID;
-			parentID = p;
+			if(entity.ID.matches("I-\\d{6}"))
+				ITEMS.add((Item) entity);
+			if(entity.ID.matches("C-\\d{6}"))
+				CONTAINERS.add((Container) entity);
 		}
-	}
-
-	/**
-	 * Every instance of a container has an containerState that tracks where it is located in the world and its ID
-	 */
-	public class containerState
-	{
-		Container container;
-		String ID;
-		String parentID;
-
-		public containerState(Container c, String p)
-		{
-			container = c;
-			ID = container.ID;
-			parentID = p;
-		}
-	}
-
-	/**
-	 * Stores all information about the player
-	 */
-	public class playerState
-	{
-		public String NAME;
-		public String CLASS;
-		public int HP;
-		public int MAX_HP;
-		public String LOCATION_ID;
-	}
-
-	public List<itemState> ITEM_STATES;
-	public List<containerState> CONTAINER_STATES;
-	public playerState PLAYER_STATE;
-	public Map MAP;
-
-	//todo should accept any ID and find either a container or room that contains the object associated with the ID
-	public String findParentID(String ID)
-	{
-		return null;
-	}
-
-	public itemState createItemState(String ID, String parentID)
-	{
-		return new itemState(World.getItem(ID), parentID);
-	}
-
-	public containerState createContainerState(String ID, String parentID)
-	{
-		return new containerState(World.getContainer(ID), parentID);
 	}
 }

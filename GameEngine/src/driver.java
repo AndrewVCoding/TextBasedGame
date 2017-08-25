@@ -10,12 +10,9 @@ class driver
 		mainWindow.setSize(mainWindow.getPreferredSize());
 		mainWindow.setResizable(false);
 
-		StaticWorld.buildWorld();
-		World.buildWorld("R-000000");
-		mainWindow.setDisplay("Welcome! To begin the game and create your character, input \"start\"");
+		DataHandler.loadAllBaseFiles();
+		Interface.welcome();
 
-		//For testing purposes, to get into the game faster, automate the character creation
-		GameSystems.autoStartGame("Andrew", 1);
 		mainWindow.updateDisplay();
 	}
 }

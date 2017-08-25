@@ -6,24 +6,18 @@ public class World
 	public static EntityManager ENTITY_MANAGER;
 	public static List<Entity> ENTITIES;
 	public static List<Room> ROOMS = new ArrayList<>();
-	public static List<String> EXITS = new ArrayList<>();
-	public static Room STARTING_ROOM;
+	public static List<String> PATHS = new ArrayList<>();
+	public static String STARTING_ROOM = "R-000000";
 	public static Map MAP;
 
-	public static void buildWorld(String startingRoom)
+	public static void buildWorld()
 	{
-		//Load all of the base information
-		ENTITIES = DataHandler.loadAllBaseFiles("test");
-
 		//populate the entity manager
 		ENTITY_MANAGER = new EntityManager(ENTITIES);
 
-		//Set the starting room
-		STARTING_ROOM = getRoom(startingRoom);
-
 		//Build out the map of the rooms
 		MAP = new Map();
-		MAP.build(EXITS, ROOMS);
+		MAP.build(PATHS, ROOMS);
 		MAP.print();
 	}
 
@@ -33,8 +27,6 @@ public class World
 	 */
 	public static Room getRoom(String id)
 	{
-		if(id.equals("start"))
-			return STARTING_ROOM;
 		for(Room room : ROOMS)
 			if(room.ID.equalsIgnoreCase(id))
 				return room;
@@ -167,7 +159,14 @@ public class World
 	 */
 	public static List<Room> getVisibleExits()
 	{
-		return MAP.getExits();
+		try
+		{
+			return MAP.getExits();
+		}catch(NullPointerException e)
+		{
+			System.out.println("no exits found");
+			return null;
+		}
 	}
 
 	public static List<Container> getVisibleContainers()

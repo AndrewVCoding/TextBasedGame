@@ -113,6 +113,25 @@ public class Map
 		return output;
 	}
 
+	public List<String> toList()
+	{
+		List<String> output = new ArrayList<>();
+		String source;
+		String destination;
+
+		for(node s : MAP)
+		{
+			source = s.id;
+			for(node d : s.exits)
+			{
+				destination = d.id;
+				output.add(source + "|" + destination);
+			}
+		}
+
+		return output;
+	}
+
 	public void print()
 	{
 		String output = "";
