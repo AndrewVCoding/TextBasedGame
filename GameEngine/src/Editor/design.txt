@@ -1,0 +1,11 @@
+MAIN WINDOW:
+    Ability to edit a preexisting scenario or create a new scenario
+    Separate tables for Items, Containers, Rooms, Characters, Factions, Species
+        each table will have columns ID|NAME|GROUP
+        double clicking an entity from one of the tables opens a new window to edit the appropriate entity
+        delete the selected entity from the table
+        copy the selected entity
+
+    A button to add a new Entity, which opens the newEntityWindow
+    A button to save changes to the current scenario or save it as a new scenario
+

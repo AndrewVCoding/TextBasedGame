@@ -1,8 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aae26b62-91b6-4ef4-8927-2e47d11be383" name="Default" comment="DataHandler now can save and load data for the game">
+    <list default="true" id="aae26b62-91b6-4ef4-8927-2e47d11be383" name="Default" comment="Now working on rebuilding the engine to utilize tables to keep track of entities rather than POJOs. This will hopefully be a more permanent and flexible foundation for building the game on.&#10;&#10;Currently creating the Editor as I cement the design of game entities and how to make use of them in the game itself.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/Editor/EditorTables/GroupTableModel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/Editor/EditorTables/MainEditorTableModel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/Editor/EditorTables/MainListTableModel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/Editor/characterWindow.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/Editor/containerWindow.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/Editor/design.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/Editor/editor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/Editor/factionWindow.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/Editor/itemWindow.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/Editor/mainWindow.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/Editor/newEntityWindow.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/Editor/roomWindow.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/ATTRIBUTES.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/CHARACTERS.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/CONTAINERS.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/CONTAINER_INSTANCES.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/DESCRIPTIONS.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/FACTIONS.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/ITEMS.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/ITEM_INSTANCES.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/ROOMS.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/ROOM_INSTANCES.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/SPECIES.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/TABLES/GameTableModel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/TABLES/RELATIONSHIPS/CONTAINS.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/TABLES/RELATIONSHIPS/HAS_RELATION_TO_FACTION.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/TABLES/RELATIONSHIPS/IS_CARRYING.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/TABLES/RELATIONSHIPS/IS_SPECIES.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GameEngine/src/TABLES/RELATIONSHIPS/LEADS_TO.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/tables/containers.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/tables/items.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/tables/rooms.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GameEngine/src/CharacterCreation.java" afterPath="$PROJECT_DIR$/GameEngine/src/Engine/CharacterCreation.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GameEngine/src/Command.java" afterPath="$PROJECT_DIR$/GameEngine/src/Engine/Command.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GameEngine/src/CommandHandler.java" afterPath="$PROJECT_DIR$/GameEngine/src/Engine/CommandHandler.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GameEngine/src/CommandParser.java" afterPath="$PROJECT_DIR$/GameEngine/src/Engine/CommandParser.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GameEngine/src/Container.java" afterPath="$PROJECT_DIR$/GameEngine/src/Engine/Container.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GameEngine/src/ContentSlot.java" afterPath="$PROJECT_DIR$/GameEngine/src/Engine/ContentSlot.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GameEngine/src/DataHandler.java" afterPath="$PROJECT_DIR$/GameEngine/src/Data/DataHandler.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GameEngine/src/Entity.java" afterPath="$PROJECT_DIR$/GameEngine/src/Engine/Entity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GameEngine/src/EntityManager.java" afterPath="$PROJECT_DIR$/GameEngine/src/Engine/EntityManager.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GameEngine/src/GameSystems.java" afterPath="$PROJECT_DIR$/GameEngine/src/Engine/GameSystems.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GameEngine/src/IdleState.java" afterPath="$PROJECT_DIR$/GameEngine/src/Engine/IdleState.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GameEngine/src/InstanceManager.java" afterPath="$PROJECT_DIR$/GameEngine/src/Engine/InstanceManager.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GameEngine/src/Interface.java" afterPath="$PROJECT_DIR$/GameEngine/src/Engine/Interface.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GameEngine/src/Item.java" afterPath="$PROJECT_DIR$/GameEngine/src/Engine/Item.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GameEngine/src/MainWindow.java" afterPath="$PROJECT_DIR$/GameEngine/src/Engine/MainWindow.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GameEngine/src/Map.java" afterPath="$PROJECT_DIR$/GameEngine/src/Engine/Map.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GameEngine/src/Paths.java" afterPath="$PROJECT_DIR$/GameEngine/src/Engine/Paths.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GameEngine/src/Player.java" afterPath="$PROJECT_DIR$/GameEngine/src/Engine/Player.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GameEngine/src/PlayerTemplate.java" afterPath="$PROJECT_DIR$/GameEngine/src/Engine/PlayerTemplate.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GameEngine/src/Room.java" afterPath="$PROJECT_DIR$/GameEngine/src/Engine/Room.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GameEngine/src/SaveState.java" afterPath="$PROJECT_DIR$/GameEngine/src/Engine/SaveState.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GameEngine/src/StartState.java" afterPath="$PROJECT_DIR$/GameEngine/src/Engine/StartState.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GameEngine/src/StaticWorld.java" afterPath="$PROJECT_DIR$/GameEngine/src/Engine/StaticWorld.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GameEngine/src/World.java" afterPath="$PROJECT_DIR$/GameEngine/src/Engine/World.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GameEngine/src/driver.java" afterPath="$PROJECT_DIR$/GameEngine/src/Engine/driver.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,49 +85,111 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="World.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GameEngine/src/World.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="5" column="39" lean-forward="false" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1503690023545" expanded="true" signature="4554:4558" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataHandler.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/GameEngine/src/DataHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="23" lean-forward="true" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Container.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GameEngine/src/Container.java">
+      <file leaf-file-name="DataHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GameEngine/src/Data/DataHandler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+              <caret line="11" column="7" lean-forward="false" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mainWindow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GameEngine/src/Editor/mainWindow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="design.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GameEngine/src/Editor/design.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommandParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GameEngine/src/CommandParser.java">
+      <file leaf-file-name="CommandHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GameEngine/src/Engine/CommandHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="35" column="34" lean-forward="false" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
+            <state relative-caret-position="-536">
+              <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="driver.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/GameEngine/src/Engine/driver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
               <folding>
-                <marker date="1503690023475" expanded="true" signature="2393:2397" ph="{...}" />
+                <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GroupTableModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GameEngine/src/Editor/EditorTables/GroupTableModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="55" lean-forward="true" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainListTableModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GameEngine/src/Editor/EditorTables/MainListTableModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="20" lean-forward="false" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+              <folding>
+                <element signature="e#201#202#0" expanded="true" />
+                <element signature="e#220#221#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameTableModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GameEngine/src/TABLES/GameTableModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="41" column="5" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="41" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainEditorTableModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GameEngine/src/Editor/EditorTables/MainEditorTableModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="35" column="5" lean-forward="true" selection-start-line="32" selection-start-column="4" selection-end-line="35" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainWindow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GameEngine/src/Engine/MainWindow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -114,43 +233,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/GameEngine/src/GameStates.java" />
-        <option value="$PROJECT_DIR$/GameEngine/todo list.txt" />
-        <option value="$PROJECT_DIR$/GameEngine/src/InventorySlot.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/StartState.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/ItemInstances.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/Instances.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/InstanceList.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/ItemList.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/ObjectManager.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/MainWindow.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/PlayerTemplate.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/Map.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/EntityManager.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/InstanceManager.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/SaveState.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/CharacterCreation.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/Player.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/Room.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/World.java" />
-        <option value="$PROJECT_DIR$/resources/data/saves/Duntorah.json" />
-        <option value="$PROJECT_DIR$/resources/data/worldData/paths.txt" />
-        <option value="$PROJECT_DIR$/GameEngine/src/Paths.java" />
-        <option value="$PROJECT_DIR$/resources/data/worldData/paths.json" />
-        <option value="$PROJECT_DIR$/GameEngine/src/driver.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/Interface.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/GameSystems.java" />
-        <option value="$PROJECT_DIR$/resources/objects/items/I-000001cold pizza.json" />
-        <option value="$PROJECT_DIR$/resources/objects/items/I-000002remote.json" />
-        <option value="$PROJECT_DIR$/resources/objects/items/I-000003tv.json" />
-        <option value="$PROJECT_DIR$/resources/objects/items/I-000004socks.json" />
-        <option value="$PROJECT_DIR$/GameEngine/src/StaticWorld.java" />
-        <option value="$PROJECT_DIR$/resources/data/saves/Tset.json" />
-        <option value="$PROJECT_DIR$/GameEngine/src/CommandHandler.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/IdleState.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/DataHandler.java" />
-        <option value="$PROJECT_DIR$/resources/objects/items/I-000000pocket knife.json" />
-        <option value="$PROJECT_DIR$/GameEngine/src/ContentSlot.java" />
         <option value="$PROJECT_DIR$/GameEngine/src/Command.java" />
         <option value="$PROJECT_DIR$/GameEngine/src/CommandParser.java" />
         <option value="$PROJECT_DIR$/GameEngine/src/Item.java" />
@@ -160,6 +242,48 @@
         <option value="$PROJECT_DIR$/resources/rooms/R-000002bedroom.json" />
         <option value="$PROJECT_DIR$/resources/rooms/R-000001kitchen.json" />
         <option value="$PROJECT_DIR$/resources/objects/containers/C-000000drawers.json" />
+        <option value="$PROJECT_DIR$/GameEngine/src/TABLES/CHARACTER.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/Player.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/TABLES/CHARACTERS.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/TABLES/GameTableModel.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/FACTION.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/TABLES/RELATIONSHIPS/IS_INSTANCE_OF.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/ATTRIBUTES.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/CONTAINER_INSTANCES.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/CHARACTERS.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/DESCRIPTIONS.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/FACTIONS.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/ITEM_INSTANCES.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/ROOM_INSTANCES.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/SPECIES.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/TABLES/RELATIONSHIPS/CONTAINS.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/TABLES/RELATIONSHIPS/HAS_RELATION_TO_FACTION.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/TABLES/RELATIONSHIPS/IS_CARRYING.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/TABLES/RELATIONSHIPS/IS_SPECIES.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/TABLES/RELATIONSHIPS/LEADS_TO.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/ITEMS.java" />
+        <option value="$PROJECT_DIR$/resources/tables/items.json" />
+        <option value="$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/ROOMS.java" />
+        <option value="$PROJECT_DIR$/resources/tables/rooms.json" />
+        <option value="$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/CONTAINERS.java" />
+        <option value="$PROJECT_DIR$/resources/tables/containers.json" />
+        <option value="$PROJECT_DIR$/GameEngine/src/Engine/CommandParser.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/Engine/CharacterCreation.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/Engine/GameSystems.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/Engine/Player.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/Engine/Interface.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/Editor/newEntity.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/Editor/newEntityWindow.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/Editor/mainWindow.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/Editor/EditorTables/ListTableModel.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/Editor/EditorTables/EditorTableModel.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/Editor/EditorTables/MainEditorTableModel.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/Editor/EditorTables/GroupTableModel.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/Editor/EditorTables/MainListTableModel.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/Editor/design.txt" />
+        <option value="$PROJECT_DIR$/GameEngine/src/Data/DataHandler.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/Engine/CommandHandler.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/Engine/driver.java" />
       </list>
     </option>
   </component>
@@ -191,7 +315,9 @@
       </profile-state>
     </entry>
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -207,10 +333,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -231,12 +356,49 @@
             </path>
             <path>
               <item name="TextBasedGame" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TextBasedGame" type="462c0819:PsiDirectoryNode" />
+              <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TextBasedGame" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TextBasedGame" type="462c0819:PsiDirectoryNode" />
+              <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Editor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TextBasedGame" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TextBasedGame" type="462c0819:PsiDirectoryNode" />
+              <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Editor" type="462c0819:PsiDirectoryNode" />
+              <item name="EditorTables" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TextBasedGame" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TextBasedGame" type="462c0819:PsiDirectoryNode" />
+              <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Engine" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TextBasedGame" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TextBasedGame" type="462c0819:PsiDirectoryNode" />
+              <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="TABLES" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TextBasedGame" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -253,12 +415,12 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://F:/TextBasedGame/GameEngine/src/World.java" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\TextBasedGame\GameEngine\src" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\TextBasedGame\resources\data\saves" />
       <recent name="F:\TextBasedGame\resources" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\TextBasedGame\GameEngine\src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -357,7 +519,7 @@
     </configuration>
     <configuration name="driver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="driver" />
+      <option name="MAIN_CLASS_NAME" value="Engine.driver" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -410,7 +572,8 @@
       <workItem from="1503541576711" duration="5303000" />
       <workItem from="1503597888159" duration="32209000" />
       <workItem from="1503668584872" duration="12337000" />
-      <workItem from="1505263181867" duration="1185000" />
+      <workItem from="1505263181867" duration="9386000" />
+      <workItem from="1505272586267" duration="2865000" />
     </task>
     <task id="LOCAL-00001" summary="Updated all class files to match original project">
       <created>1501284256536</created>
@@ -545,11 +708,18 @@
       <option name="project" value="LOCAL" />
       <updated>1503688317936</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Now working on rebuilding the engine to utilize tables to keep track of entities rather than POJOs. This will hopefully be a more permanent and flexible foundation for building the game on.">
+      <created>1505264557288</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1505264557288</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="239564000" />
+    <option name="totallyTimeSpent" value="250630000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -566,18 +736,18 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.50186664" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.49813333" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3478261" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3478261" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20373334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20586666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -621,44 +791,46 @@
     <MESSAGE value="Redesigning the way the engine tracks entities, instead keeping them all in one structure and retrieving them by key." />
     <MESSAGE value="Entities are now properly tracked by key(ID:INSTANCE). Now reworking commands to work with the new Entity system." />
     <MESSAGE value="DataHandler now can save and load data for the game" />
-    <option name="LAST_COMMIT_MESSAGE" value="DataHandler now can save and load data for the game" />
+    <MESSAGE value="Now working on rebuilding the engine to utilize tables to keep track of entities rather than POJOs. This will hopefully be a more permanent and flexible foundation for building the game on." />
+    <MESSAGE value="Now working on rebuilding the engine to utilize tables to keep track of entities rather than POJOs. This will hopefully be a more permanent and flexible foundation for building the game on.&#10;&#10;Currently creating the Editor as I cement the design of game entities and how to make use of them in the game itself." />
+    <option name="LAST_COMMIT_MESSAGE" value="Now working on rebuilding the engine to utilize tables to keep track of entities rather than POJOs. This will hopefully be a more permanent and flexible foundation for building the game on.&#10;&#10;Currently creating the Editor as I cement the design of game entities and how to make use of them in the game itself." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GameEngine/src/ContentSlot.java</url>
-          <line>25</line>
+          <url>file://$PROJECT_DIR$/GameEngine/src/Engine/ContentSlot.java</url>
+          <line>27</line>
           <properties />
           <option name="timeStamp" value="137" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GameEngine/src/Command.java</url>
-          <line>41</line>
+          <url>file://$PROJECT_DIR$/GameEngine/src/Engine/Command.java</url>
+          <line>43</line>
           <properties />
           <option name="timeStamp" value="141" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GameEngine/src/Command.java</url>
-          <line>44</line>
+          <url>file://$PROJECT_DIR$/GameEngine/src/Engine/Command.java</url>
+          <line>46</line>
           <properties />
           <option name="timeStamp" value="142" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GameEngine/src/Command.java</url>
-          <line>46</line>
+          <url>file://$PROJECT_DIR$/GameEngine/src/Engine/Command.java</url>
+          <line>48</line>
           <properties />
           <option name="timeStamp" value="143" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GameEngine/src/Command.java</url>
-          <line>38</line>
+          <url>file://$PROJECT_DIR$/GameEngine/src/Engine/Command.java</url>
+          <line>40</line>
           <properties />
           <option name="timeStamp" value="145" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GameEngine/src/Command.java</url>
-          <line>81</line>
+          <url>file://$PROJECT_DIR$/GameEngine/src/Engine/Command.java</url>
+          <line>83</line>
           <properties />
           <option name="timeStamp" value="146" />
         </line-breakpoint>
@@ -668,803 +840,114 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/Room.java">
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/FACTIONS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="9" column="53" lean-forward="false" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
-          <folding>
-            <element signature="method#contains#0;class#Room#0" expanded="false" />
-            <element signature="method#contains#1;class#Room#0" expanded="false" />
-            <element signature="method#contains#2;class#Room#0" expanded="false" />
-            <element signature="method#add#0;class#Room#0" expanded="false" />
-            <element signature="method#add#1;class#Room#0" expanded="false" />
-            <element signature="method#remove#0;class#Room#0" expanded="false" />
-            <element signature="method#remove#1;class#Room#0" expanded="false" />
-            <element signature="method#remove#2;class#Room#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/World.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1503690023545" expanded="true" signature="4554:4558" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://MODULES/mdl-GameEngine">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>MODULES</ID>
-          <OriginalElement>mdl-GameEngine</OriginalElement>
-          <nodes>
-            <node x="" y="">mdl-GameEngine</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="75.0" y="15.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/CommandHandler">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>CommandHandler</OriginalElement>
-          <nodes>
-            <node x="" y="">CommandHandler</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="130.0" y="104.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Fields</Category>
-            <Category>Constructors</Category>
-            <Category>Properties</Category>
-            <Category>Methods</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/GameStates">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>GameStates</OriginalElement>
-          <nodes>
-            <node x="131.5" y="101.0">GameStates</node>
-            <node x="263.0" y="0.0">GameStates.head</node>
-            <node x="0.0" y="0.0">GameStates.start</node>
-            <node x="131.5" y="336.0">GameStates.character</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="GameStates" target="GameStates.start">
-              <point x="-101.25" y="-92.5" />
-              <point x="151.75" y="81.0" />
-              <point x="40.5" y="81.0" />
-              <point x="-81.0" y="25.5" />
-            </edge>
-            <edge source="GameStates.start" target="GameStates">
-              <point x="81.0" y="25.5" />
-              <point x="202.5" y="81.0" />
-              <point x="232.75" y="81.0" />
-              <point x="-20.25" y="-92.5" />
-            </edge>
-            <edge source="GameStates" target="GameStates.head">
-              <point x="60.75" y="-92.5" />
-              <point x="313.75" y="71.0" />
-              <point x="384.5" y="71.0" />
-              <point x="0.0" y="25.5" />
-            </edge>
-            <edge source="GameStates.character" target="GameStates">
-              <point x="-81.0" y="-25.5" />
-              <point x="-81.0" y="92.5" />
-            </edge>
-            <edge source="GameStates" target="GameStates.character">
-              <point x="81.0" y="92.5" />
-              <point x="81.0" y="-25.5" />
-            </edge>
-            <edge source="GameStates.head" target="GameStates">
-              <point x="81.0" y="25.5" />
-              <point x="465.5" y="81.0" />
-              <point x="354.25" y="81.0" />
-              <point x="101.25" y="-92.5" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="1.0" x="-73.0" y="41.0" />
-          <SelectedNodes>
-            <node>GameStates</node>
-          </SelectedNodes>
-          <Categories>
-            <Category>Fields</Category>
-            <Category>Inner Classes</Category>
-            <Category>Constructors</Category>
-            <Category>Properties</Category>
-            <Category>Methods</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/GameStates.java" />
-    <entry file="file://$PROJECT_DIR$/GameEngine/todo list.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="42" lean-forward="true" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement />
-          <nodes>
-            <node x="591.3282738095238" y="690.0">Player</node>
-            <node x="409.85592580782287" y="1747.0">IdleState</node>
-            <node x="878.253620691065" y="1779.5">StartState</node>
-            <node x="1453.755834232731" y="0.0">DataHandler</node>
-            <node x="1074.253620691065" y="1791.0">CommandHandler</node>
-            <node x="82.89958423273094" y="1558.0">World</node>
-            <node x="777.253620691065" y="1602.0">CommandParser</node>
-            <node x="276.6098706910649" y="1196.0">Item</node>
-            <node x="166.4241071428571" y="0.0">Container</node>
-            <node x="872.34253295068" y="2460.0">driver</node>
-            <node x="539.0746758078228" y="1986.0">GameSystems</node>
-            <node x="1152.755834232731" y="2140.5">MainWindow</node>
-            <node x="221.85592580782287" y="350.0">Room</node>
-            <node x="655.505834232731" y="988.0">Interface</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="IdleState" target="Item">
-              <point x="-17.5" y="-69.5" />
-              <point x="497.35592580782287" y="1727.0" />
-              <point x="485.1416400935372" y="1727.0" />
-              <point x="485.1416400935372" y="1508.0" />
-              <point x="415.6812992624935" y="1508.0" />
-              <point x="50.57142857142861" y="136.0" />
-            </edge>
-            <edge source="Room" target="Item">
-              <point x="11.5" y="125.0" />
-              <point x="348.35592580782287" y="670.0" />
-              <point x="354.35592580782287" y="670.0" />
-              <point x="354.35592580782287" y="1166.0" />
-              <point x="331.9223706910649" y="1166.0" />
-              <point x="-33.1875" y="-136.0" />
-            </edge>
-            <edge source="MainWindow" target="Player">
-              <point x="85.33333333333326" y="-47.5" />
-              <point x="1366.0891675660641" y="1966.0" />
-              <point x="1291.755834232731" y="1966.0" />
-              <point x="1291.755834232731" y="948.0" />
-              <point x="776.0157738095238" y="948.0" />
-              <point x="86.18750000000003" y="114.0" />
-            </edge>
-            <edge source="StartState" target="Interface">
-              <point x="0.0" y="-37.0" />
-              <point x="965.753620691065" y="1176.0" />
-              <point x="759.568334232731" y="1176.0" />
-              <point x="11.5625" y="59.0" />
-            </edge>
-            <edge source="GameSystems" target="StartState">
-              <point x="48.928571428571445" y="-202.0" />
-              <point x="725.0032472363943" y="1926.0" />
-              <point x="922.003620691065" y="1926.0" />
-              <point x="-43.75" y="37.0" />
-            </edge>
-            <edge source="GameSystems" target="CommandHandler">
-              <point x="107.64285714285711" y="-202.0" />
-              <point x="783.7175329506799" y="1956.0" />
-              <point x="1105.753620691065" y="1956.0" />
-              <point x="-63.0" y="25.5" />
-            </edge>
-            <edge source="World" target="Interface">
-              <point x="104.39999999999998" y="-69.5" />
-              <point x="303.2995842327309" y="1538.0" />
-              <point x="464.1098706910649" y="1538.0" />
-              <point x="464.1098706910649" y="1166.0" />
-              <point x="690.193334232731" y="1166.0" />
-              <point x="-57.8125" y="59.0" />
-            </edge>
-            <edge source="Player" target="Interface">
-              <point x="36.9375" y="114.0" />
-              <point x="726.7657738095238" y="968.0" />
-              <point x="748.005834232731" y="968.0" />
-              <point x="0.0" y="-59.0" />
-            </edge>
-            <edge source="IdleState" target="GameSystems">
-              <point x="52.5" y="69.5" />
-              <point x="567.3559258078228" y="1916.0" />
-              <point x="646.7175329506799" y="1916.0" />
-              <point x="-29.35714285714289" y="-202.0" />
-            </edge>
-            <edge source="CommandHandler" target="Interface">
-              <point x="47.25" y="-25.5" />
-              <point x="1216.003620691065" y="1156.0" />
-              <point x="805.818334232731" y="1156.0" />
-              <point x="57.8125" y="59.0" />
-            </edge>
-            <edge source="CommandParser" target="Container">
-              <point x="66.75" y="-25.5" />
-              <point x="933.003620691065" y="1538.0" />
-              <point x="917.5053571428571" y="1538.0" />
-              <point x="917.5053571428571" y="270.0" />
-              <point x="350.0779532967032" y="270.0" />
-              <point x="88.15384615384608" y="125.0" />
-            </edge>
-            <edge source="MainWindow" target="Interface">
-              <point x="0.0" y="-47.5" />
-              <point x="1280.755834232731" y="1146.0" />
-              <point x="828.943334232731" y="1146.0" />
-              <point x="80.9375" y="59.0" />
-            </edge>
-            <edge source="GameSystems" target="World">
-              <point x="-88.07142857142867" y="-202.0" />
-              <point x="588.0032472363941" y="1946.0" />
-              <point x="198.89958423273094" y="1946.0" />
-              <point x="0.0" y="69.5" />
-            </edge>
-            <edge source="World" target="Container">
-              <point x="-57.99999999999994" y="-69.5" />
-              <point x="140.899584232731" y="1518.0" />
-              <point x="106.40592580782288" y="1518.0" />
-              <point x="106.40592580782288" y="310.0" />
-              <point x="217.84718406593402" y="310.0" />
-              <point x="-44.076923076923094" y="125.0" />
-            </edge>
-            <edge source="Interface" target="GameSystems">
-              <point x="-11.5625" y="59.0" />
-              <point x="736.443334232731" y="1906.0" />
-              <point x="685.8603900935371" y="1906.0" />
-              <point x="9.785714285714334" y="-202.0" />
-            </edge>
-            <edge source="driver" target="GameSystems">
-              <point x="-21.125" y="-25.5" />
-              <point x="935.71753295068" y="2430.0" />
-              <point x="744.5746758078228" y="2430.0" />
-              <point x="68.5" y="202.0" />
-            </edge>
-            <edge source="GameSystems" target="IdleState">
-              <point x="-48.928571428571445" y="-202.0" />
-              <point x="627.1461043792514" y="1926.0" />
-              <point x="462.35592580782287" y="1926.0" />
-              <point x="-52.5" y="69.5" />
-            </edge>
-            <edge source="GameSystems" target="Interface">
-              <point x="88.07142857142856" y="-202.0" />
-              <point x="764.1461043792514" y="1946.0" />
-              <point x="1063.753620691065" y="1946.0" />
-              <point x="1063.753620691065" y="1166.0" />
-              <point x="782.693334232731" y="1166.0" />
-              <point x="34.6875" y="59.0" />
-            </edge>
-            <edge source="Container" target="Player">
-              <point x="58.76923076923072" y="125.0" />
-              <point x="320.6933379120878" y="290.0" />
-              <point x="755.4949404761904" y="290.0" />
-              <point x="65.66666666666663" y="-114.0" />
-            </edge>
-            <edge source="CommandParser" target="Item">
-              <point x="-66.75" y="-25.5" />
-              <point x="799.503620691065" y="1498.0" />
-              <point x="440.9670135482077" y="1498.0" />
-              <point x="75.85714285714283" y="136.0" />
-            </edge>
-            <edge source="CommandParser" target="GameSystems">
-              <point x="-44.5" y="25.5" />
-              <point x="821.753620691065" y="1916.0" />
-              <point x="705.4318186649657" y="1916.0" />
-              <point x="29.35714285714289" y="-202.0" />
-            </edge>
-            <edge source="Player" target="Item">
-              <point x="-86.1875" y="114.0" />
-              <point x="603.6407738095238" y="938.0" />
-              <point x="506.32467580782287" y="938.0" />
-              <point x="506.32467580782287" y="1136.0" />
-              <point x="398.2973706910649" y="1136.0" />
-              <point x="33.1875" y="-136.0" />
-            </edge>
-            <edge source="IdleState" target="Container">
-              <point x="17.5" y="-69.5" />
-              <point x="532.3559258078228" y="1727.0" />
-              <point x="545.513912259615" y="1727.0" />
-              <point x="545.513912259615" y="300.0" />
-              <point x="306.0010302197802" y="300.0" />
-              <point x="44.076923076923094" y="125.0" />
-            </edge>
-            <edge source="IdleState" target="World">
-              <point x="-87.5" y="-69.5" />
-              <point x="427.35592580782287" y="1727.0" />
-              <point x="276.23291756606426" y="1727.0" />
-              <point x="77.33333333333331" y="69.5" />
-            </edge>
-            <edge source="Item" target="Interface">
-              <point x="77.4375" y="-136.0" />
-              <point x="442.5473706910649" y="1156.0" />
-              <point x="667.068334232731" y="1156.0" />
-              <point x="-80.9375" y="59.0" />
-            </edge>
-            <edge source="Interface" target="Player">
-              <point x="-61.66666666666663" y="-59.0" />
-              <point x="686.3391675660644" y="968.0" />
-              <point x="702.1407738095238" y="968.0" />
-              <point x="12.3125" y="114.0" />
-            </edge>
-            <edge source="CommandHandler" target="GameSystems">
-              <point x="0.0" y="25.5" />
-              <point x="1168.753620691065" y="1966.0" />
-              <point x="803.2889615221086" y="1966.0" />
-              <point x="127.21428571428575" y="-202.0" />
-            </edge>
-            <edge source="World" target="Room">
-              <point x="-11.599999999999966" y="-69.5" />
-              <point x="187.29958423273098" y="1498.0" />
-              <point x="131.8139122596151" y="1498.0" />
-              <point x="131.8139122596151" y="660.0" />
-              <point x="302.35592580782287" y="660.0" />
-              <point x="-34.5" y="125.0" />
-            </edge>
-            <edge source="GameSystems" target="Container">
-              <point x="-127.21428571428578" y="-202.0" />
-              <point x="548.860390093537" y="1966.0" />
-              <point x="25.64285714285711" y="1966.0" />
-              <point x="25.64285714285711" y="280.0" />
-              <point x="173.77026098901098" y="280.0" />
-              <point x="-88.15384615384613" y="125.0" />
-            </edge>
-            <edge source="IdleState" target="Interface">
-              <point x="87.5" y="-69.5" />
-              <point x="602.3559258078228" y="1727.0" />
-              <point x="613.3559258078229" y="1727.0" />
-              <point x="613.3559258078229" y="1176.0" />
-              <point x="713.318334232731" y="1176.0" />
-              <point x="-34.6875" y="59.0" />
-            </edge>
-            <edge source="World" target="Item">
-              <point x="81.19999999999999" y="-69.5" />
-              <point x="280.09958423273093" y="1528.0" />
-              <point x="339.8241564053506" y="1528.0" />
-              <point x="-25.285714285714278" y="136.0" />
-            </edge>
-            <edge source="Room" target="Container">
-              <point x="57.5" y="-125.0" />
-              <point x="394.35592580782287" y="320.0" />
-              <point x="276.6164148351648" y="320.0" />
-              <point x="14.69230769230768" y="125.0" />
-            </edge>
-            <edge source="Player" target="Room">
-              <point x="0.0" y="-114.0" />
-              <point x="689.8282738095238" y="660.0" />
-              <point x="417.35592580782287" y="660.0" />
-              <point x="80.5" y="125.0" />
-            </edge>
-            <edge source="StartState" target="GameSystems">
-              <point x="43.75" y="37.0" />
-              <point x="1009.503620691065" y="1936.0" />
-              <point x="744.5746758078228" y="1936.0" />
-              <point x="68.5" y="-202.0" />
-            </edge>
-            <edge source="Container" target="Item">
-              <point x="-29.384615384615415" y="125.0" />
-              <point x="232.5394917582417" y="320.0" />
-              <point x="180.35592580782287" y="320.0" />
-              <point x="180.35592580782287" y="1176.0" />
-              <point x="287.6723706910649" y="1176.0" />
-              <point x="-77.4375" y="-136.0" />
-            </edge>
-            <edge source="GameSystems" target="Room">
-              <point x="-107.64285714285722" y="-202.0" />
-              <point x="568.4318186649656" y="1956.0" />
-              <point x="36.64285714285711" y="1956.0" />
-              <point x="36.64285714285711" y="640.0" />
-              <point x="256.35592580782287" y="640.0" />
-              <point x="-80.5" y="125.0" />
-            </edge>
-            <edge source="IdleState" target="Player">
-              <point x="52.5" y="-69.5" />
-              <point x="567.3559258078228" y="1717.0" />
-              <point x="602.3559258078229" y="1717.0" />
-              <point x="602.3559258078229" y="958.0" />
-              <point x="652.8907738095238" y="958.0" />
-              <point x="-36.9375" y="114.0" />
-            </edge>
-            <edge source="driver" target="MainWindow">
-              <point x="63.375" y="-25.5" />
-              <point x="1020.21753295068" y="2440.0" />
-              <point x="1344.755834232731" y="2440.0" />
-              <point x="64.0" y="47.5" />
-            </edge>
-            <edge source="GameSystems" target="Item">
-              <point x="-68.5" y="-202.0" />
-              <point x="607.5746758078228" y="1936.0" />
-              <point x="399.35592580782287" y="1936.0" />
-              <point x="399.35592580782287" y="1528.0" />
-              <point x="365.1098706910649" y="1528.0" />
-              <point x="0.0" y="136.0" />
-            </edge>
-            <edge source="GameSystems" target="Player">
-              <point x="-9.78571428571422" y="-202.0" />
-              <point x="666.2889615221086" y="1906.0" />
-              <point x="645.005834232731" y="1906.0" />
-              <point x="645.005834232731" y="968.0" />
-              <point x="677.5157738095238" y="968.0" />
-              <point x="-12.3125" y="114.0" />
-            </edge>
-            <edge source="Container" target="Interface">
-              <point x="73.46153846153845" y="125.0" />
-              <point x="335.38564560439556" y="280.0" />
-              <point x="906.5053571428571" y="280.0" />
-              <point x="906.5053571428571" y="968.0" />
-              <point x="809.6725008993976" y="968.0" />
-              <point x="61.66666666666663" y="-59.0" />
-            </edge>
-            <edge source="MainWindow" target="CommandHandler">
-              <point x="-85.33333333333326" y="-47.5" />
-              <point x="1195.4225008993976" y="1966.0" />
-              <point x="1231.753620691065" y="1966.0" />
-              <point x="63.0" y="25.5" />
-            </edge>
-            <edge source="GameSystems" target="GameSystems">
-              <point x="-68.5" y="202.0" />
-              <point x="607.5746758078228" y="2410.0" />
-              <point x="519.0746758078228" y="2410.0" />
-              <point x="519.0746758078228" y="2188.0" />
-              <point x="-137.0" y="-0.0" />
-            </edge>
-            <edge source="CommandParser" target="Room">
-              <point x="22.25" y="-25.5" />
-              <point x="888.503620691065" y="1538.0" />
-              <point x="878.076412259615" y="1538.0" />
-              <point x="878.076412259615" y="650.0" />
-              <point x="440.35592580782287" y="650.0" />
-              <point x="103.5" y="125.0" />
-            </edge>
-            <edge source="Room" target="Room">
-              <point x="-103.5" y="125.0" />
-              <point x="233.35592580782287" y="620.0" />
-              <point x="201.85592580782287" y="620.0" />
-              <point x="201.85592580782287" y="475.0" />
-              <point x="-115.0" y="-0.0" />
-            </edge>
-            <edge source="CommandHandler" target="CommandParser">
-              <point x="-47.25" y="-25.5" />
-              <point x="1121.503620691065" y="1727.0" />
-              <point x="910.753620691065" y="1727.0" />
-              <point x="44.5" y="25.5" />
-            </edge>
-            <edge source="driver" target="World">
-              <point x="-63.375" y="-25.5" />
-              <point x="893.46753295068" y="2440.0" />
-              <point x="0.0" y="2440.0" />
-              <point x="0.0" y="1727.0" />
-              <point x="121.56625089939763" y="1727.0" />
-              <point x="-77.33333333333331" y="69.5" />
-            </edge>
-            <edge source="CommandParser" target="Player">
-              <point x="-22.25" y="-25.5" />
-              <point x="844.003620691065" y="1538.0" />
-              <point x="851.005834232731" y="1538.0" />
-              <point x="851.005834232731" y="958.0" />
-              <point x="751.3907738095238" y="958.0" />
-              <point x="61.5625" y="114.0" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="0.9624400639318061" x="149.0" y="2015.0" />
-          <SelectedNodes>
-            <node>Player</node>
-          </SelectedNodes>
-          <Categories>
-            <Category>Fields</Category>
-            <Category>Methods</Category>
-          </Categories>
-          <SCOPE>Project Files</SCOPE>
-          <VISIBILITY>packageLocal</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/jdk1.8.0_121/src.zip!/java/awt/Container.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="91" column="13" lean-forward="false" selection-start-line="91" selection-start-column="13" selection-end-line="91" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/jdk1.8.0_121/src.zip!/java/util/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="237" column="12" lean-forward="false" selection-start-line="237" selection-start-column="12" selection-end-line="237" selection-end-column="12" />
+        <state relative-caret-position="102">
+          <caret line="6" column="48" lean-forward="false" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://F:/jdk1.8.0_121/src.zip!/java/util/ArrayList.java">
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/SPECIES.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="900" column="0" lean-forward="false" selection-start-line="900" selection-start-column="0" selection-end-line="900" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/StartState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        <state relative-caret-position="102">
+          <caret line="6" column="50" lean-forward="false" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/PlayerTemplate.java">
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/TABLES/RELATIONSHIPS/CONTAINS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/data/saves/Test.json" />
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/EntityManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1156">
-          <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/InstanceManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-315">
-          <caret line="6" column="10" lean-forward="false" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/SaveState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="28" column="49" lean-forward="false" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="9" column="31" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+        <state relative-caret-position="102">
+          <caret line="6" column="55" lean-forward="true" selection-start-line="6" selection-start-column="55" selection-end-line="6" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/Room.java">
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/TABLES/RELATIONSHIPS/HAS_RELATION_TO_FACTION.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="18" column="31" lean-forward="false" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-          <folding>
-            <element signature="method#contains#0;class#Room#0" expanded="false" />
-            <element signature="method#contains#1;class#Room#0" expanded="false" />
-            <element signature="method#contains#2;class#Room#0" expanded="false" />
-            <element signature="method#add#0;class#Room#0" expanded="false" />
-            <element signature="method#add#1;class#Room#0" expanded="false" />
-            <element signature="method#remove#0;class#Room#0" expanded="false" />
-            <element signature="method#remove#1;class#Room#0" expanded="false" />
-            <element signature="method#remove#2;class#Room#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2108">
-          <caret line="134" column="16" lean-forward="false" selection-start-line="134" selection-start-column="16" selection-end-line="134" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/data/saves/Duntorah.json" />
-    <entry file="file://$PROJECT_DIR$/resources/data/worldData/paths.txt" />
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/Paths.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="50" lean-forward="false" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/data/worldData/paths.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/CharacterCreation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="18" lean-forward="false" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/driver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="25" lean-forward="false" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+        <state relative-caret-position="102">
+          <caret line="6" column="79" lean-forward="false" selection-start-line="6" selection-start-column="79" selection-end-line="6" selection-end-column="79" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/MainWindow.java">
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/TABLES/RELATIONSHIPS/IS_CARRYING.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1819">
-          <caret line="110" column="16" lean-forward="false" selection-start-line="110" selection-start-column="16" selection-end-line="110" selection-end-column="16" />
+        <state relative-caret-position="102">
+          <caret line="6" column="72" lean-forward="false" selection-start-line="6" selection-start-column="72" selection-end-line="6" selection-end-column="72" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/Interface.java">
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/TABLES/RELATIONSHIPS/IS_INSTANCE_OF.java" />
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/ITEM_INSTANCES.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="49" lean-forward="false" selection-start-line="13" selection-start-column="49" selection-end-line="13" selection-end-column="49" />
+        <state relative-caret-position="102">
+          <caret line="6" column="54" lean-forward="false" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/StaticWorld.java">
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/ROOM_INSTANCES.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="110" column="26" lean-forward="true" selection-start-line="110" selection-start-column="26" selection-end-line="110" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/GameSystems.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="87" column="24" lean-forward="false" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="24" />
+        <state relative-caret-position="102">
+          <caret line="6" column="54" lean-forward="false" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/IdleState.java">
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/TABLES/RELATIONSHIPS/IS_SPECIES.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="38" column="26" lean-forward="false" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
+        <state relative-caret-position="102">
+          <caret line="6" column="58" lean-forward="false" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/CommandHandler.java">
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/TABLES/RELATIONSHIPS/LEADS_TO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="45" column="30" lean-forward="false" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
+        <state relative-caret-position="119">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/Item.java">
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/DESCRIPTIONS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="32" column="36" lean-forward="false" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#look#0;class#Item#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/Entity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding>
-            <element signature="method#look#0;class#Entity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/World.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="39" lean-forward="false" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1503690023545" expanded="true" signature="4554:4558" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/Container.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        <state relative-caret-position="102">
+          <caret line="6" column="98" lean-forward="true" selection-start-line="6" selection-start-column="98" selection-end-line="6" selection-end-column="98" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/DataHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="23" lean-forward="true" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/data/saves/Tset.json" />
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/CommandParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="34" lean-forward="false" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
-          <folding>
-            <marker date="1503690023475" expanded="true" signature="2393:2397" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/objects/items/I-000003tv.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="4" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="11" selection-end-column="4" />
+        <state relative-caret-position="255">
+          <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/objects/items/I-000002remote.json">
+    <entry file="file://$PROJECT_DIR$/resources/tables/items.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="4" lean-forward="false" selection-start-line="6" selection-start-column="2" selection-end-line="12" selection-end-column="4" />
+        <state relative-caret-position="518">
+          <caret line="81" column="56" lean-forward="false" selection-start-line="81" selection-start-column="56" selection-end-line="81" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/ROOMS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="82" lean-forward="true" selection-start-line="6" selection-start-column="82" selection-end-line="6" selection-end-column="82" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/rooms/R-000000living room.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="20" lean-forward="true" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/Command.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#hasRoom#0;class#Command#0" expanded="false" />
-            <element signature="e#2309#2310#0" expanded="true" />
-            <element signature="e#2346#2347#0" expanded="true" />
-            <element signature="e#2441#2442#0" expanded="true" />
-            <element signature="e#2478#2479#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/rooms/R-000002bedroom.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/objects/items/I-000000pocket knife.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="4" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="9" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/objects/items/I-000001cold pizza.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="4" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="12" selection-end-column="4" />
+        <state relative-caret-position="68">
+          <caret line="4" column="65" lean-forward="false" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="65" />
         </state>
       </provider>
     </entry>
@@ -1475,31 +958,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/rooms/R-000003bathroom.json">
+    <entry file="file://$PROJECT_DIR$/resources/tables/rooms.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="37" column="31" lean-forward="true" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/ITEMS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/TABLES/ENTITIES/CONTAINERS.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="6" column="17" lean-forward="true" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <caret line="6" column="70" lean-forward="false" selection-start-line="6" selection-start-column="70" selection-end-line="6" selection-end-column="70" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/objects/items/I-000004socks.json">
+    <entry file="file://$PROJECT_DIR$/resources/tables/containers.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="4" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="8" selection-end-column="4" />
+        <state relative-caret-position="306">
+          <caret line="18" column="48" lean-forward="false" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/objects/containers/C-000000drawers.json">
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Engine/Command.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="17" column="8" lean-forward="false" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+        <state relative-caret-position="0">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#hasRoom#0;class#Command#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/ContentSlot.java">
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Engine/CommandParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="228" column="23" lean-forward="true" selection-start-line="228" selection-start-column="23" selection-end-line="228" selection-end-column="23" />
+        <state relative-caret-position="204">
+          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+          <folding>
+            <marker date="1505272571040" expanded="true" signature="2410:2414" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Engine/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="method#look#0;class#Item#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Engine/ContentSlot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#ContentSlot#1;class#ContentSlot#0" expanded="false" />
@@ -1512,8 +1037,269 @@
             <element signature="method#remove#1;class#ContentSlot#0" expanded="false" />
             <element signature="method#take#0;class#ContentSlot#0" expanded="false" />
             <element signature="method#purge#0;class#ContentSlot#0" expanded="false" />
-            <element signature="e#5344#5345#0" expanded="true" />
-            <element signature="e#5401#5402#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Engine/EntityManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Engine/IdleState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Engine/Room.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Engine/Container.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Engine/Paths.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Engine/CharacterCreation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Engine/GameSystems.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Engine/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement />
+          <nodes>
+            <node x="" y="">Engine.InstanceManager</node>
+            <node x="" y="">Engine.PlayerTemplate</node>
+            <node x="" y="">Engine.Player</node>
+            <node x="" y="">TABLES.ENTITIES</node>
+            <node x="" y="">Editor.editor</node>
+            <node x="" y="">Engine.Room</node>
+            <node x="" y="">TABLES.RELATIONSHIPS</node>
+            <node x="" y="">Engine.Container</node>
+            <node x="" y="">Engine.CommandHandler</node>
+            <node x="" y="">Engine.MainWindow</node>
+            <node x="" y="">Engine.CharacterCreation</node>
+            <node x="" y="">Engine.Command</node>
+            <node x="" y="">Data.DataHandler</node>
+            <node x="" y="">Engine.Map</node>
+            <node x="" y="">Engine.Entity</node>
+            <node x="" y="">TABLES.GameTableModel</node>
+            <node x="" y="">Engine.GameSystems</node>
+            <node x="" y="">Engine.Paths</node>
+            <node x="" y="">Engine.CommandParser</node>
+            <node x="" y="">Engine.StartState</node>
+            <node x="" y="">Engine.ContentSlot</node>
+            <node x="" y="">Engine.Interface</node>
+            <node x="" y="">Engine.driver</node>
+            <node x="" y="">Engine.Item</node>
+            <node x="" y="">Engine.EntityManager</node>
+            <node x="" y="">Engine.World</node>
+            <node x="" y="">Engine.IdleState</node>
+            <node x="" y="">Engine.SaveState</node>
+            <node x="" y="">Engine.StaticWorld</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.7000000000000001" x="846.5714285714284" y="444.9999999999999" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>Project Files</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Editor/editor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Engine/Interface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Editor/factionWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Editor/characterWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Editor/roomWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="23" lean-forward="false" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Editor/containerWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Editor/itemWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="1" lean-forward="false" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Editor/newEntityWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="1" lean-forward="false" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Engine/MainWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Editor/mainWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/TABLES/GameTableModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="41" column="5" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="41" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Editor/EditorTables/GroupTableModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="55" lean-forward="true" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Editor/EditorTables/MainEditorTableModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="35" column="5" lean-forward="true" selection-start-line="32" selection-start-column="4" selection-end-line="35" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Editor/EditorTables/MainListTableModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="20" lean-forward="false" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+          <folding>
+            <element signature="e#201#202#0" expanded="true" />
+            <element signature="e#220#221#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Editor/design.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Data/DataHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="7" lean-forward="false" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Engine/CommandHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-536">
+          <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Engine/driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

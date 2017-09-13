@@ -1,0 +1,22 @@
+{
+  "ROWS": [
+    [
+      "C00000",
+      [
+        "drawers"
+      ],
+      "large",
+      100.0,
+      true,
+      false,
+      false,
+      [
+        "The drawers are closed",
+        "The drawer hangs open, allowing you to ses inside",
+        "You slide the top drawer open to reveal:",
+        "You push the drawer closed"
+      ],
+      "These drawers are way to heavy to pick up"
+    ]
+  ]
+}

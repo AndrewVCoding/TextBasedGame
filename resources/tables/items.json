@@ -1,0 +1,85 @@
+{
+  "ROWS": [
+    [
+      "I00000",
+      [
+        "pocket knife",
+        "knife",
+        "folding knife"
+      ],
+      "tiny",
+      0.25,
+      true,
+      true,
+      false,
+      [
+        "A small folding knife"
+      ],
+      "You carefully slip the pocket knife into your pocket"
+    ],
+    [
+      "I00001",
+      [
+        "cold pizza",
+        "pizza"
+      ],
+      "small",
+      0.5,
+      true,
+      true,
+      false,
+      [
+        "A slice of cold pizza, who knows how old it is"
+      ],
+      "You stuff the greaasy slice of pizza into your pocket"
+    ],
+    [
+      "I00002",
+      [
+        "remote",
+        "remote control"
+      ],
+      "small",
+      0.5,
+      true,
+      true,
+      false,
+      [
+        "The tv remote"
+      ],
+      "You put the remote in your pocket"
+    ],
+    [
+      "I00003",
+      [
+        "tv",
+        "television"
+      ],
+      "big",
+      30,
+      true,
+      false,
+      true,
+      [
+        "The tv is currently turned off, but you don\u0027t want to walk all the way over to it to turn it on.",
+        "A soft glow emanates from the tv, as it displays current events and news stories about current events."
+      ],
+      "The tv is too heavy to lift and wouldn\u0027t fit in your pockets anyways"
+    ],
+    [
+      "I00004",
+      [
+        "socks"
+      ],
+      "small",
+      0.5,
+      true,
+      true,
+      false,
+      [
+        "A pair of clean socks, neatly folded."
+      ],
+      "You pick up the socks and put them in your pocket"
+    ]
+  ]
+}
