@@ -23,11 +23,11 @@ class CommandHandler
 			if(command.equals("start"))
 				GameSystems.start(command);
 			else if(command.equals("save"))
-				DataHandler.saveGame(command.TARGET);
+				DataLoader.saveGame(command.TARGET);
 			else if(command.equals("load"))
-				DataHandler.loadGame(command.TARGET);
+				DataLoader.loadGame(command.TARGET);
 			else if(command.equals("list saves"))
-				DataHandler.listSaves();
+				DataLoader.listSaves();
 			else if(command.equals("create character"))
 				CharacterCreation.createCharacter(command);
 			else if(command.equals("go"))

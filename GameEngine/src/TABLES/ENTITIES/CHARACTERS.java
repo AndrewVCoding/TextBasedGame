@@ -6,5 +6,5 @@ import javax.swing.table.AbstractTableModel;
 
 public class CHARACTERS extends GameTableModel
 {
-	private String[] columnNames = {"CHARACTER_ID", "NAME", "HP", "MP", "PROFESSION"};
+	private String[] columnNames = {"ID", "NAME", "HP", "MP", "PROFESSION"};
 }

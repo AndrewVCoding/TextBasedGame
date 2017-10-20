@@ -13,7 +13,7 @@ class driver
 		mainWindow.setSize(mainWindow.getPreferredSize());
 		mainWindow.setResizable(false);
 
-		DataHandler.loadAllBaseFiles();
+		DataLoader.loadAllBaseFiles();
 		Interface.welcome();
 
 		mainWindow.updateDisplay();
