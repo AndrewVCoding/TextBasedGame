@@ -1,5 +1,6 @@
 package Editor;
 
+import Data.DataHandler;
 import Data.DataLoader;
 import Data.Paths;
 
@@ -17,10 +18,12 @@ public class WorldSelectWindow extends JFrame implements ActionListener
 
 	public String SELECTED_WORLD = "";
 	private WorldEditorWindow EDITOR_WINDOW;
+	private DataHandler DATA_HANDLER;
 
-	public WorldSelectWindow(WorldEditorWindow editorWindow)
+	public WorldSelectWindow(WorldEditorWindow editorWindow, DataHandler dataHandler)
 	{
 		EDITOR_WINDOW = editorWindow;
+		DATA_HANDLER = dataHandler;
 		WORLDS_LIST = new JComboBox<>();
 		EDIT = new JButton("edit");
 		EDIT.addActionListener(this);
@@ -52,7 +55,8 @@ public class WorldSelectWindow extends JFrame implements ActionListener
 		if(e.getSource() == EDIT)
 		{
 			SELECTED_WORLD = WORLDS_LIST.getSelectedItem().toString();
-			//Then populate the data for the editor
+			//Then pass to the dataHandler which world to  load data  from
+            DATA_HANDLER.setWorld(SELECTED_WORLD);
 			System.out.println(SELECTED_WORLD);
 			EDITOR_WINDOW.populateData(SELECTED_WORLD);
 			dispose();

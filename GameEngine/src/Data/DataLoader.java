@@ -47,7 +47,6 @@ public class DataLoader
 	public static List<String> listFiles(String path)
 	{
 		List<String> output = new ArrayList<>();
-		JsonReader jReader;
 		File[] fileList = new File(path).listFiles();
 		try
 		{

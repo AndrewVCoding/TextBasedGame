@@ -1,5 +1,7 @@
 package Editor;
 
+import Data.DataHandler;
+
 import javax.swing.*;
 import javax.swing.table.TableRowSorter;
 import java.awt.*;
@@ -11,9 +13,13 @@ import java.util.regex.PatternSyntaxException;
 
 public class WorldEditorWindow extends JFrame implements ActionListener
 {
+    private DataHandler DATA_HANDLER;
 	private JMenuBar MENU_BAR;
 	private JMenuItem MENU_ADD;
+	private JMenuItem MENU_BTN_ADD_MODULE;
 	private JMenuItem MENU_FILE;
+	private JMenuItem MENU_BTN_SAVE;
+    private JMenuItem MENU_BTN_NEW;
 	private JMenuItem MENU_EDIT;
 	private JMenuItem MENU_BUILD;
 	private JMenuItem MENU_HELP;
@@ -30,27 +36,28 @@ public class WorldEditorWindow extends JFrame implements ActionListener
 	private JTextArea TXT_AREA_DESCRIPTION;
 	private JScrollPane DESCRIPTION_SCROLL_PANE;
 
-	private JPanel ENTITY_EDITOR;
-	private JComboBox<String> ENTITY_FILTER;
-	private JScrollPane ENTITY_SCROLL_PANE;
-	private JTextField SEARCH_BAR;
-	private JTable ENTITY_TABLE;
-	private EntityTableModel ENTITY_TABLE_MODEL;
-	private TableRowSorter<EntityTableModel> SORTER;
+	private JPanel MODULE_EDITOR;
+	private JComboBox<String> MODULE_FILTER;
+	private JScrollPane MODULES_SCROLL_PANE;
+	private JTextField MODULE_SEARCH_BAR;
+	private JTable MODULE_TABLE;
+	private ModuleTableModel MODULE_TABLE_MODEL;
+	private TableRowSorter<ModuleTableModel> SORTER;
 
-	public WorldEditorWindow()
+	public WorldEditorWindow(DataHandler dataHandler)
 	{
+	    DATA_HANDLER = dataHandler;
 		MAIN = new JPanel();
 
 		createMenuBar();
 		setJMenuBar(MENU_BAR);
 		createWorldInfo();
-		createEntityList();
+		createModulePanel();
 
 		GroupLayout groupLayout = new GroupLayout(MAIN);
 		groupLayout.setAutoCreateGaps(true);
-		groupLayout.setHorizontalGroup(groupLayout.createSequentialGroup().addComponent(WORLD_EDITOR).addComponent(ENTITY_EDITOR));
-		groupLayout.setVerticalGroup(groupLayout.createParallelGroup().addComponent(WORLD_EDITOR).addComponent(ENTITY_EDITOR));
+		groupLayout.setHorizontalGroup(groupLayout.createSequentialGroup().addComponent(WORLD_EDITOR).addComponent(MODULE_EDITOR));
+		groupLayout.setVerticalGroup(groupLayout.createParallelGroup().addComponent(WORLD_EDITOR).addComponent(MODULE_EDITOR));
 		MAIN.setLayout(groupLayout);
 
 		add(MAIN);
@@ -102,52 +109,52 @@ public class WorldEditorWindow extends JFrame implements ActionListener
 		MENU_BAR.add(MENU_HELP);
 	}
 
-	public void createEntityList()
+	public void createModulePanel()
 	{
-		ENTITY_EDITOR = new JPanel();
-		ENTITY_FILTER = new JComboBox<>(GlobalGameConstants.ENTITY_TYPE_FILTERS);
-		SEARCH_BAR = new JTextField();
-		SEARCH_BAR.addActionListener(this);
-		SEARCH_BAR.addKeyListener(new KeyListener()
+		MODULE_EDITOR = new JPanel();
+		MODULE_FILTER = new JComboBox<>(GlobalGameConstants.ENTITY_TYPE_FILTERS);
+		MODULE_SEARCH_BAR = new JTextField();
+		MODULE_SEARCH_BAR.addActionListener(this);
+		MODULE_SEARCH_BAR.addKeyListener(new KeyListener()
 		{
 			@Override
 			public void keyTyped(KeyEvent e)
 			{
-				searchEntities(SEARCH_BAR.getText());
+				searchEntities(MODULE_SEARCH_BAR.getText());
 			}
 
 			@Override
 			public void keyPressed(KeyEvent e)
 			{
-				searchEntities(SEARCH_BAR.getText());
+				searchEntities(MODULE_SEARCH_BAR.getText());
 			}
 
 			@Override
 			public void keyReleased(KeyEvent e)
 			{
-				searchEntities(SEARCH_BAR.getText());
+				searchEntities(MODULE_SEARCH_BAR.getText());
 			}
 		});
-		ENTITY_TABLE_MODEL = new EntityTableModel(new Object[][]{});
-		ENTITY_TABLE = new JTable(ENTITY_TABLE_MODEL);
-		ENTITY_SCROLL_PANE = new JScrollPane();
-		ENTITY_SCROLL_PANE.setViewportView(ENTITY_TABLE);
-		ENTITY_SCROLL_PANE.setColumnHeaderView(ENTITY_TABLE.getTableHeader());
-		ENTITY_SCROLL_PANE.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-		SORTER = new TableRowSorter<EntityTableModel>(ENTITY_TABLE_MODEL);
-		ENTITY_TABLE.setRowSorter(SORTER);
-		ENTITY_FILTER.addActionListener(e -> filterEntities(GlobalGameConstants.getFilter(ENTITY_FILTER.getSelectedItem().toString())));
+		MODULE_TABLE_MODEL = new ModuleTableModel(new Object[][]{});
+		MODULE_TABLE = new JTable(MODULE_TABLE_MODEL);
+		MODULES_SCROLL_PANE = new JScrollPane();
+		MODULES_SCROLL_PANE.setViewportView(MODULE_TABLE);
+		MODULES_SCROLL_PANE.setColumnHeaderView(MODULE_TABLE.getTableHeader());
+		MODULES_SCROLL_PANE.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+		SORTER = new TableRowSorter<ModuleTableModel>(MODULE_TABLE_MODEL);
+		MODULE_TABLE.setRowSorter(SORTER);
+		MODULE_FILTER.addActionListener(e -> filterEntities(GlobalGameConstants.getFilter(MODULE_FILTER.getSelectedItem().toString())));
 
-		GroupLayout groupLayout = new GroupLayout(ENTITY_EDITOR);
+		GroupLayout groupLayout = new GroupLayout(MODULE_EDITOR);
 		groupLayout.setAutoCreateGaps(true);
 		groupLayout.setAutoCreateContainerGaps(true);
 
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup().addComponent(SEARCH_BAR).addComponent(ENTITY_FILTER).addComponent(ENTITY_SCROLL_PANE));
-		groupLayout.setVerticalGroup(groupLayout.createSequentialGroup().addComponent(SEARCH_BAR).addComponent(ENTITY_FILTER).addComponent(ENTITY_SCROLL_PANE));
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup().addComponent(MODULE_SEARCH_BAR).addComponent(MODULE_FILTER).addComponent(MODULES_SCROLL_PANE));
+		groupLayout.setVerticalGroup(groupLayout.createSequentialGroup().addComponent(MODULE_SEARCH_BAR).addComponent(MODULE_FILTER).addComponent(MODULES_SCROLL_PANE));
 
-		ENTITY_EDITOR.setLayout(groupLayout);
+		MODULE_EDITOR.setLayout(groupLayout);
 
-		ENTITY_EDITOR.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), "Entities"));
+		MODULE_EDITOR.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), "Modules"));
 	}
 
 	@Override
@@ -160,7 +167,7 @@ public class WorldEditorWindow extends JFrame implements ActionListener
 	{
 		try
 		{
-			RowFilter<EntityTableModel, Object> rf = RowFilter.regexFilter(".*" + filter + ".*", 0);
+			RowFilter<ModuleTableModel, Object> rf = RowFilter.regexFilter(".*" + filter + ".*", 0);
 			SORTER.setRowFilter(rf);
 		}
 		catch(PatternSyntaxException p){}
@@ -170,7 +177,7 @@ public class WorldEditorWindow extends JFrame implements ActionListener
 	{
 		try
 		{
-			RowFilter<EntityTableModel, Object> rf = RowFilter.regexFilter(".*" + filter + ".*", 1,2);
+			RowFilter<ModuleTableModel, Object> rf = RowFilter.regexFilter(".*" + filter + ".*", 1,2);
 			SORTER.setRowFilter(rf);
 		}
 		catch(PatternSyntaxException p){}
@@ -178,6 +185,6 @@ public class WorldEditorWindow extends JFrame implements ActionListener
 
 	public void populateData(String world)
 	{
-		ENTITY_TABLE_MODEL.updateData(GlobalGameConstants.TEST_ENTITY_DATA);
+		MODULE_TABLE_MODEL.updateData(GlobalGameConstants.TEST_ENTITY_DATA);
 	}
 }

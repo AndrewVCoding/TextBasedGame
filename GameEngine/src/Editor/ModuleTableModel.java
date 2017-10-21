@@ -5,12 +5,12 @@ import Engine.Entity;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
 
-public class EntityTableModel extends AbstractTableModel
+public class ModuleTableModel extends AbstractTableModel
 {
 	private String[] columnNames = {"Type", "ID", "Name"};
 	private Object[][] data = new Object[][]{{}};
 
-	public EntityTableModel(Object[][] dataIn)
+	public ModuleTableModel(Object[][] dataIn)
 	{
 		updateData(dataIn);
 	}

@@ -68,65 +68,72 @@ public class DataHandler
 	INSTANCE_ACTOR HAS_STATS ATTRIBUTE
 	INSTANCE_ACTOR DESCRIBED_BY DESCRIPTION
 	 */
-	private final List<Object[]> CONTAINS;
-	private final List<Object[]> CONNECTS_TO;
-	private final List<Object[]> USED_WITH;
-	private final List<Object[]> ACTIVATES;
-	private final List<Object[]> AFFECTS;
-	private final List<Object[]> HAS_STATS;
-	private final List<Object[]> DESCRIBED_BY;
-	private final List<Object[]> TAGS;
-	private final List<Object[]> USES;
-	private final List<Object[]> BELONGS_TO;
-	private final List<Object[]> WORLDS;
+	private List<Object[]> CONTAINS;
+	private List<Object[]> CONNECTS_TO;
+	private List<Object[]> USED_WITH;
+	private List<Object[]> ACTIVATES;
+	private List<Object[]> AFFECTS;
+	private List<Object[]> HAS_STATS;
+	private List<Object[]> DESCRIBED_BY;
+	private List<Object[]> TAGS;
+	private List<Object[]> USES;
+	private List<Object[]> BELONGS_TO;
+	private List<Object[]> WORLDS;
 
 	/**
-	 * Initializes all data to the tables
-	 * @param path
+	 * Loads the list of Worlds
+	 * @param resources The folder containing the world files
 	 */
-	public DataHandler(String path)
+	public DataHandler(String resources)
+	{
+		WORLDS = DataLoader.loadEntities(resources);
+	}
+	/**
+	 * Loads all modules from the specified world
+	 * @param world A world folder
+	 */
+	public void setWorld(String world)
 	{
 		//Load all base entities
-		WORLDS = DataLoader.loadEntities(path);
-		MODULES = DataLoader.loadEntities(path);
-		TAGS = DataLoader.loadEntities(path);
-		USES = DataLoader.loadEntities(path);
-		GAME_ENTITYS = DataLoader.loadEntities(path);
-		SPECIES = DataLoader.loadEntities(path);
-		DESCRIPTIONS = DataLoader.loadEntities(path);
-		ROOMS = DataLoader.loadEntities(path);
-		GAME_OBJECTS = DataLoader.loadEntities(path);
-		ITEMS = DataLoader.loadEntities(path);
-		CONTAINERS = DataLoader.loadEntities(path);
-		VEHICLES = DataLoader.loadEntities(path);
-		ACTORS = DataLoader.loadEntities(path);
-		CHARACTERS = DataLoader.loadEntities(path);
-		MONSTERS = DataLoader.loadEntities(path);
-		QUESTS = DataLoader.loadEntities(path);
-		FACTIONS = DataLoader.loadEntities(path);
-		EVENTS = DataLoader.loadEntities(path);
-		BELONGS_TO = DataLoader.loadEntities(path);
+		MODULES = DataLoader.loadEntities(world);
+		TAGS = DataLoader.loadEntities(world);
+		USES = DataLoader.loadEntities(world);
+		GAME_ENTITYS = DataLoader.loadEntities(world);
+		SPECIES = DataLoader.loadEntities(world);
+		DESCRIPTIONS = DataLoader.loadEntities(world);
+		ROOMS = DataLoader.loadEntities(world);
+		GAME_OBJECTS = DataLoader.loadEntities(world);
+		ITEMS = DataLoader.loadEntities(world);
+		CONTAINERS = DataLoader.loadEntities(world);
+		VEHICLES = DataLoader.loadEntities(world);
+		ACTORS = DataLoader.loadEntities(world);
+		CHARACTERS = DataLoader.loadEntities(world);
+		MONSTERS = DataLoader.loadEntities(world);
+		QUESTS = DataLoader.loadEntities(world);
+		FACTIONS = DataLoader.loadEntities(world);
+		EVENTS = DataLoader.loadEntities(world);
+		BELONGS_TO = DataLoader.loadEntities(world);
 
 		//Load all instances of entities
-		INSTANCE_GAME_ENTITY = DataLoader.loadEntities(path);
-		INSTANCE_ROOM = DataLoader.loadEntities(path);
-		INSTANCE_GAME_OBJECT = DataLoader.loadEntities(path);
-		INSTANCE_ITEM = DataLoader.loadEntities(path);
-		INSTANCE_CONTAINER = DataLoader.loadEntities(path);
-		INSTANCE_VEHICLE = DataLoader.loadEntities(path);
-		INSTANCE_ACTOR = DataLoader.loadEntities(path);
-		INSTANCE_CHARACTER = DataLoader.loadEntities(path);
-		INSTANCE_MONSTER = DataLoader.loadEntities(path);
-		INSTANCE_QUEST = DataLoader.loadEntities(path);
-		INSTANCE_FACTION = DataLoader.loadEntities(path);
+		INSTANCE_GAME_ENTITY = DataLoader.loadEntities(world);
+		INSTANCE_ROOM = DataLoader.loadEntities(world);
+		INSTANCE_GAME_OBJECT = DataLoader.loadEntities(world);
+		INSTANCE_ITEM = DataLoader.loadEntities(world);
+		INSTANCE_CONTAINER = DataLoader.loadEntities(world);
+		INSTANCE_VEHICLE = DataLoader.loadEntities(world);
+		INSTANCE_ACTOR = DataLoader.loadEntities(world);
+		INSTANCE_CHARACTER = DataLoader.loadEntities(world);
+		INSTANCE_MONSTER = DataLoader.loadEntities(world);
+		INSTANCE_QUEST = DataLoader.loadEntities(world);
+		INSTANCE_FACTION = DataLoader.loadEntities(world);
 
 		//Load all relationship tables
-		CONTAINS = DataLoader.loadEntities(path);
-		CONNECTS_TO = DataLoader.loadEntities(path);
-		USED_WITH = DataLoader.loadEntities(path);
-		ACTIVATES = DataLoader.loadEntities(path);
-		AFFECTS = DataLoader.loadEntities(path);
-		HAS_STATS = DataLoader.loadEntities(path);
-		DESCRIBED_BY = DataLoader.loadEntities(path);
+		CONTAINS = DataLoader.loadEntities(world);
+		CONNECTS_TO = DataLoader.loadEntities(world);
+		USED_WITH = DataLoader.loadEntities(world);
+		ACTIVATES = DataLoader.loadEntities(world);
+		AFFECTS = DataLoader.loadEntities(world);
+		HAS_STATS = DataLoader.loadEntities(world);
+		DESCRIBED_BY = DataLoader.loadEntities(world);
 	}
 }
