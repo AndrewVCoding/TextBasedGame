@@ -83,6 +83,7 @@ public class DataHandler
 	private List<Object[]> BELONGS_TO;
 	private List<Object[]> WORLDS;
 
+	public String SELECTED_WORLD;
 	/**
 	 * Loads the list of Worlds
 	 * @param resources The folder containing the world files
@@ -97,6 +98,8 @@ public class DataHandler
 	 */
 	public void setWorld(String world)
 	{
+		SELECTED_WORLD = world;
+
 		//Load all base entities
         //todo change MODULES away from test data
 		MODULES = GlobalGameConstants.getTestModuleData();

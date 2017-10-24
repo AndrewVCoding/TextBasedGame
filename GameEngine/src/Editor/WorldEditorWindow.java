@@ -15,14 +15,17 @@ public class WorldEditorWindow extends JFrame implements ActionListener
 {
     private DataHandler DATA_HANDLER;
 	private JMenuBar MENU_BAR;
-	private JMenuItem MENU_ADD;
+	private JMenu MENU_ADD;
 	private JMenuItem MENU_BTN_ADD_MODULE;
-	private JMenuItem MENU_FILE;
+	private JMenu MENU_FILE;
+	private JMenuItem MENU_BTN_OPEN;
 	private JMenuItem MENU_BTN_SAVE;
     private JMenuItem MENU_BTN_NEW;
-	private JMenuItem MENU_EDIT;
-	private JMenuItem MENU_BUILD;
-	private JMenuItem MENU_HELP;
+	private JMenu MENU_EDIT;
+	private JMenu MENU_BUILD;
+	private JMenuItem MENU_BTN_TEST;
+	private JMenu MENU_HELP;
+	private JMenuItem MENU_BTN_HELP;
 
 	private JPanel MAIN;
 	private JPanel WORLD_EDITOR;
@@ -96,17 +99,29 @@ public class WorldEditorWindow extends JFrame implements ActionListener
 	public void createMenuBar()
 	{
 		MENU_BAR = new JMenuBar();
-		MENU_ADD = new JMenuItem("Add");
-		MENU_FILE = new JMenuItem("File");
-		MENU_EDIT = new JMenuItem("Edit");
-		MENU_BUILD = new JMenuItem("Build");
-		MENU_HELP = new JMenuItem("Help");
+		MENU_ADD = new JMenu("Add");
+		MENU_BTN_ADD_MODULE = new JMenuItem("Add Module");
+		MENU_FILE = new JMenu("File");
+		MENU_BTN_OPEN = new JMenuItem("Open World");
+		MENU_BTN_SAVE = new JMenuItem("Save World");
+		MENU_BTN_NEW = new JMenuItem("New World");
+		MENU_EDIT = new JMenu("Edit");
+		MENU_BUILD = new JMenu("Build");
+		MENU_BTN_TEST = new JMenuItem("Test World");
+		MENU_HELP = new JMenu("Help");
+		MENU_BTN_HELP = new JMenuItem("Help");
 
 		MENU_BAR.add(MENU_FILE);
+		MENU_FILE.add(MENU_BTN_SAVE);
+		MENU_FILE.add(MENU_BTN_OPEN);
+		MENU_FILE.add(MENU_BTN_NEW);
 		MENU_BAR.add(MENU_ADD);
+		MENU_ADD.add(MENU_BTN_ADD_MODULE);
 		MENU_BAR.add(MENU_EDIT);
 		MENU_BAR.add(MENU_BUILD);
+		MENU_BUILD.add(MENU_BTN_TEST);
 		MENU_BAR.add(MENU_HELP);
+		MENU_HELP.add(MENU_BTN_HELP);
 	}
 
 	public void createModulePanel()
@@ -186,5 +201,6 @@ public class WorldEditorWindow extends JFrame implements ActionListener
 	public void populateData(String world)
 	{
 		MODULE_TABLE_MODEL.updateData(DATA_HANDLER.getData(DATA_HANDLER.MODULES));
+		TXT_FLD_NAME.setText(DATA_HANDLER.SELECTED_WORLD);
 	}
 }
