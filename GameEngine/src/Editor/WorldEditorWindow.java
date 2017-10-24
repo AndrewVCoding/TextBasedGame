@@ -185,6 +185,6 @@ public class WorldEditorWindow extends JFrame implements ActionListener
 
 	public void populateData(String world)
 	{
-		MODULE_TABLE_MODEL.updateData(GlobalGameConstants.TEST_ENTITY_DATA);
+		MODULE_TABLE_MODEL.updateData(DATA_HANDLER.getData(DATA_HANDLER.MODULES));
 	}
 }

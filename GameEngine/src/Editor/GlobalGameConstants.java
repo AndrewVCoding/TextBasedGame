@@ -1,6 +1,8 @@
 package Editor;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GlobalGameConstants
 {
@@ -37,4 +39,14 @@ public class GlobalGameConstants
 		else
 			return ".*";
 	}
+
+	public static List<Object[]> getTestModuleData()
+    {
+        List<Object[]> output = new ArrayList<>();
+        output.add(new Object[]{"test mod 1", "000", "test"});
+        output.add(new Object[]{"test mod 2", "001", "test"});
+        output.add(new Object[]{"test mod 3", "002", "test"});
+
+        return output;
+    }
 }

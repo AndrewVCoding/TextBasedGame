@@ -39,7 +39,7 @@ public class DataLoader
 			output.add(GSON.fromJson(jReader, Item.class));
 		} catch(FileNotFoundException e)
 		{
-			System.out.println("Could not read file " + path);
+			System.out.println("LoadEntities: Could not read file " + path);
 		}
 		return output;
 	}

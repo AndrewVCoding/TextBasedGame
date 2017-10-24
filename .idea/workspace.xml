@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aae26b62-91b6-4ef4-8927-2e47d11be383" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/GameEngine/src/Editor/EntityTableModel.java" afterPath="$PROJECT_DIR$/GameEngine/src/Editor/ModuleTableModel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/GameEngine.iml" afterPath="$PROJECT_DIR$/GameEngine/GameEngine.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/Data/DataHandler.java" afterPath="$PROJECT_DIR$/GameEngine/src/Data/DataHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/Data/DataLoader.java" afterPath="$PROJECT_DIR$/GameEngine/src/Data/DataLoader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/Editor/GlobalGameConstants.java" afterPath="$PROJECT_DIR$/GameEngine/src/Editor/GlobalGameConstants.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/Editor/WorldEditorWindow.java" afterPath="$PROJECT_DIR$/GameEngine/src/Editor/WorldEditorWindow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/Editor/WorldSelectWindow.java" afterPath="$PROJECT_DIR$/GameEngine/src/Editor/WorldSelectWindow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/Editor/editor.java" afterPath="$PROJECT_DIR$/GameEngine/src/Editor/editor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TextBasedGame.iml" afterPath="$PROJECT_DIR$/TextBasedGame.iml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,8 +45,8 @@
       <file leaf-file-name="DataLoader.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GameEngine/src/Data/DataLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1634">
-              <caret line="48" column="48" lean-forward="false" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
+            <state relative-caret-position="43">
+              <caret line="41" column="46" lean-forward="false" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -61,7 +57,7 @@
       <file leaf-file-name="WorldSelectWindow.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GameEngine/src/Editor/WorldSelectWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2279">
+            <state relative-caret-position="1102">
               <caret line="60" column="34" lean-forward="false" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -70,12 +66,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WorldEditorWindow.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WorldEditorWindow.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GameEngine/src/Editor/WorldEditorWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="43">
-              <caret line="21" column="35" lean-forward="false" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-              <folding />
+            <state relative-caret-position="946">
+              <caret line="187" column="80" lean-forward="false" selection-start-line="187" selection-start-column="80" selection-end-line="187" selection-end-column="80" />
+              <folding>
+                <element signature="e#6548#6549#0" expanded="true" />
+                <element signature="e#6628#6629#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GlobalGameConstants.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GameEngine/src/Editor/GlobalGameConstants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1031">
+              <caret line="49" column="22" lean-forward="false" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -92,14 +103,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataHandler.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DataHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GameEngine/src/Data/DataHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3698">
-              <caret line="88" column="40" lean-forward="false" selection-start-line="88" selection-start-column="40" selection-end-line="88" selection-end-column="40" />
+            <state relative-caret-position="782">
+              <caret line="146" column="5" lean-forward="true" selection-start-line="146" selection-start-column="5" selection-end-line="146" selection-end-column="5" />
               <folding>
-                <element signature="e#2935#2936#0" expanded="true" />
-                <element signature="e#2985#2986#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#3010#3011#0" expanded="true" />
+                <element signature="e#3060#3061#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -187,14 +199,14 @@
         <option value="$PROJECT_DIR$/GameEngine/src/Data/DataRetrieval.java" />
         <option value="$PROJECT_DIR$/GameEngine/src/Data/Paths.java" />
         <option value="$PROJECT_DIR$/GameEngine/src/Editor/EntityTableModel.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/Editor/GlobalGameConstants.java" />
         <option value="$APPLICATION_CONFIG_DIR$/idea64.exe.vmoptions" />
-        <option value="$PROJECT_DIR$/GameEngine/src/Data/DataLoader.java" />
         <option value="$PROJECT_DIR$/GameEngine/src/Editor/editor.java" />
-        <option value="$PROJECT_DIR$/GameEngine/src/Data/DataHandler.java" />
         <option value="$PROJECT_DIR$/GameEngine/src/Editor/WorldSelectWindow.java" />
         <option value="$PROJECT_DIR$/GameEngine/src/Editor/ModuleEditorWindow.java" />
         <option value="$PROJECT_DIR$/GameEngine/src/Editor/WorldEditorWindow.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/Editor/GlobalGameConstants.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/Data/DataLoader.java" />
+        <option value="$PROJECT_DIR$/GameEngine/src/Data/DataHandler.java" />
       </list>
     </option>
   </component>
@@ -365,6 +377,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -415,10 +431,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -637,7 +649,9 @@
       <workItem from="1508536009695" duration="79000" />
       <workItem from="1508536214185" duration="149000" />
       <workItem from="1508536392634" duration="2805000" />
-      <workItem from="1508553461074" duration="596000" />
+      <workItem from="1508553461074" duration="1161000" />
+      <workItem from="1508801287329" duration="10000" />
+      <workItem from="1508801517460" duration="5214000" />
     </task>
     <task id="LOCAL-00001" summary="Updated all class files to match original project">
       <created>1501284256536</created>
@@ -786,11 +800,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505276033514</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Now working on rebuilding the engine to utilize tables to keep track of entities rather than POJOs. This will hopefully be a more permanent and flexible foundation for building the game on.&#10;&#10;Currently creating the Editor as I cement the design of game entities and how to make use of them in the game itself.">
+      <created>1508554441244</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1508554441244</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="331603000" />
+    <option name="totallyTimeSpent" value="337392000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -807,17 +828,18 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889876" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.50186664" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3422025" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3422025" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.49813333" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18879534" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19527201" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -831,7 +853,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Code Iris" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889876" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889876" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1143,13 +1164,6 @@
     </entry>
     <entry file="jar://F:/jdk1.8.0_121/src.zip!/java/awt/Component.java" />
     <entry file="jar://F:/jdk1.8.0_121/src.zip!/java/awt/event/ActionListener.java" />
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/Editor/GlobalGameConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="73" lean-forward="false" selection-start-line="20" selection-start-column="73" selection-end-line="20" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/idea64.exe.vmoptions">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="520">
@@ -1167,30 +1181,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/Data/DataLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1634">
-          <caret line="48" column="48" lean-forward="false" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameEngine/src/Data/DataHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3698">
-          <caret line="88" column="40" lean-forward="false" selection-start-line="88" selection-start-column="40" selection-end-line="88" selection-end-column="40" />
-          <folding>
-            <element signature="e#2935#2936#0" expanded="true" />
-            <element signature="e#2985#2986#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GameEngine/src/Editor/WorldSelectWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2279">
+        <state relative-caret-position="1102">
           <caret line="60" column="34" lean-forward="false" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1200,9 +1193,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GameEngine/src/Editor/WorldEditorWindow.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="946">
+          <caret line="187" column="80" lean-forward="false" selection-start-line="187" selection-start-column="80" selection-end-line="187" selection-end-column="80" />
+          <folding>
+            <element signature="e#6548#6549#0" expanded="true" />
+            <element signature="e#6628#6629#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Editor/GlobalGameConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1031">
+          <caret line="49" column="22" lean-forward="false" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Data/DataLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="43">
-          <caret line="21" column="35" lean-forward="false" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-          <folding />
+          <caret line="41" column="46" lean-forward="false" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameEngine/src/Data/DataHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="146" column="5" lean-forward="true" selection-start-line="146" selection-start-column="5" selection-end-line="146" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3010#3011#0" expanded="true" />
+            <element signature="e#3060#3061#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

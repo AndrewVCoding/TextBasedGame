@@ -1,5 +1,8 @@
 package Data;
 
+import Editor.GlobalGameConstants;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class DataHandler
@@ -26,13 +29,13 @@ public class DataHandler
 		QUEST: ID Steps Requirements
 		FACTION: ID Player_Standing
 	*/
-	private List<Object[]> MODULES;
-	private List<Object[]> GAME_ENTITYS;
-	private List<Object[]> SPECIES;
-	private List<Object[]> DESCRIPTIONS;
-	private List<Object[]> ROOMS;
-	private List<Object[]> GAME_OBJECTS;
-	private List<Object[]> ITEMS;
+	public List<Object[]> MODULES;
+    public List<Object[]> GAME_ENTITYS;
+    public List<Object[]> SPECIES;
+    public List<Object[]> DESCRIPTIONS;
+    public List<Object[]> ROOMS;
+    public List<Object[]> GAME_OBJECTS;
+    public List<Object[]> ITEMS;
 	private List<Object[]> CONTAINERS;
 	private List<Object[]> VEHICLES;
 	private List<Object[]> ACTORS;
@@ -95,7 +98,8 @@ public class DataHandler
 	public void setWorld(String world)
 	{
 		//Load all base entities
-		MODULES = DataLoader.loadEntities(world);
+        //todo change MODULES away from test data
+		MODULES = GlobalGameConstants.getTestModuleData();
 		TAGS = DataLoader.loadEntities(world);
 		USES = DataLoader.loadEntities(world);
 		GAME_ENTITYS = DataLoader.loadEntities(world);
@@ -136,4 +140,36 @@ public class DataHandler
 		HAS_STATS = DataLoader.loadEntities(world);
 		DESCRIBED_BY = DataLoader.loadEntities(world);
 	}
+
+	public void loadModule(String name)
+    {
+
+    }
+
+    /**
+     * Return a tuple from a table
+     * @param key The key of the tuple
+     * @param table The table to look for the tuple in
+     * @return
+     */
+	public Object[] getModule(String key, List<Object[]> table)
+    {
+        for (Object[] module:table)
+        {
+            if (module[0].toString().equals(key))
+                return module;
+        }
+        return null;
+    }
+
+    public Object[][] getData(List<Object[]> table)
+    {
+        Object[][] output = new Object[table.size()][table.toArray().length];
+
+        for(int row = 0; row < table.size(); row++)
+            for(int col = 0; col < table.toArray().length; col++)
+                output[row][col] = table.get(row)[col];
+
+        return output;
+    }
 }
