@@ -1,0 +1,36 @@
+The game resources folder should keep prototypes of each entity that never change, and only use instances of these prototypes within the game environment
+
+Modules should keep track of their own resources
+	All resources should be unique across modules, otherwise the ones loaded first may be overwritten
+	The Engine should give a warning when two entities are found with the same ID
+
+Each World has its own set of modules, independent from modules in other worlds
+
+A save file should keep track all instances, and their values. Permanent attributes are kept in the prototype of an entity, but others are instance specific
+
+All prototype entities have an ID and a name
+Some of them also have aliases which can refer to them as well as the name
+Some entities have actions that affect them
+entities are affected through triggers
+
+
+Motivating Scenarios:
+	When the game starts, the player is prompted to choose which world to load through the WorldSelectWindow. When selected, the main game window is created.
+	Here the world's title screen is displayed and the user is prompted to start a new game or load a pre-existing save.
+		New Game: A character creation window is opened, allowing the player to pick the options for a new character.
+			They pick (Name, Title, Race, Proffession, Stats, Starting Gear, Physical Attributes)
+			Each of these offers descriptions of what they do or bits of lore
+		Load Game: A new window is opened to select a saved game
+	
+	IDLE STATE:
+		The game loads the save info for the current save and begins with a description of the room the player's character (PC) is currently in
+			Should be a simple room description, giving only a physical description of the room and its contents, but not a list of entities
+				Rather than a list, each entity should be integrated into the description of the room
+		Now the player has control over the character's actions:
+			Look, Go, Take, Use, Eat, Drink, etc
+			These actions are available as read from the ACTIONS table and from the contents of the room
+		If they want to, the player can have the contents of the room listed out, as well as the possible exits. But only if they are visible.
+		If there are any NPCs in the room, the Player can initiate Dialog with them
+	DIALOG STATE:
+		The current conversation is displayed, as well as any dialog options the player has to interact with the NPC
+		From here, the player can not interact outside of the NPC interaction, and must say goodbye to return to IDLE STATE

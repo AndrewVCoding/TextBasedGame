@@ -25,11 +25,7 @@ public class TableManager
 
 	public TableManager()
 	{
-		SCENARIO_DATA = DataLoader.loadEntities("");
-		ROOM_DATA = DataLoader.loadEntities("");
-		ITEM_DATA = DataLoader.loadEntities("");
-		CHARACTER_DATA = DataLoader.loadEntities("");
-		FACTION_DATA = DataLoader.loadEntities("");
+
 	}
 
 	public Object[][] getTableData(List<Object[]> rowList, int rowLength)

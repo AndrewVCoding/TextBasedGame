@@ -1,16 +1,13 @@
 package Editor;
 
-import Engine.Entity;
-
-import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
 
-public class ModuleTableModel extends AbstractTableModel
+public class EntityTableModel extends AbstractTableModel
 {
-	private String[] columnNames = {"Modules"};
-	private Object[][] data = new Object[][]{{}};
+	private String[] columnNames = {"Type", "ID", "Instance", "Name"};
+	private Object[][] data = new Object[][]{};
 
-	public ModuleTableModel(Object[][] dataIn)
+	public EntityTableModel(Object[][] dataIn)
 	{
 		updateData(dataIn);
 	}

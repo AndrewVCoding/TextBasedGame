@@ -1,88 +1,38 @@
 package Data;
 
-import Editor.GlobalGameConstants;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class DataHandler
 {
-	/*
-	All of the base entity lists to store the basic form of each GameEntity
-	These contain all of the information for everything in the game and can have instances made of them. Those instances are what appear in the game
-	world and can be manipulated by the game engine directly.
+	// Entities
+    public DataTable SPECIES;
+    public DataTable ROOMS;
+    public DataTable ITEMS;
+	public DataTable CONTAINERS;
+	public DataTable CHARACTERS;
+	public DataTable MONSTERS;
 
-	todo finish determining all the attributes for these
-	MODULE: ID Name Rooms Items Characters Quests Factions
-	SPECIES: ID Name
-	STATS: Actor_ID Stats...
-	DESCRIPTION: GameEntityID and a whole bunch of attributes
-	GAME_ENTITY: ID Name Description Journal_Entry
-		ROOM: ID Entrance Look
-		GAME_OBJECT: ID Act_Desc Look Visible Activated
-			ITEM: ID Takeable Size Weight
-				CONTAINER: ID Size_Capacity Weight_Capacity Locked Key_ID_Instance
-					VEHICLE: ID Owner_Key Room_ID Fuel_Type Fuel_Capacity Fuel_Amount
-		ACTOR: ID Species Description Level
-			CHARACTER: Roaming Vendor Quest_Giver
-			MONSTER:
-		QUEST: ID Steps Requirements
-		FACTION: ID Player_Standing
-	*/
+	// Instances
+	public DataTable INSTANCE_ROOM;
+	public DataTable INSTANCE_ITEM;
+	public DataTable INSTANCE_CONTAINER;
+	public DataTable INSTANCE_CHARACTER;
+	public DataTable INSTANCE_MONSTER;
+
+	// Relations
+	public DataTable DESCRIPTIONS;
+	public DataTable CONTAINS;
+	public DataTable CONNECTS_TO;
+	public DataTable USED_WITH;
+	public DataTable ACTIVATES;
+	public DataTable AFFECTS;
+	public DataTable HAS_STATS;
+	public DataTable TAGS;
+
+	public String RESOURCES;
+	public List<String> WORLDS;
 	public List<Object[]> MODULES;
-    public List<Object[]> GAME_ENTITYS;
-    public List<Object[]> SPECIES;
-    public List<Object[]> DESCRIPTIONS;
-    public List<Object[]> ROOMS;
-    public List<Object[]> GAME_OBJECTS;
-    public List<Object[]> ITEMS;
-	private List<Object[]> CONTAINERS;
-	private List<Object[]> VEHICLES;
-	private List<Object[]> ACTORS;
-	private List<Object[]> CHARACTERS;
-	private List<Object[]> MONSTERS;
-	private List<Object[]> QUESTS;
-	private List<Object[]> FACTIONS;
-	private List<Object[]> EVENTS;
-
-	/*
-	All instance data
-	 */
-	private List<Object[]> INSTANCE_GAME_ENTITY;
-	private List<Object[]> INSTANCE_ROOM;
-	private List<Object[]> INSTANCE_GAME_OBJECT;
-	private List<Object[]> INSTANCE_ITEM;
-	private List<Object[]> INSTANCE_CONTAINER;
-	private List<Object[]> INSTANCE_VEHICLE;
-	private List<Object[]> INSTANCE_ACTOR;
-	private List<Object[]> INSTANCE_CHARACTER;
-	private List<Object[]> INSTANCE_MONSTER;
-	private List<Object[]> INSTANCE_QUEST;
-	private List<Object[]> INSTANCE_FACTION;
-
-	/*
-	Relations between the GameEntities
-	INSTANCE_ROOM CONTAINS INSTANCE_GAME_OBJECT
-	INSTANCE_ROOM CONNECTS_TO INSTANCE_ROOM
-	INSTANCE_CONTAINER CONTAINS INSTANCE_GAME_OBJECT
-	INSTANCE_GAME_OBJECT USED_WITH INSTANCE_GAME_OBJECT
-	INSTANCE_GAME_OBJECT ACTIVATES INSTANCE_GAME_OBJECT
-	INSTANCE_GAME_OBJECT AFFECTS ACTOR
-	INSTANCE_ACTOR HAS_STATS ATTRIBUTE
-	INSTANCE_ACTOR DESCRIBED_BY DESCRIPTION
-	 */
-	private List<Object[]> CONTAINS;
-	private List<Object[]> CONNECTS_TO;
-	private List<Object[]> USED_WITH;
-	private List<Object[]> ACTIVATES;
-	private List<Object[]> AFFECTS;
-	private List<Object[]> HAS_STATS;
-	private List<Object[]> DESCRIBED_BY;
-	private List<Object[]> TAGS;
-	private List<Object[]> USES;
-	private List<Object[]> BELONGS_TO;
-	private List<Object[]> WORLDS;
-
 	public String SELECTED_WORLD;
 	/**
 	 * Loads the list of Worlds
@@ -90,7 +40,8 @@ public class DataHandler
 	 */
 	public DataHandler(String resources)
 	{
-		WORLDS = DataLoader.loadEntities(resources);
+		WORLDS = DataLoader.listFiles(resources);
+		RESOURCES = resources + "\\resources\\";
 	}
 	/**
 	 * Loads all modules from the specified world
@@ -98,56 +49,73 @@ public class DataHandler
 	 */
 	public void setWorld(String world)
 	{
-		SELECTED_WORLD = world;
-
-		//Load all base entities
-        //todo change MODULES away from test data
-		MODULES = GlobalGameConstants.getTestModuleData();
-		TAGS = DataLoader.loadEntities(world);
-		USES = DataLoader.loadEntities(world);
-		GAME_ENTITYS = DataLoader.loadEntities(world);
-		SPECIES = DataLoader.loadEntities(world);
-		DESCRIPTIONS = DataLoader.loadEntities(world);
-		ROOMS = DataLoader.loadEntities(world);
-		GAME_OBJECTS = DataLoader.loadEntities(world);
-		ITEMS = DataLoader.loadEntities(world);
-		CONTAINERS = DataLoader.loadEntities(world);
-		VEHICLES = DataLoader.loadEntities(world);
-		ACTORS = DataLoader.loadEntities(world);
-		CHARACTERS = DataLoader.loadEntities(world);
-		MONSTERS = DataLoader.loadEntities(world);
-		QUESTS = DataLoader.loadEntities(world);
-		FACTIONS = DataLoader.loadEntities(world);
-		EVENTS = DataLoader.loadEntities(world);
-		BELONGS_TO = DataLoader.loadEntities(world);
-
-		//Load all instances of entities
-		INSTANCE_GAME_ENTITY = DataLoader.loadEntities(world);
-		INSTANCE_ROOM = DataLoader.loadEntities(world);
-		INSTANCE_GAME_OBJECT = DataLoader.loadEntities(world);
-		INSTANCE_ITEM = DataLoader.loadEntities(world);
-		INSTANCE_CONTAINER = DataLoader.loadEntities(world);
-		INSTANCE_VEHICLE = DataLoader.loadEntities(world);
-		INSTANCE_ACTOR = DataLoader.loadEntities(world);
-		INSTANCE_CHARACTER = DataLoader.loadEntities(world);
-		INSTANCE_MONSTER = DataLoader.loadEntities(world);
-		INSTANCE_QUEST = DataLoader.loadEntities(world);
-		INSTANCE_FACTION = DataLoader.loadEntities(world);
-
-		//Load all relationship tables
-		CONTAINS = DataLoader.loadEntities(world);
-		CONNECTS_TO = DataLoader.loadEntities(world);
-		USED_WITH = DataLoader.loadEntities(world);
-		ACTIVATES = DataLoader.loadEntities(world);
-		AFFECTS = DataLoader.loadEntities(world);
-		HAS_STATS = DataLoader.loadEntities(world);
-		DESCRIBED_BY = DataLoader.loadEntities(world);
+		SELECTED_WORLD = RESOURCES + world + "\\";
+		MODULES = new ArrayList<>();
+		List<String> names = DataLoader.listFiles(SELECTED_WORLD);
+		for(int i = 0; i < names.size(); i++)
+			MODULES.add(new Object[]{names.get(i)});
 	}
 
-	public void loadModule(String name)
+	public void loadModule(String module)
     {
+    	// Load all prototype entities in the module
+		SPECIES = DataLoader.loadData(module + "\\species");
+		ROOMS = DataLoader.loadData(module + "\\rooms");
+		ITEMS = DataLoader.loadData(module + "\\items");
+		CONTAINERS = DataLoader.loadData(module + "\\containers");
+		CHARACTERS = DataLoader.loadData(module + "\\characters");
+		MONSTERS = DataLoader.loadData(module + "\\monsters");
 
+		//Load all instances of entities in the module
+		INSTANCE_ROOM = DataLoader.loadData(module + "\\instances\\rooms");
+		INSTANCE_ITEM = DataLoader.loadData(module + "\\instances\\items");
+		INSTANCE_CONTAINER = DataLoader.loadData(module + "\\instances\\containers");
+		INSTANCE_CHARACTER = DataLoader.loadData(module + "\\instances\\characters");
+		INSTANCE_MONSTER = DataLoader.loadData(module + "\\instances\\monsters");
+
+		//Load all relationship tables in the module
+		DESCRIPTIONS = DataLoader.loadData(module + "\\relations\\descriptions");
+		CONTAINS = DataLoader.loadData(module + "\\relations\\contains");
+		CONNECTS_TO = DataLoader.loadData(module + "\\relations\\connects_to");
+		USED_WITH = DataLoader.loadData(module + "\\relations\\used_with");
+		ACTIVATES = DataLoader.loadData(module + "\\relations\\activates");
+		AFFECTS = DataLoader.loadData(module + "\\relations\\affects");
+		HAS_STATS = DataLoader.loadData(module + "\\relations\\has_stats");
+		TAGS = DataLoader.loadData(module + "\\resources\\tags");
     }
+
+    public void saveModule(String module)
+	{
+		// Save all prototype entities in the module
+		DataLoader.saveData(SPECIES, module + "\\species");
+		DataLoader.saveData(ROOMS, module + "\\rooms");
+		DataLoader.saveData(ITEMS, module + "\\items");
+		DataLoader.saveData(CONTAINERS, module + "\\containers");
+		DataLoader.saveData(CHARACTERS, module + "\\characters");
+		DataLoader.saveData(MONSTERS, module + "\\monsters");
+
+		// Save all instances of entities in the module
+		DataLoader.saveData(INSTANCE_ROOM, module + "\\instances\\rooms");
+		DataLoader.saveData(INSTANCE_ITEM, module + "\\instances\\items");
+		DataLoader.saveData(INSTANCE_CONTAINER, module + "\\instances\\containers");
+		DataLoader.saveData(INSTANCE_CHARACTER, module + "\\instances\\characters");
+		DataLoader.saveData(INSTANCE_MONSTER, module + "\\instances\\monsters");
+
+		// Save all relationship tables in the module
+		DataLoader.saveData(DESCRIPTIONS, module + "\\relations\\descriptions");
+		DataLoader.saveData(CONTAINS,module + "\\relations\\contains");
+		DataLoader.saveData(CONNECTS_TO,module + "\\relations\\connects_to");
+		DataLoader.saveData(USED_WITH,module + "\\relations\\used_with");
+		DataLoader.saveData(ACTIVATES, module + "\\relations\\activates");
+		DataLoader.saveData(AFFECTS, module + "\\relations\\affects");
+		DataLoader.saveData(HAS_STATS, module + "\\relations\\has_stats");
+		DataLoader.saveData(TAGS, module + "\\relations\\tags");
+	}
+
+	public void createWorld(String name)
+	{
+
+	}
 
     /**
      * Return a tuple from a table
@@ -155,7 +123,7 @@ public class DataHandler
      * @param table The table to look for the tuple in
      * @return
      */
-	public Object[] getModule(String key, List<Object[]> table)
+	public Object[] getEntity(String key, List<Object[]> table)
     {
         for (Object[] module:table)
         {
@@ -165,14 +133,36 @@ public class DataHandler
         return null;
     }
 
-    public Object[][] getData(List<Object[]> table)
+	/**
+	 * Returns the data from List<Object[]> as Object[][]
+	 * @param data
+	 * @return
+	 */
+	public Object[][] getData(List<Object[]> data)
     {
-        Object[][] output = new Object[table.size()][table.toArray().length];
+    	try
+		{
+			Object[][] output = new Object[data.size()][data.toArray().length];
 
-        for(int row = 0; row < table.size(); row++)
-            for(int col = 0; col < table.toArray().length; col++)
-                output[row][col] = table.get(row)[col];
+			for(int row = 0; row < data.size(); row++)
+				for(int col = 0; col < data.toArray().length; col++)
+					output[row][col] = data.get(row)[col];
 
-        return output;
+			return output;
+		}catch(NullPointerException n)
+		{
+			System.out.println("No existing data to load");
+		}
+		return new Object[][]{};
     }
+
+	/**
+	 * Returns the data from a DataTable as a 2D Object array
+	 * @param dataTable
+	 * @return
+	 */
+	public Object[][] getData(DataTable dataTable)
+	{
+		return getData(dataTable.data);
+	}
 }

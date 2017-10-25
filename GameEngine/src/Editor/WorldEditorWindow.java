@@ -13,43 +13,50 @@ import java.util.regex.PatternSyntaxException;
 
 public class WorldEditorWindow extends JFrame implements ActionListener
 {
-    private DataHandler DATA_HANDLER;
-	private JMenuBar MENU_BAR;
-	private JMenu MENU_ADD;
-	private JMenuItem MENU_BTN_ADD_MODULE;
-	private JMenu MENU_FILE;
-	private JMenuItem MENU_BTN_OPEN;
-	private JMenuItem MENU_BTN_SAVE;
-    private JMenuItem MENU_BTN_NEW;
-	private JMenu MENU_EDIT;
-	private JMenu MENU_BUILD;
-	private JMenuItem MENU_BTN_TEST;
-	private JMenu MENU_HELP;
-	private JMenuItem MENU_BTN_HELP;
-
-	private JPanel MAIN;
-	private JPanel WORLD_EDITOR;
-	private JLabel LBL_NAME;
-	private JTextField TXT_FLD_NAME;
-	private JLabel LBL_AUTHOR;
-	private JTextField TXT_FLD_AUTHOR;
-	private JLabel LBL_STARTING_ROOM;
-	private JTextField TXT_FLD_STARTING_ROOM;
-	private JLabel LBL_DESCRIPTION;
-	private JTextArea TXT_AREA_DESCRIPTION;
+	// Menu
+	private JMenuBar    MENU_BAR;
+	private JMenu       MENU_ADD;
+	private JMenuItem   MENU_BTN_ADD_MODULE;
+	private JMenu       MENU_FILE;
+	private JMenuItem   MENU_BTN_OPEN;
+	private JMenuItem   MENU_BTN_SAVE;
+	private JMenuItem   MENU_BTN_NEW;
+	private JMenu       MENU_EDIT;
+	private JMenu       MENU_BUILD;
+	private JMenuItem   MENU_BTN_TEST;
+	private JMenu       MENU_HELP;
+	private JMenuItem   MENU_BTN_HELP;
+	// Main Panel
+	private JPanel      MAIN;
+	// World Information Panel
+	private JPanel      WORLD_INFO_PANEL;
+	private JLabel      LBL_NAME;
+	private JTextField  TXT_FLD_NAME;
+	private JLabel      LBL_CREATOR;
+	private JTextField  TXT_FLD_CREATOR;
+	private JLabel      LBL_STARTING_ROOM;
+	private JTextField  TXT_FLD_STARTING_ROOM;
+	private JLabel      LBL_DESCRIPTION;
+	private JTextArea   TXT_AREA_DESCRIPTION;
 	private JScrollPane DESCRIPTION_SCROLL_PANE;
-
-	private JPanel MODULE_EDITOR;
-	private JComboBox<String> MODULE_FILTER;
-	private JScrollPane MODULES_SCROLL_PANE;
-	private JTextField MODULE_SEARCH_BAR;
-	private JTable MODULE_TABLE;
-	private ModuleTableModel MODULE_TABLE_MODEL;
+	// Modules Panel
+	//todo ADD_MODULE and DEL_MODULE, and also make module columns editable
+	private JPanel                           MODULE_EDITOR;
+	private JComboBox<String>                MODULE_FILTER;
+	private JScrollPane                      MODULES_SCROLL_PANE;
+	private JTextField                       MODULE_SEARCH_BAR;
+	private JTable                           MODULE_TABLE;
+	private ModuleTableModel                 MODULE_TABLE_MODEL;
 	private TableRowSorter<ModuleTableModel> SORTER;
+	//todo integrate the entity table and editor into the main editor window. Entities shown should be filtered by the selected module.
+
+	// Resources
+	private String SELECTED_MODULE;
+	private DataHandler DATA_HANDLER;
 
 	public WorldEditorWindow(DataHandler dataHandler)
 	{
-	    DATA_HANDLER = dataHandler;
+		DATA_HANDLER = dataHandler;
 		MAIN = new JPanel();
 
 		createMenuBar();
@@ -59,41 +66,11 @@ public class WorldEditorWindow extends JFrame implements ActionListener
 
 		GroupLayout groupLayout = new GroupLayout(MAIN);
 		groupLayout.setAutoCreateGaps(true);
-		groupLayout.setHorizontalGroup(groupLayout.createSequentialGroup().addComponent(WORLD_EDITOR).addComponent(MODULE_EDITOR));
-		groupLayout.setVerticalGroup(groupLayout.createParallelGroup().addComponent(WORLD_EDITOR).addComponent(MODULE_EDITOR));
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup().addComponent(WORLD_INFO_PANEL).addComponent(MODULE_EDITOR));
+		groupLayout.setVerticalGroup(groupLayout.createSequentialGroup().addComponent(WORLD_INFO_PANEL).addComponent(MODULE_EDITOR));
 		MAIN.setLayout(groupLayout);
 
 		add(MAIN);
-	}
-
-	//todo Line all of these up to look nicer. But for now it works.
-	public void createWorldInfo()
-	{
-		WORLD_EDITOR = new JPanel();
-		LBL_NAME = new JLabel("Name");
-		TXT_FLD_NAME = new JTextField();
-		LBL_AUTHOR = new JLabel("Author");
-		TXT_FLD_AUTHOR = new JTextField();
-		LBL_STARTING_ROOM = new JLabel("Starting Room");
-		TXT_FLD_STARTING_ROOM = new JTextField();
-		LBL_DESCRIPTION = new JLabel("Description");
-		TXT_AREA_DESCRIPTION = new JTextArea();
-		DESCRIPTION_SCROLL_PANE = new JScrollPane(TXT_AREA_DESCRIPTION);
-		DESCRIPTION_SCROLL_PANE.setMinimumSize(GlobalGameConstants.DESCRIPTION_TXT_AREA_SIZE);
-
-		GroupLayout groupLayout = new GroupLayout(WORLD_EDITOR);
-		groupLayout.setAutoCreateGaps(true);
-		groupLayout.linkSize(SwingConstants.VERTICAL, LBL_NAME, TXT_FLD_NAME, LBL_AUTHOR, TXT_FLD_AUTHOR, LBL_STARTING_ROOM, TXT_FLD_STARTING_ROOM, LBL_DESCRIPTION);
-		groupLayout.setVerticalGroup(groupLayout.createSequentialGroup().addComponent(LBL_NAME).addComponent(TXT_FLD_NAME)
-											 							.addComponent(LBL_AUTHOR).addComponent(TXT_FLD_AUTHOR)
-											 							.addComponent(LBL_STARTING_ROOM).addComponent(TXT_FLD_STARTING_ROOM)
-																		.addComponent(LBL_DESCRIPTION).addComponent(DESCRIPTION_SCROLL_PANE));
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup().addComponent(LBL_NAME).addComponent(TXT_FLD_NAME)
-											   							.addComponent(LBL_AUTHOR).addComponent(TXT_FLD_AUTHOR)
-											   							.addComponent(LBL_STARTING_ROOM).addComponent(TXT_FLD_STARTING_ROOM)
-											   							.addComponent(LBL_DESCRIPTION).addComponent(DESCRIPTION_SCROLL_PANE));
-		WORLD_EDITOR.setLayout(groupLayout);
-		WORLD_EDITOR.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), "World Info"));
 	}
 
 	public void createMenuBar()
@@ -124,6 +101,43 @@ public class WorldEditorWindow extends JFrame implements ActionListener
 		MENU_HELP.add(MENU_BTN_HELP);
 	}
 
+	//todo Line all of these up to look nicer. But for now it works.
+	public void createWorldInfo()
+	{
+		WORLD_INFO_PANEL = new JPanel();
+		LBL_NAME = new JLabel("Name");
+		TXT_FLD_NAME = new JTextField();
+		LBL_CREATOR = new JLabel("Creator");
+		TXT_FLD_CREATOR = new JTextField();
+		LBL_STARTING_ROOM = new JLabel("Starting Room");
+		TXT_FLD_STARTING_ROOM = new JTextField();
+		LBL_DESCRIPTION = new JLabel("Description");
+		TXT_AREA_DESCRIPTION = new JTextArea();
+		TXT_AREA_DESCRIPTION.setMinimumSize(GlobalGameConstants.DESCRIPTION_TXT_AREA_SIZE);
+		DESCRIPTION_SCROLL_PANE = new JScrollPane(TXT_AREA_DESCRIPTION);
+		DESCRIPTION_SCROLL_PANE.setMinimumSize(GlobalGameConstants.DESCRIPTION_TXT_AREA_SIZE);
+
+		GroupLayout groupLayout = new GroupLayout(WORLD_INFO_PANEL);
+		groupLayout.setAutoCreateGaps(true);
+		groupLayout.setAutoCreateContainerGaps(true);
+		groupLayout.linkSize(SwingConstants.VERTICAL, LBL_NAME, TXT_FLD_NAME, LBL_CREATOR, TXT_FLD_CREATOR, LBL_STARTING_ROOM, TXT_FLD_STARTING_ROOM, LBL_DESCRIPTION);
+
+		GroupLayout.ParallelGroup top_labels = groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE).addComponent(LBL_NAME).addComponent(LBL_CREATOR).addComponent(LBL_STARTING_ROOM);
+		GroupLayout.ParallelGroup top_text_fields = groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE).addComponent(TXT_FLD_NAME).addComponent(TXT_FLD_CREATOR)
+				.addComponent(TXT_FLD_STARTING_ROOM);
+
+		GroupLayout.ParallelGroup col_one = groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING).addComponent(LBL_NAME).addComponent(TXT_FLD_NAME);
+		GroupLayout.ParallelGroup col_two = groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING).addComponent(LBL_CREATOR).addComponent(TXT_FLD_CREATOR);
+		GroupLayout.ParallelGroup col_three = groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING).addComponent(LBL_STARTING_ROOM).addComponent(TXT_FLD_STARTING_ROOM);
+		GroupLayout.SequentialGroup top = groupLayout.createSequentialGroup().addGroup(col_one).addGroup(col_two).addGroup(col_three);
+
+		groupLayout.setVerticalGroup(groupLayout.createSequentialGroup().addGroup(top_labels).addGroup(top_text_fields).addComponent(LBL_DESCRIPTION).addComponent(TXT_AREA_DESCRIPTION));
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup().addGroup(top).addComponent(LBL_DESCRIPTION).addComponent(TXT_AREA_DESCRIPTION));
+
+		WORLD_INFO_PANEL.setLayout(groupLayout);
+		WORLD_INFO_PANEL.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), "World Info"));
+	}
+
 	public void createModulePanel()
 	{
 		MODULE_EDITOR = new JPanel();
@@ -132,20 +146,17 @@ public class WorldEditorWindow extends JFrame implements ActionListener
 		MODULE_SEARCH_BAR.addActionListener(this);
 		MODULE_SEARCH_BAR.addKeyListener(new KeyListener()
 		{
-			@Override
-			public void keyTyped(KeyEvent e)
+			@Override public void keyTyped(KeyEvent e)
 			{
 				searchEntities(MODULE_SEARCH_BAR.getText());
 			}
 
-			@Override
-			public void keyPressed(KeyEvent e)
+			@Override public void keyPressed(KeyEvent e)
 			{
 				searchEntities(MODULE_SEARCH_BAR.getText());
 			}
 
-			@Override
-			public void keyReleased(KeyEvent e)
+			@Override public void keyReleased(KeyEvent e)
 			{
 				searchEntities(MODULE_SEARCH_BAR.getText());
 			}
@@ -172,10 +183,15 @@ public class WorldEditorWindow extends JFrame implements ActionListener
 		MODULE_EDITOR.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), "Modules"));
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e)
+	private void searchEntities(String filter)
 	{
-
+		try
+		{
+			RowFilter<ModuleTableModel, Object> rf = RowFilter.regexFilter(".*" + filter + ".*", 1, 2);
+			SORTER.setRowFilter(rf);
+		} catch(PatternSyntaxException p)
+		{
+		}
 	}
 
 	private void filterEntities(String filter)
@@ -184,23 +200,20 @@ public class WorldEditorWindow extends JFrame implements ActionListener
 		{
 			RowFilter<ModuleTableModel, Object> rf = RowFilter.regexFilter(".*" + filter + ".*", 0);
 			SORTER.setRowFilter(rf);
+		} catch(PatternSyntaxException p)
+		{
 		}
-		catch(PatternSyntaxException p){}
 	}
 
-	private void searchEntities(String filter)
+	@Override public void actionPerformed(ActionEvent e)
 	{
-		try
-		{
-			RowFilter<ModuleTableModel, Object> rf = RowFilter.regexFilter(".*" + filter + ".*", 1,2);
-			SORTER.setRowFilter(rf);
-		}
-		catch(PatternSyntaxException p){}
+
 	}
 
 	public void populateData(String world)
 	{
+		setTitle(world);
+		TXT_FLD_NAME.setText(world);
 		MODULE_TABLE_MODEL.updateData(DATA_HANDLER.getData(DATA_HANDLER.MODULES));
-		TXT_FLD_NAME.setText(DATA_HANDLER.SELECTED_WORLD);
 	}
 }

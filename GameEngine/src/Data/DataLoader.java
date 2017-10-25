@@ -16,9 +16,6 @@ public class DataLoader
 {
 	private static Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 	public static String DIR_LOC = System.getProperty("user.dir");
-	public static String GAME_ENTITIES = DIR_LOC + "\\resources\\rooms\\";
-	public static String SPECIES = DIR_LOC + "\\resources\\rooms\\";
-	public static String DESCRIPTIONS = DIR_LOC + "\\resources\\rooms\\";
 	public static String ROOMS = DIR_LOC + "\\resources\\rooms\\";
 	public static String ITEMS = DIR_LOC + "\\resources\\objects\\items\\";
 	public static String CONTAINERS = DIR_LOC + "\\resources\\objects\\containers\\";
@@ -27,20 +24,21 @@ public class DataLoader
 	public static List<SaveState> SAVES_OLD = new ArrayList<>();
 	public static SaveState SAVE_STATE;
 
-	public static List<Object[]> loadEntities(String path)
+	public static DataTable loadData(String path)
 	{
-		List<Object[]> output = new ArrayList<>();
+		DataTable output = new DataTable();
 		JsonReader jReader;
 
 		// Read all rows in the file
 		try
 		{
 			jReader = new JsonReader(new FileReader(path));
-			output.add(GSON.fromJson(jReader, Item.class));
+			output = GSON.fromJson(jReader, DataTable.class);
 		} catch(FileNotFoundException e)
 		{
-			System.out.println("LoadEntities: Could not read file " + path);
+			System.out.println("LoadData: Could not read file " + path);
 		}
+
 		return output;
 	}
 
@@ -57,10 +55,39 @@ public class DataLoader
 			}
 		} catch(NullPointerException e)
 		{
-			System.out.println("Could not get list at " + path);
+			System.out.println("ListFiles: Could not read file names at " + path);
 		}
 
 		return output;
+	}
+
+	/**
+	 * saves the current game to a Engine.SaveState
+	 *
+	 * @param path the name of the Engine.SaveState
+	 */
+	public static void saveData(DataTable dataTable, String path)
+	{
+		//Save it as a Gson object
+		String json = GSON.toJson(dataTable);
+
+		PrintWriter out;
+		try
+		{
+			out = new PrintWriter(path + ".json");
+			out.println(json);
+
+			System.out.println("game saved to: " + path + ".json");
+
+			out.flush();
+			out.close();
+		} catch(FileNotFoundException e)
+		{
+			System.out.println("Could not write to file: " + path + ".json");
+		}
+
+		//After saving a game, reload the list of saves so it includes the new one
+		loadSaves();
 	}
 
 	/**
@@ -70,7 +97,7 @@ public class DataLoader
 	{
 		//First load all entities and send through the Engine.EntityManager
 		System.out.println("Loading Entities");
-		loadEntities();
+		loadData();
 
 		//Load all rooms
 		System.out.println("Loading Rooms");
@@ -88,7 +115,7 @@ public class DataLoader
 	/**
 	 * Loads all entities from files
 	 */
-	public static void loadEntities()
+	public static void loadData()
 	{
 		List<Entity> entities = new ArrayList<>();
 		JsonReader jReader;
