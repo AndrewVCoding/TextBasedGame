@@ -6,9 +6,11 @@ import java.util.List;
 public class DataHandler
 {
 	// Entities
-    public DataTable SPECIES;
-    public DataTable ROOMS;
-    public DataTable ITEMS;
+
+	public DataTable ENTITIES;
+	public DataTable SPECIES;
+	public DataTable ROOMS;
+	public DataTable ITEMS;
 	public DataTable CONTAINERS;
 	public DataTable CHARACTERS;
 	public DataTable MONSTERS;
@@ -84,35 +86,48 @@ public class DataHandler
 		TAGS = DataLoader.loadData(module + "\\resources\\tags");
     }
 
+    public DataTable getEntities()
+	{
+		DataTable output = new DataTable();
+		output.addData(SPECIES);
+		output.addData(ROOMS);
+		output.addData(ITEMS);
+		output.addData(CONTAINERS);
+		output.addData(CHARACTERS);
+		output.addData(MONSTERS);
+
+		return output;
+	}
+
     public void saveModule(String module)
 	{
 		// Save all prototype entities in the module
-		DataLoader.saveData(SPECIES, module + "\\species");
-		DataLoader.saveData(ROOMS, module + "\\rooms");
-		DataLoader.saveData(ITEMS, module + "\\items");
-		DataLoader.saveData(CONTAINERS, module + "\\containers");
-		DataLoader.saveData(CHARACTERS, module + "\\characters");
-		DataLoader.saveData(MONSTERS, module + "\\monsters");
+		DataLoader.saveData(SPECIES, module + "\\species.json");
+		DataLoader.saveData(ROOMS, module + "\\rooms.json");
+		DataLoader.saveData(ITEMS, module + "\\items.json");
+		DataLoader.saveData(CONTAINERS, module + "\\containers.json");
+		DataLoader.saveData(CHARACTERS, module + "\\characters.json");
+		DataLoader.saveData(MONSTERS, module + "\\monsters.json");
 
 		// Save all instances of entities in the module
-		DataLoader.saveData(INSTANCE_ROOM, module + "\\instances\\rooms");
-		DataLoader.saveData(INSTANCE_ITEM, module + "\\instances\\items");
-		DataLoader.saveData(INSTANCE_CONTAINER, module + "\\instances\\containers");
-		DataLoader.saveData(INSTANCE_CHARACTER, module + "\\instances\\characters");
-		DataLoader.saveData(INSTANCE_MONSTER, module + "\\instances\\monsters");
+		DataLoader.saveData(INSTANCE_ROOM, module + "\\instances\\rooms.json");
+		DataLoader.saveData(INSTANCE_ITEM, module + "\\instances\\items.json");
+		DataLoader.saveData(INSTANCE_CONTAINER, module + "\\instances\\containers.json");
+		DataLoader.saveData(INSTANCE_CHARACTER, module + "\\instances\\characters.json");
+		DataLoader.saveData(INSTANCE_MONSTER, module + "\\instances\\monsters.json");
 
 		// Save all relationship tables in the module
-		DataLoader.saveData(DESCRIPTIONS, module + "\\relations\\descriptions");
-		DataLoader.saveData(CONTAINS,module + "\\relations\\contains");
-		DataLoader.saveData(CONNECTS_TO,module + "\\relations\\connects_to");
-		DataLoader.saveData(USED_WITH,module + "\\relations\\used_with");
-		DataLoader.saveData(ACTIVATES, module + "\\relations\\activates");
-		DataLoader.saveData(AFFECTS, module + "\\relations\\affects");
-		DataLoader.saveData(HAS_STATS, module + "\\relations\\has_stats");
-		DataLoader.saveData(TAGS, module + "\\relations\\tags");
+		DataLoader.saveData(DESCRIPTIONS, module + "\\relations\\descriptions.json");
+		DataLoader.saveData(CONTAINS,module + "\\relations\\contains.json");
+		DataLoader.saveData(CONNECTS_TO,module + "\\relations\\connects_to.json");
+		DataLoader.saveData(USED_WITH,module + "\\relations\\used_with.json");
+		DataLoader.saveData(ACTIVATES, module + "\\relations\\activates.json");
+		DataLoader.saveData(AFFECTS, module + "\\relations\\affects.json");
+		DataLoader.saveData(HAS_STATS, module + "\\relations\\has_stats.json");
+		DataLoader.saveData(TAGS, module + "\\relations\\tags.json");
 	}
 
-	public void createWorld(String name)
+	public void createWorld(String name, String author, String description)
 	{
 
 	}

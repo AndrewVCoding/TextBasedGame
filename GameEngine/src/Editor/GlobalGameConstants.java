@@ -51,4 +51,17 @@ public class GlobalGameConstants
 		else
 			return ".*";
 	}
+
+	public static Object[][] ENTITY_TABLE_TEST_DATA = {{"ITEM", "I00000", "000000", "Chair"},
+													   {"CONT", "C00000", "000000", "Chest"},
+													   {"ITEM", "I00001", "000000", "Potion"},
+													   {"ITEM", "I00001", "000001", "Potion"},
+													   {"ROOM", "R00000", "000000", "Livingroom"},
+													   {"ITEM", "I00002", "000000", "TV"},
+													   {"ITEM", "I00003", "000000", "Table"},
+													   {"ITEM", "I00001", "000002", "Potion"},
+													   {"ROOM", "R00001", "000000", "Kitchen"},
+													   {"ITEM", "I00004", "000000", "Remote"},
+													   {"ITEM", "I00005", "000000", "Shirt"},
+													   {"ITEM", "I00006", "000000", "Knife"}};
 }
